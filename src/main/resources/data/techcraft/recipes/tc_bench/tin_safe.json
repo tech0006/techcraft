@@ -1,0 +1,25 @@
+{
+  "type": "techcraft:tc_bench",
+  "pattern": [
+    "XXXXXX",
+    "XYYYYX",
+    "XYZZYX",
+    "XYZZYX",
+    "XYYYYX",
+    "XXXXXX"
+  ],
+  "key": {
+    "X": {
+      "item": "techcraft:tin_plate"
+    },
+    "Y": {
+      "item": "techcraft:tin_ingot"
+    },
+    "Z": {
+      "item": "minecraft:chest"
+    }
+  },
+  "result": {
+    "item": "techcraft:tin_safe"
+  }
+}

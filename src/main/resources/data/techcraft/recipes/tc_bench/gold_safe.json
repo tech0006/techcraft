@@ -1,0 +1,25 @@
+{
+  "type": "techcraft:tc_bench",
+  "pattern": [
+    "XXXXXX",
+    "XYYYYX",
+    "XYZZYX",
+    "XYZZYX",
+    "XYYYYX",
+    "XXXXXX"
+  ],
+  "key": {
+    "X": {
+      "item": "techcraft:gold_plate"
+    },
+    "Y": {
+      "item": "minecraft:gold_ingot"
+    },
+    "Z": {
+      "item": "minecraft:chest"
+    }
+  },
+  "result": {
+    "item": "techcraft:gold_safe"
+  }
+}

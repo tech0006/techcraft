@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    "X#",
+    " #"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "techcraft:tin_ingot"
+    }
+  },
+  "result": {
+    "item": "techcraft:tin_axe"
+  }
+}
