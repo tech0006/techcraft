@@ -88,24 +88,16 @@ public class CoalGeneratorTileEntity extends TileEntity implements ITickableTile
     {
         if(!world.isRemote)
         {
-            if (currBurnTime != 0)
+            if (currBurnTime <= 0 && AbstractFurnaceTileEntity.isFuel(this.inventory.getStackInSlot(0)))
             {
-                energy.ifPresent(e -> ((TCEnergyStorage) e).generatePower(currentAmountEnergyProduced()));
-                currBurnTime--;
-            }
-            else if (AbstractFurnaceTileEntity.isFuel(this.inventory.getStackInSlot(0)))
-            {
-                ItemStack temp = this.inventory.getStackInSlot(0).copy();
-                temp.setCount(1);
-                sumBurnTime = ForgeHooks.getBurnTime(temp);
-                currBurnTime = sumBurnTime;
+                ItemStack cp = this.inventory.getStackInSlot(0).copy();
+                cp.setCount(1);
+                currBurnTime = ForgeHooks.getBurnTime(cp);
                 this.inventory.decrStackSize(0, 1);
             }
-            else
-            {
-                sumBurnTime = currBurnTime = 0;
-                energy.ifPresent(e -> ((TCEnergyStorage) e).generatePower(0));
-            }
+            if (currBurnTime > 0)
+                currBurnTime--;
+            energy.ifPresent(e -> ((TCEnergyStorage) e).generatePower(currentAmountEnergyProduced()));
             sendEnergy();
             if(energyClient != getEnergy() || energyProductionClient != currentAmountEnergyProduced())
             {
@@ -125,9 +117,16 @@ public class CoalGeneratorTileEntity extends TileEntity implements ITickableTile
         return getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
     }
 
-    private int currentAmountEnergyProduced()
+    public int currentAmountEnergyProduced()
     {
-        return energyGeneration;
+        if (currBurnTime <= 0)
+        {
+            return 0;
+        }
+        else
+        {
+            return energyGeneration;
+        }
     }
 
     private void sendEnergy()

@@ -43,8 +43,8 @@ public class CoalGeneratorScreen extends ContainerScreen<CoalGeneratorContainer>
         String maxEnergy = "Max capacity: " + getMaxEnergyFormatted(tile.maxEnergy);
         this.font.drawString(maxEnergy, (xSize / 2 - font.getStringWidth(maxEnergy) / 2) + 14, 45, 4210752);
 
-        //String generation = "Generation: " + getGeneration(tile.energyGeneration) + " FE/t";
-        //this.font.drawString(generation, (xSize / 2 - font.getStringWidth(generation) / 2) + 14, 55, 4210752);
+        String generation = "Generation: " + /*tile.energyProductionClient*/ tile.energyProductionClient + " FE/t";
+        this.font.drawString(generation, (xSize / 2 - font.getStringWidth(generation) / 2) + 14, 55, 4210752);
     }
 
     @Override
@@ -57,13 +57,6 @@ public class CoalGeneratorScreen extends ContainerScreen<CoalGeneratorContainer>
         // Energy
         int y = this.getEnergyScaled(60);
         this.blit(this.guiLeft + 10, this.guiTop + 12 + y, 176, 0, 16, 60 - y);
-
-        // Render burning flame
-        if (this.container.isBurning()) {
-            int l = this.container.getBurnTimeScaled();
-            this.blit(54 + this.guiLeft, 34 + this.guiTop + 12 - l, 176, 12 - l, 14, l + 1);
-        }
-
     }
 
     private String getCurrEnergyFormatted(int energy)
