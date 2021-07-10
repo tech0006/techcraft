@@ -13,8 +13,11 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.AbstractFurnaceTileEntity;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
@@ -23,6 +26,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.common.util.LazyOptional;
@@ -38,15 +42,24 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class CoalGeneratorTileEntity extends TileEntity implements ITickableTileEntity, INamedContainerProvider {
 
     private LazyOptional<IEnergyStorage> energy = LazyOptional.of(this::createEnergy);
-    private int energyGeneration, maxEnergyOutput;
+    public int energyGeneration, maxEnergyOutput;
     public int maxEnergy;
     public int energyClient, energyProductionClient;
+
+    public int currBurnTime, sumBurnTime;
 
     private CoalGeneratorItemHandler inventory;
 
     public CoalGeneratorTileEntity()
     {
         super(ModTileEntityTypes.COAL_GENERATOR.get());
+        energyGeneration = 10;
+        maxEnergyOutput = energyGeneration * 2;
+        maxEnergy = energyGeneration * 1000;
+        energyClient = energyProductionClient = -1;
+        inventory = new CoalGeneratorItemHandler(1);
+
+        currBurnTime = sumBurnTime = 0;
     }
 
     public CoalGeneratorTileEntity(TileEntityType<?> coalGeneratorTileEntity)
@@ -56,8 +69,9 @@ public class CoalGeneratorTileEntity extends TileEntity implements ITickableTile
         maxEnergyOutput = energyGeneration * 2;
         maxEnergy = energyGeneration * 1000;
         energyClient = energyProductionClient = -1;
+        inventory = new CoalGeneratorItemHandler(1);
 
-        this.inventory = new CoalGeneratorItemHandler(1);
+        currBurnTime = sumBurnTime = 0;
     }
 
     public CoalGeneratorItemHandler getInventory() {
@@ -74,12 +88,22 @@ public class CoalGeneratorTileEntity extends TileEntity implements ITickableTile
     {
         if(!world.isRemote)
         {
-            if (AbstractFurnaceTileEntity.isFuel(this.inventory.getStackInSlot(0)))
+            if (currBurnTime != 0)
             {
                 energy.ifPresent(e -> ((TCEnergyStorage) e).generatePower(currentAmountEnergyProduced()));
+                currBurnTime--;
+            }
+            else if (AbstractFurnaceTileEntity.isFuel(this.inventory.getStackInSlot(0)))
+            {
+                ItemStack temp = this.inventory.getStackInSlot(0).copy();
+                temp.setCount(1);
+                sumBurnTime = ForgeHooks.getBurnTime(temp);
+                currBurnTime = sumBurnTime;
+                this.inventory.decrStackSize(0, 1);
             }
             else
             {
+                sumBurnTime = currBurnTime = 0;
                 energy.ifPresent(e -> ((TCEnergyStorage) e).generatePower(0));
             }
             sendEnergy();
@@ -160,6 +184,9 @@ public class CoalGeneratorTileEntity extends TileEntity implements ITickableTile
         ItemStackHelper.loadAllItems(compound, inv);
         this.inventory.setNonNullList(inv);
 
+        this.currBurnTime = compound.getInt("CurrBurnTime");
+        this.sumBurnTime = compound.getInt("SumBurnTime");
+
         super.read(compound);
     }
 
@@ -174,6 +201,8 @@ public class CoalGeneratorTileEntity extends TileEntity implements ITickableTile
         });
 
         ItemStackHelper.saveAllItems(compound, this.inventory.toNonNullList(), false);
+        compound.putInt("CurrBurnTime", this.currBurnTime);
+        compound.putInt("SumBurnTime", this.sumBurnTime);
 
         return super.write(compound);
     }
@@ -182,12 +211,37 @@ public class CoalGeneratorTileEntity extends TileEntity implements ITickableTile
     @Override
     public Container createMenu(int id, PlayerInventory playerInventory, PlayerEntity playerEntity)
     {
-        return new CoalGeneratorContainer(ModContainerTypes.COAL_GENERATOR.get(), id, world, pos, playerEntity);
+        return new CoalGeneratorContainer(ModContainerTypes.COAL_GENERATOR.get(), id, world, pos, playerEntity, this);
     }
 
     @Override
     public ITextComponent getDisplayName()
     {
         return new TranslationTextComponent(this.getBlockState().getBlock().getTranslationKey());
+    }
+
+    @Nullable
+    @Override
+    public SUpdateTileEntityPacket getUpdatePacket() {
+        CompoundNBT nbt = new CompoundNBT();
+        this.write(nbt);
+        return new SUpdateTileEntityPacket(this.pos, 0, nbt);
+    }
+
+    @Override
+    public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
+        this.read(pkt.getNbtCompound());
+    }
+
+    @Override
+    public CompoundNBT getUpdateTag() {
+        CompoundNBT nbt = new CompoundNBT();
+        this.write(nbt);
+        return nbt;
+    }
+
+    @Override
+    public void handleUpdateTag(CompoundNBT nbt) {
+        this.read(nbt);
     }
 }

@@ -2,6 +2,7 @@ package com.tech0006.techcraft.init;
 
 import com.tech0006.techcraft.GUI.Container.*;
 import com.tech0006.techcraft.GUI.Container.SolarPanel.*;
+import com.tech0006.techcraft.blocks.TileEntity.CoalGeneratorTileEntity;
 import com.tech0006.techcraft.techcraft;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraftforge.common.extensions.IForgeContainerType;

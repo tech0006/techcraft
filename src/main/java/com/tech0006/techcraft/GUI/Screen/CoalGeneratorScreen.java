@@ -15,6 +15,8 @@ public class CoalGeneratorScreen extends ContainerScreen<CoalGeneratorContainer>
 
     private static final ResourceLocation TEXTURES = new ResourceLocation(techcraft.MOD_ID, "textures/gui/coal_generator.png");
     private final CoalGeneratorTileEntity tile;
+    private int currEn = 0, lastEn = 0;
+    private int currDelta = 0;
 
     public CoalGeneratorScreen(CoalGeneratorContainer container, PlayerInventory inv, ITextComponent name)
     {
@@ -35,14 +37,14 @@ public class CoalGeneratorScreen extends ContainerScreen<CoalGeneratorContainer>
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
     {
-        String energy = "Stored energy: " + getEnergyFormatted(tile.energyClient);
-        this.font.drawString(energy, (xSize / 2 - font.getStringWidth(energy) / 2) + 14, 20, 4210752);
+        String energy = "Stored energy: " + getCurrEnergyFormatted(tile.energyClient);
+        this.font.drawString(energy, (xSize / 2 - font.getStringWidth(energy) / 2) + 14, 35, 4210752);
 
-        String maxEnergy = "Max capacity: " + getEnergyFormatted(tile.maxEnergy);
-        this.font.drawString(maxEnergy, (xSize / 2 - font.getStringWidth(maxEnergy) / 2) + 14, 30, 4210752);
+        String maxEnergy = "Max capacity: " + getMaxEnergyFormatted(tile.maxEnergy);
+        this.font.drawString(maxEnergy, (xSize / 2 - font.getStringWidth(maxEnergy) / 2) + 14, 45, 4210752);
 
-        String generation = "Generation: " + tile.energyProductionClient + " FE/t";
-        this.font.drawString(generation, (xSize / 2 - font.getStringWidth(generation) / 2) + 14, 40, 4210752);
+        //String generation = "Generation: " + getGeneration(tile.energyGeneration) + " FE/t";
+        //this.font.drawString(generation, (xSize / 2 - font.getStringWidth(generation) / 2) + 14, 55, 4210752);
     }
 
     @Override
@@ -56,9 +58,25 @@ public class CoalGeneratorScreen extends ContainerScreen<CoalGeneratorContainer>
         int y = this.getEnergyScaled(60);
         this.blit(this.guiLeft + 10, this.guiTop + 12 + y, 176, 0, 16, 60 - y);
 
+        // Render burning flame
+        if (this.container.isBurning()) {
+            int l = this.container.getBurnTimeScaled();
+            this.blit(54 + this.guiLeft, 34 + this.guiTop + 12 - l, 176, 12 - l, 14, l + 1);
+        }
+
     }
 
-    private String getEnergyFormatted(int energy)
+    private String getCurrEnergyFormatted(int energy)
+    {
+        lastEn = currEn;
+        currEn = energy;
+        if(energy >= 1000000)
+            return (energy / 1000) + " kFE";
+        else
+            return energy + " FE";
+    }
+
+    private String getMaxEnergyFormatted(int energy)
     {
         if(energy >= 1000000)
             return (energy / 1000) + " kFE";
