@@ -2,6 +2,7 @@ package com.tech0006.techcraft.blocks.coalGenerator;
 
 import com.tech0006.techcraft.blocks.TileEntity.CoalGeneratorTileEntity;
 import com.tech0006.techcraft.blocks.TileEntity.TCforgeTileEntity;
+import com.tech0006.techcraft.blocks.base.FacedBlock;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
 import com.tech0006.techcraft.util.Tooltip;
 import com.tech0006.techcraft.util.handler.CoalGeneratorItemHandler;
@@ -35,7 +36,7 @@ import net.minecraftforge.fml.network.NetworkHooks;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class CoalGenerator extends Block {
+public class CoalGenerator extends FacedBlock {
 
     private static final ResourceLocation WRENCH = new ResourceLocation("forge", "wrench");
 
@@ -134,12 +135,6 @@ public class CoalGenerator extends Block {
                 energy = compoundnbt.getCompound("energy").getInt("value");
 
         Tooltip.showInfoCtrlCoalGenerator(energy, tooltip);
-    }
-
-    @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder)
-    {
-        super.fillStateContainer(builder);
     }
 
     @Override

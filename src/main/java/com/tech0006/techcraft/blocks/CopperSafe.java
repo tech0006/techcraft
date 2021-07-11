@@ -1,6 +1,7 @@
 package com.tech0006.techcraft.blocks;
 
 import com.tech0006.techcraft.blocks.TileEntity.CopperSafeTileEntity;
+import com.tech0006.techcraft.blocks.base.FacedBlock;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -26,61 +27,10 @@ import net.minecraftforge.fml.network.NetworkHooks;
 import javax.annotation.Nullable;
 import java.util.stream.Stream;
 
-public class CopperSafe extends Block {
-    public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
-
-    private static final VoxelShape SHAPE_N = Stream.of(Block.makeCuboidShape(0, 0, 0, 16, 16, 16)).reduce((v1, v2) -> {
-        return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
-    }).get();
-    private static final VoxelShape SHAPE_W = Stream.of(Block.makeCuboidShape(0, 0, 0, 16, 16, 16)).reduce((v1, v2) -> {
-        return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
-    }).get();
-    private static final VoxelShape SHAPE_S = Stream.of(Block.makeCuboidShape(0, 0, 0, 16, 16, 16)).reduce((v1, v2) -> {
-        return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
-    }).get();
-    private static final VoxelShape SHAPE_E = Stream.of(Block.makeCuboidShape(0, 0, 0, 16, 16, 16)).reduce((v1, v2) -> {
-        return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
-    }).get();
+public class CopperSafe extends FacedBlock {
 
     public CopperSafe(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
-    }
-
-    @Override
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        switch (state.get(FACING)) {
-            case NORTH:
-                return SHAPE_N;
-            case SOUTH:
-                return SHAPE_S;
-            case EAST:
-                return SHAPE_E;
-            case WEST:
-                return SHAPE_W;
-            default:
-                return SHAPE_N;
-        }
-    }
-
-    @Override
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
-    }
-
-    @Override
-    public BlockState rotate(BlockState state, Rotation rot) {
-        return state.with(FACING, rot.rotate(state.get(FACING)));
-    }
-
-    @Override
-    public BlockState mirror(BlockState state, Mirror mirrorIn) {
-        return state.rotate(mirrorIn.toRotation(state.get(FACING)));
-    }
-
-    @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.tech0006.techcraft.blocks;
 
 import com.tech0006.techcraft.blocks.TileEntity.TCforgeTileEntity;
+import com.tech0006.techcraft.blocks.base.FacedBlock;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
 import com.tech0006.techcraft.util.handler.TCforgeItemHandler;
 import net.minecraft.block.Block;
@@ -31,14 +32,11 @@ import net.minecraftforge.fml.network.NetworkHooks;
 import java.util.stream.Stream;
 
 
-public class TCforge extends Block {
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+public class TCforge extends FacedBlock {
     public static final BooleanProperty LIT = BooleanProperty.create("lit");
-
 
     public TCforge(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(LIT, false));
     }
 
     @Override
@@ -67,22 +65,7 @@ public class TCforge extends Block {
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         super.fillStateContainer(builder);
-        builder.add(FACING, LIT);
-    }
-
-    @Override
-    public BlockState mirror(BlockState state, Mirror mirrorIn) {
-        return state.rotate(mirrorIn.toRotation(state.get(FACING)));
-    }
-
-    @Override
-    public BlockState rotate(BlockState state, Rotation rot) {
-        return state.with(FACING, rot.rotate(state.get(FACING)));
-    }
-
-    @Override
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
+        builder.add(LIT);
     }
 
     @Override
@@ -124,6 +107,5 @@ public class TCforge extends Block {
             worldIn.removeTileEntity(pos);
         }
     }
-
 
 }

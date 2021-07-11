@@ -25,12 +25,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 public class TCbench extends Block {
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-    public static final BooleanProperty LIT = BooleanProperty.create("lit");
 
     public TCbench(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(LIT, false));
     }
 
     @Override
@@ -41,27 +38,6 @@ public class TCbench extends Block {
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
         return ModTileEntityTypes.TC_BENCH.get().create();
-    }
-
-    @Override
-    protected void fillStateContainer(Builder<Block, BlockState> builder) {
-        super.fillStateContainer(builder);
-        builder.add(FACING, LIT);
-    }
-
-    @Override
-    public BlockState mirror(BlockState state, Mirror mirrorIn) {
-        return state.rotate(mirrorIn.toRotation(state.get(FACING)));
-    }
-
-    @Override
-    public BlockState rotate(BlockState state, Rotation rot) {
-        return state.with(FACING, rot.rotate(state.get(FACING)));
-    }
-
-    @Override
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
     }
 
     @Override

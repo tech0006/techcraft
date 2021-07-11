@@ -70,8 +70,6 @@ public class TCbenchTileEntity extends TileEntity implements ITickableTileEntity
 
         if (this.world != null && !this.world.isRemote) {
             if (this.getRecipe() != null) {
-                this.world.setBlockState(this.getPos(),
-                        this.getBlockState().with(TCbench.LIT, false));
                 ItemStack output = this.getRecipe().getRecipeOutput();
                 output.setCount(1);
                 this.inventory.setStackInSlot(36, output);
