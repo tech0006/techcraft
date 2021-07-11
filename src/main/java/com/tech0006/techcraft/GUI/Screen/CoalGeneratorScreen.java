@@ -57,6 +57,12 @@ public class CoalGeneratorScreen extends ContainerScreen<CoalGeneratorContainer>
         // Energy
         int y = this.getEnergyScaled(60);
         this.blit(this.guiLeft + 10, this.guiTop + 12 + y, 176, 0, 16, 60 - y);
+
+        // Render burning flame
+        if (this.container.isBurning()) {
+            int l = this.container.getBurnTimeScaled();
+            this.blit(35 + this.guiLeft, 14 + this.guiTop + 12 - l, 176, 72 - l, 14, l + 1);
+        }
     }
 
     private String getCurrEnergyFormatted(int energy)

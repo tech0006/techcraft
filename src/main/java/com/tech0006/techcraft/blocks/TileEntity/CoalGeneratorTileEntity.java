@@ -86,23 +86,28 @@ public class CoalGeneratorTileEntity extends TileEntity implements ITickableTile
     @Override
     public void tick()
     {
+
         if(!world.isRemote)
         {
-            if (currBurnTime <= 0 && AbstractFurnaceTileEntity.isFuel(this.inventory.getStackInSlot(0)))
+            if (currBurnTime <= 0 && AbstractFurnaceTileEntity.isFuel(this.inventory.getStackInSlot(0)) && getEnergy() != getMaxEnergy())
             {
                 ItemStack cp = this.inventory.getStackInSlot(0).copy();
                 cp.setCount(1);
-                currBurnTime = ForgeHooks.getBurnTime(cp);
+                currBurnTime = sumBurnTime = ForgeHooks.getBurnTime(cp);
                 this.inventory.decrStackSize(0, 1);
             }
-            if (currBurnTime > 0)
+            if (currBurnTime > 0 && getEnergy() != getMaxEnergy())
                 currBurnTime--;
+            if (currBurnTime <= 0 && !AbstractFurnaceTileEntity.isFuel(this.inventory.getStackInSlot(0)))
+            {
+                currBurnTime = sumBurnTime = 0;
+            }
             energy.ifPresent(e -> ((TCEnergyStorage) e).generatePower(currentAmountEnergyProduced()));
             sendEnergy();
             if(energyClient != getEnergy() || energyProductionClient != currentAmountEnergyProduced())
             {
                 int energyProduced = (getEnergy() != getMaxEnergy()) ? currentAmountEnergyProduced() : 0;
-                PacketHandler.INSTANCE.send(PacketDistributor.ALL.noArg(), new UpdateCoalGenerator(getPos(), getEnergy(), energyProduced));
+                PacketHandler.INSTANCE.send(PacketDistributor.ALL.noArg(), new UpdateCoalGenerator(getPos(), getEnergy(), energyProduced, currBurnTime, sumBurnTime));
             }
         }
     }

@@ -82,8 +82,6 @@ public class CoalGeneratorContainer extends Container {
 
     public boolean isBurning()
     {
-        if (this.tile.currBurnTime > 0)
-            System.out.println("Burn!!!!!!!!!!");
         return this.tile.currBurnTime > 0;
     }
 
