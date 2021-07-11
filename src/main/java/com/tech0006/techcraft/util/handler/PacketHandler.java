@@ -1,7 +1,6 @@
 package com.tech0006.techcraft.util.handler;
 
 import com.tech0006.techcraft.blocks.coalGenerator.UpdateCoalGenerator;
-import com.tech0006.techcraft.blocks.solarPanel.UpdateSolarPanel;
 import com.tech0006.techcraft.techcraft;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.network.NetworkDirection;
@@ -23,13 +22,6 @@ public class PacketHandler {
     public static void init()
     {
         int id = 0;
-        INSTANCE.registerMessage(id++,
-                UpdateSolarPanel.class,
-                UpdateSolarPanel::toBytes,
-                UpdateSolarPanel::new,
-                UpdateSolarPanel::handle,
-                Optional.of(NetworkDirection.PLAY_TO_CLIENT));
-
         INSTANCE.registerMessage(id++,
                 UpdateCoalGenerator.class,
                 UpdateCoalGenerator::toBytes,

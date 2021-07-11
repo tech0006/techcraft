@@ -2,8 +2,6 @@ package com.tech0006.techcraft.init;
 
 import com.tech0006.techcraft.blocks.*;
 import com.tech0006.techcraft.blocks.coalGenerator.CoalGenerator;
-import com.tech0006.techcraft.blocks.solarPanel.SolarPanel;
-import com.tech0006.techcraft.blocks.solarPanel.SolarPanelLevel;
 import com.tech0006.techcraft.techcraft;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -92,21 +90,6 @@ public class Blocks {
                     .harvestTool(ToolType.PICKAXE)
                     .harvestLevel(0)
                     .sound(SoundType.METAL)));
-
-    public static final RegistryObject<SolarPanel> SOLAR_PANEL_LEADSTONE = BLOCKS.register("solar_panel_leadstone",
-            () -> new SolarPanel(SolarPanelLevel.Leadstone));
-    public static final RegistryObject<SolarPanel> SOLAR_PANEL_HARDENED = BLOCKS.register("solar_panel_hardened",
-            () -> new SolarPanel(SolarPanelLevel.Hardened));
-    public static final RegistryObject<SolarPanel> SOLAR_PANEL_REDSTONE = BLOCKS.register("solar_panel_redstone",
-            () -> new SolarPanel(SolarPanelLevel.Redstone));
-    public static final RegistryObject<SolarPanel> SOLAR_PANEL_SIGNALUM = BLOCKS.register("solar_panel_signalum",
-            () -> new SolarPanel(SolarPanelLevel.Signalum));
-    public static final RegistryObject<SolarPanel> SOLAR_PANEL_RESONANT = BLOCKS.register("solar_panel_resonant",
-            () -> new SolarPanel(SolarPanelLevel.Resonant));
-    public static final RegistryObject<SolarPanel> SOLAR_PANEL_ADVANCED = BLOCKS.register("solar_panel_advanced",
-            () -> new SolarPanel(SolarPanelLevel.Advanced));
-    public static final RegistryObject<SolarPanel> SOLAR_PANEL_ULTIMATE = BLOCKS.register("solar_panel_ultimate",
-            () -> new SolarPanel(SolarPanelLevel.Ultimate));
 
     public static final RegistryObject<CoalGenerator> COAL_GENERATOR = BLOCKS.register("coal_generator",
             () -> new CoalGenerator(Block.Properties.create(Material.IRON)

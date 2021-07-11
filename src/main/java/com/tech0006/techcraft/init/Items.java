@@ -194,28 +194,6 @@ public class Items {
     //HAMMER
     public static final RegistryObject<Item> IRON_HAMMER = ITEMS.register("iron_hammer", CustomToolItem::new);
 
-    public static final RegistryObject<Item> SOLAR_PANEL_LEADSTONE = ITEMS.register("solar_panel_leadstone",
-            () -> new BlockItem(Blocks.SOLAR_PANEL_LEADSTONE.get(),
-                    new Item.Properties().group(Groups.techcraft_mechanism_tab)));
-    public static final RegistryObject<Item> SOLAR_PANEL_HARDENED = ITEMS.register("solar_panel_hardened",
-            () -> new BlockItem(Blocks.SOLAR_PANEL_HARDENED.get(),
-                    new Item.Properties().group(Groups.techcraft_mechanism_tab)));
-    public static final RegistryObject<Item> SOLAR_PANEL_REDSTONE = ITEMS.register("solar_panel_redstone",
-            () -> new BlockItem(Blocks.SOLAR_PANEL_REDSTONE.get(),
-                    new Item.Properties().group(Groups.techcraft_mechanism_tab)));
-    public static final RegistryObject<Item> SOLAR_PANEL_SIGNALUM = ITEMS.register("solar_panel_signalum",
-            () -> new BlockItem(Blocks.SOLAR_PANEL_SIGNALUM.get(),
-                    new Item.Properties().group(Groups.techcraft_mechanism_tab)));
-    public static final RegistryObject<Item> SOLAR_PANEL_RESONANT = ITEMS.register("solar_panel_resonant",
-            () -> new BlockItem(Blocks.SOLAR_PANEL_RESONANT.get(),
-                    new Item.Properties().group(Groups.techcraft_mechanism_tab)));
-    public static final RegistryObject<Item> SOLAR_PANEL_ADVANCED = ITEMS.register("solar_panel_advanced",
-            () -> new BlockItem(Blocks.SOLAR_PANEL_ADVANCED.get(),
-                    new Item.Properties().group(Groups.techcraft_mechanism_tab)));
-    public static final RegistryObject<Item> SOLAR_PANEL_ULTIMATE = ITEMS.register("solar_panel_ultimate",
-            () -> new BlockItem(Blocks.SOLAR_PANEL_ULTIMATE.get(),
-                    new Item.Properties().group(Groups.techcraft_mechanism_tab)));
-
     public static final RegistryObject<Item> COAL_GENERATOR = ITEMS.register("coal_generator",
             () -> new BlockItem(Blocks.COAL_GENERATOR.get(),
                     new Item.Properties().group(Groups.techcraft_mechanism_tab)));

@@ -22,14 +22,6 @@ public class ClientEventBusSubscriber {
         ScreenManager.registerFactory(ModContainerTypes.TC_BENCH.get(), TCbenchScreen::new);
         ScreenManager.registerFactory(ModContainerTypes.TC_FORGE.get(), TCforgeScreen::new);
 
-        ScreenManager.registerFactory(ModContainerTypes.SOLAR_PANEL_LEADSTONE.get(), SolarPanelScreen::new);
-        ScreenManager.registerFactory(ModContainerTypes.SOLAR_PANEL_HARDENED.get(), SolarPanelScreen::new);
-        ScreenManager.registerFactory(ModContainerTypes.SOLAR_PANEL_REDSTONE.get(), SolarPanelScreen::new);
-        ScreenManager.registerFactory(ModContainerTypes.SOLAR_PANEL_SIGNALUM.get(), SolarPanelScreen::new);
-        ScreenManager.registerFactory(ModContainerTypes.SOLAR_PANEL_RESONANT.get(), SolarPanelScreen::new);
-        ScreenManager.registerFactory(ModContainerTypes.SOLAR_PANEL_ADVANCED.get(), SolarPanelScreen::new);
-        ScreenManager.registerFactory(ModContainerTypes.SOLAR_PANEL_ULTIMATE.get(), SolarPanelScreen::new);
-
         ScreenManager.registerFactory(ModContainerTypes.COAL_GENERATOR.get(), CoalGeneratorScreen::new);
     }
 }
