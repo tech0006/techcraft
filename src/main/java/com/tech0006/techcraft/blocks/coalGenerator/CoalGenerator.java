@@ -17,6 +17,7 @@ import net.minecraft.fluid.IFluidState;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
@@ -39,9 +40,18 @@ import java.util.List;
 public class CoalGenerator extends FacedBlock {
 
     private static final ResourceLocation WRENCH = new ResourceLocation("forge", "wrench");
+    public static final BooleanProperty LIT = BooleanProperty.create("lit");
 
     public CoalGenerator(Properties properties) {
         super(properties);
+
+        this.setDefaultState(this.stateContainer.getBaseState().with(LIT, false));
+    }
+
+    @Override
+    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+        super.fillStateContainer(builder);
+        builder.add(LIT);
     }
 
     @Override
@@ -130,11 +140,24 @@ public class CoalGenerator extends FacedBlock {
     {
         CompoundNBT compoundnbt = stack.getChildTag("BlockEntityTag");
         int energy = 0;
-        if(compoundnbt != null)
-            if(compoundnbt.contains("energy"))
-                energy = compoundnbt.getCompound("energy").getInt("value");
+        int maxEn = 0;
+        int gen = 0;
 
-        Tooltip.showInfoCtrlCoalGenerator(energy, tooltip);
+        int curr = 0;
+        int sum = 0;
+        if(compoundnbt != null) {
+            if (compoundnbt.contains("energy"))
+                energy = compoundnbt.getCompound("energy").getInt("value");
+            if (compoundnbt.contains("maxEn"))
+                maxEn = compoundnbt.getCompound("maxEn").getInt("value");
+            if (compoundnbt.contains("gen"))
+                gen = compoundnbt.getCompound("gen").getInt("value");
+            if (compoundnbt.contains("CurrBurnTime"))
+                curr = compoundnbt.getCompound("CurrBurnTime").getInt("value");
+            if (compoundnbt.contains("SumBurnTime"))
+                sum = compoundnbt.getCompound("SumBurnTime").getInt("value");
+        }
+        Tooltip.showInfoCtrlCoalGenerator(energy, maxEn, gen, curr, sum, tooltip);
     }
 
     @Override

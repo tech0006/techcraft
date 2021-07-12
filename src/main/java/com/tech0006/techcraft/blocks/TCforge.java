@@ -37,6 +37,7 @@ public class TCforge extends FacedBlock {
 
     public TCforge(Properties properties) {
         super(properties);
+        this.setDefaultState(this.stateContainer.getBaseState().with(LIT, false));
     }
 
     @Override

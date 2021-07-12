@@ -1,6 +1,7 @@
 package com.tech0006.techcraft.blocks.TileEntity;
 
 import com.tech0006.techcraft.GUI.Container.CoalGeneratorContainer;
+import com.tech0006.techcraft.blocks.coalGenerator.CoalGenerator;
 import com.tech0006.techcraft.blocks.coalGenerator.UpdateCoalGenerator;
 import com.tech0006.techcraft.init.ModContainerTypes;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
@@ -53,9 +54,9 @@ public class CoalGeneratorTileEntity extends TileEntity implements ITickableTile
     public CoalGeneratorTileEntity()
     {
         super(ModTileEntityTypes.COAL_GENERATOR.get());
-        energyGeneration = 10;
+        energyGeneration = 5;
         maxEnergyOutput = energyGeneration * 2;
-        maxEnergy = energyGeneration * 1000;
+        maxEnergy = 10000;
         energyClient = energyProductionClient = -1;
         inventory = new CoalGeneratorItemHandler(1);
 
@@ -95,12 +96,14 @@ public class CoalGeneratorTileEntity extends TileEntity implements ITickableTile
                 cp.setCount(1);
                 currBurnTime = sumBurnTime = ForgeHooks.getBurnTime(cp);
                 this.inventory.decrStackSize(0, 1);
+                this.world.setBlockState(this.getPos(), this.getBlockState().with(CoalGenerator.LIT, true));
             }
             if (currBurnTime > 0 && getEnergy() != getMaxEnergy())
                 currBurnTime--;
             if (currBurnTime <= 0 && !AbstractFurnaceTileEntity.isFuel(this.inventory.getStackInSlot(0)))
             {
                 currBurnTime = sumBurnTime = 0;
+                this.world.setBlockState(this.getPos(), this.getBlockState().with(CoalGenerator.LIT, false));
             }
             energy.ifPresent(e -> ((TCEnergyStorage) e).generatePower(currentAmountEnergyProduced()));
             sendEnergy();
@@ -190,6 +193,8 @@ public class CoalGeneratorTileEntity extends TileEntity implements ITickableTile
 
         this.currBurnTime = compound.getInt("CurrBurnTime");
         this.sumBurnTime = compound.getInt("SumBurnTime");
+        this.maxEnergy = compound.getInt("maxEn");
+        this.energyGeneration = compound.getInt("gen");
 
         super.read(compound);
     }
@@ -207,6 +212,9 @@ public class CoalGeneratorTileEntity extends TileEntity implements ITickableTile
         ItemStackHelper.saveAllItems(compound, this.inventory.toNonNullList(), false);
         compound.putInt("CurrBurnTime", this.currBurnTime);
         compound.putInt("SumBurnTime", this.sumBurnTime);
+
+        compound.putInt("maxEn", this.maxEnergy);
+        compound.putInt("gen", this.energyGeneration);
 
         return super.write(compound);
     }

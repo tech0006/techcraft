@@ -36,10 +36,3 @@ loaderVersion = "[31,)"
     versionRange = "[1,)"
     ordering = "NONE"
     side = "BOTH"
-
-[[dependencies.techcraft]]
-    modId = "appliedenergistics2"
-    mandatory = false
-    versionRange = "[7,)"
-    ordering = "NONE"
-    side = "BOTH"

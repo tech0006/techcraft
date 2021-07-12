@@ -69,5 +69,9 @@
   "item.techcraft.bronze_plate": "Bronze plate",
   "item.techcraft.iron_plate": "Iron plate",
   "item.techcraft.gold_plate": "Gold plate",
-  "item.techcraft.iron_hammer": "Iron hammer"
+  "item.techcraft.iron_hammer": "Iron hammer",
+  "block.techcraft.coal_generator": "Coal generator",
+  "item.techcraft.coal_generator": "Coal generator",
+  "message.techcraft.ctrl_info": "Info\n",
+  "message.techcraft.hold_ctrl": "Hold CTRL to info"
 }

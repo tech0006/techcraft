@@ -69,5 +69,10 @@
   "item.techcraft.bronze_plate": "Бронзовая пластина",
   "item.techcraft.iron_plate": "Железная пластина",
   "item.techcraft.gold_plate": "Золотая пластина",
-  "item.techcraft.iron_hammer": "Железный молот"
+  "item.techcraft.iron_hammer": "Железный молот",
+  "block.techcraft.coal_generator": "Угольный генератор",
+  "item.techcraft.coal_generator": "Угольный генератор",
+  "message.techcraft.ctrl_info": "Информация\n",
+  "message.techcraft.hold_ctrl": "Удерживайте CTRL, чтобы получить информацию"
+
 }
