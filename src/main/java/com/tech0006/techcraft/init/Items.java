@@ -197,4 +197,8 @@ public class Items {
     public static final RegistryObject<Item> COAL_GENERATOR = ITEMS.register("coal_generator",
             () -> new BlockItem(Blocks.COAL_GENERATOR.get(),
                     new Item.Properties().group(Groups.techcraft_mechanism_tab)));
+
+    public static final RegistryObject<Item> ELECTRIC_FURNACE = ITEMS.register("electric_furnace",
+            () -> new BlockItem(Blocks.ELECTRIC_FURNACE.get(),
+                    new Item.Properties().group(Groups.techcraft_mechanism_tab)));
 }

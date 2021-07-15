@@ -5,49 +5,41 @@ import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.energy.EnergyStorage;
 
 public class TCEnergyStorage extends EnergyStorage implements INBTSerializable<CompoundNBT> {
-    public TCEnergyStorage(int energyTransfer, int energyCapacity)
-    {
+    public TCEnergyStorage(int energyTransfer, int energyCapacity) {
         super(energyCapacity, energyTransfer);
         this.maxReceive = 0;
     }
 
-    public void setEnergy(int energy)
-    {
+    public void setEnergy(int energy) {
         this.energy = energy;
     }
 
-    public void generatePower(int energy)
-    {
+    public void generatePower(int energy) {
         this.energy += energy;
-        if(this.energy > capacity)
+        if (this.energy > capacity)
             this.energy = capacity;
     }
 
-    public void consumePower(int energy)
-    {
+    public void consumePower(int energy) {
         this.energy -= energy;
-        if(this.energy < 0)
-        {
+        if (this.energy < 0) {
             this.energy = 0;
         }
     }
 
-    public boolean isFullEnergy()
-    {
+    public boolean isFullEnergy() {
         return getEnergyStored() >= getMaxEnergyStored();
     }
 
     @Override
-    public CompoundNBT serializeNBT()
-    {
+    public CompoundNBT serializeNBT() {
         CompoundNBT tag = new CompoundNBT();
         tag.putInt("value", getEnergyStored());
         return tag;
     }
 
     @Override
-    public void deserializeNBT(CompoundNBT nbt)
-    {
+    public void deserializeNBT(CompoundNBT nbt) {
         setEnergy(nbt.getInt("value"));
     }
 }

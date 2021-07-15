@@ -1,4 +1,4 @@
-package com.tech0006.techcraft.blocks.coalGenerator;
+package com.tech0006.techcraft.blocks.TileEntity.update;
 
 import com.tech0006.techcraft.blocks.TileEntity.CoalGeneratorTileEntity;
 import com.tech0006.techcraft.techcraft;
@@ -16,8 +16,7 @@ public class UpdateCoalGenerator {
     private int currentProduction;
     private int currBurnTime, sumBurnTime;
 
-    public UpdateCoalGenerator(PacketBuffer buf)
-    {
+    public UpdateCoalGenerator(PacketBuffer buf) {
         pos = buf.readBlockPos();
         currentEnergy = buf.readInt();
         currentProduction = buf.readInt();
@@ -25,8 +24,7 @@ public class UpdateCoalGenerator {
         sumBurnTime = buf.readInt();
     }
 
-    public UpdateCoalGenerator(BlockPos pos, int currentEnergy, int currentProduction, int currBurnTime, int sumBurnTime)
-    {
+    public UpdateCoalGenerator(BlockPos pos, int currentEnergy, int currentProduction, int currBurnTime, int sumBurnTime) {
         this.pos = pos;
         this.currentEnergy = currentEnergy;
         this.currentProduction = currentProduction;
@@ -34,8 +32,7 @@ public class UpdateCoalGenerator {
         this.sumBurnTime = sumBurnTime;
     }
 
-    public void toBytes(PacketBuffer buf)
-    {
+    public void toBytes(PacketBuffer buf) {
         buf.writeBlockPos(pos);
         buf.writeInt(currentEnergy);
         buf.writeInt(currentProduction);

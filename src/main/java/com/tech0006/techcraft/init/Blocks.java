@@ -1,7 +1,6 @@
 package com.tech0006.techcraft.init;
 
 import com.tech0006.techcraft.blocks.*;
-import com.tech0006.techcraft.blocks.coalGenerator.CoalGenerator;
 import com.tech0006.techcraft.techcraft;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -97,4 +96,12 @@ public class Blocks {
                     .harvestTool(ToolType.PICKAXE)
                     .harvestLevel(0)
                     .sound(SoundType.METAL)));
+
+    public static final RegistryObject<ElectricFurnace> ELECTRIC_FURNACE = BLOCKS.register("electric_furnace",
+            () -> new ElectricFurnace(Block.Properties.create(Material.IRON)
+                    .hardnessAndResistance(3.0f, 3.0f)
+                    .harvestTool(ToolType.PICKAXE)
+                    .harvestLevel(0)
+                    .sound(SoundType.METAL)));
+
 }

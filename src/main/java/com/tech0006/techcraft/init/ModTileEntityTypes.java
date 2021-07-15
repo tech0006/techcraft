@@ -27,4 +27,6 @@ public class ModTileEntityTypes {
 
     public static final RegistryObject<TileEntityType<CoalGeneratorTileEntity>> COAL_GENERATOR = TILE_ENTITY_TYPES.register("coal_generator",
             () -> TileEntityType.Builder.create(CoalGeneratorTileEntity::new, Blocks.COAL_GENERATOR.get()).build(null));
+    public static final RegistryObject<TileEntityType<ElectricFurnaceTileEntity>> ELECTRIC_FURNACE = TILE_ENTITY_TYPES.register("electric_furnace",
+            () -> TileEntityType.Builder.create(ElectricFurnaceTileEntity::new, Blocks.ELECTRIC_FURNACE.get()).build(null));
 }

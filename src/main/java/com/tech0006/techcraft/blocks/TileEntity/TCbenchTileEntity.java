@@ -1,7 +1,6 @@
 package com.tech0006.techcraft.blocks.TileEntity;
 
 import com.tech0006.techcraft.GUI.Container.TCbenchContainer;
-import com.tech0006.techcraft.blocks.TCbench;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
 import com.tech0006.techcraft.init.RecipeSerializerInit;
 import com.tech0006.techcraft.recipes.tc_bench.TCbenchRecipe;

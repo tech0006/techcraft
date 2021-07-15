@@ -11,22 +11,19 @@ import java.util.regex.Pattern;
 public class Tooltip {
     private static final Pattern COMPILE = Pattern.compile("@", Pattern.LITERAL);
 
-    public static void showInfoCtrlCoalGenerator(int energy, int maxEnergy, int generation, int currBurnTime, int sumBurnTime, List<ITextComponent> tooltip)
-    {
-        if(Screen.hasControlDown()) {
+    public static void showInfoCtrlCoalGenerator(int energy, int maxEnergy, int generation, int currBurnTime, int sumBurnTime, List<ITextComponent> tooltip) {
+        if (Screen.hasControlDown()) {
             String s = "Energy: " + energy + "\nMax energy: " + maxEnergy + "\nGeneration: " + generation + "\nCurrent burn time: " + currBurnTime + "\nTotal burn time: " + sumBurnTime;
             addInformationLocalized(tooltip, "message.techcraft.ctrl_info", s);
-        }
-        else
+        } else
             addInformationLocalized(tooltip, "message.techcraft.hold_ctrl", "");
     }
 
-    private static void addInformationLocalized(List<ITextComponent> tooltip, String key, String parameters)
-    {
+    private static void addInformationLocalized(List<ITextComponent> tooltip, String key, String parameters) {
         String translated = I18n.format(key) + parameters;
         translated = COMPILE.matcher(translated).replaceAll("\u00a7");
         String[] formatted = translated.split("\n");
-        for(String line : formatted)
+        for (String line : formatted)
             tooltip.add(new TranslationTextComponent(line));
     }
 }

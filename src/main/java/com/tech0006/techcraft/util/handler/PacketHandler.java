@@ -1,6 +1,7 @@
 package com.tech0006.techcraft.util.handler;
 
-import com.tech0006.techcraft.blocks.coalGenerator.UpdateCoalGenerator;
+import com.tech0006.techcraft.blocks.TileEntity.update.UpdateCoalGenerator;
+import com.tech0006.techcraft.blocks.TileEntity.update.UpdateElectricFurnace;
 import com.tech0006.techcraft.techcraft;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.network.NetworkDirection;
@@ -18,9 +19,9 @@ public class PacketHandler {
             () -> PROTOCOL_VERSION,
             PROTOCOL_VERSION::equals,
             PROTOCOL_VERSION::equals);
+
     // @formatter:on
-    public static void init()
-    {
+    public static void init() {
         int id = 0;
         INSTANCE.registerMessage(id++,
                 UpdateCoalGenerator.class,
@@ -28,5 +29,13 @@ public class PacketHandler {
                 UpdateCoalGenerator::new,
                 UpdateCoalGenerator::handle,
                 Optional.of(NetworkDirection.PLAY_TO_CLIENT));
-    };
+        INSTANCE.registerMessage(id++,
+                UpdateElectricFurnace.class,
+                UpdateElectricFurnace::toBytes,
+                UpdateElectricFurnace::new,
+                UpdateElectricFurnace::handle,
+                Optional.of(NetworkDirection.PLAY_TO_CLIENT));
+    }
+
+    ;
 }

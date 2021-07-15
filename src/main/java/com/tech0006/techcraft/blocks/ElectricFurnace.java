@@ -1,15 +1,11 @@
-package com.tech0006.techcraft.blocks.coalGenerator;
+package com.tech0006.techcraft.blocks;
 
-import com.tech0006.techcraft.blocks.TileEntity.CoalGeneratorTileEntity;
-import com.tech0006.techcraft.blocks.TileEntity.TCforgeTileEntity;
+import com.tech0006.techcraft.blocks.TileEntity.ElectricFurnaceTileEntity;
 import com.tech0006.techcraft.blocks.base.FacedBlock;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
-import com.tech0006.techcraft.util.Tooltip;
-import com.tech0006.techcraft.util.handler.CoalGeneratorItemHandler;
+import com.tech0006.techcraft.util.handler.ElectricFurnaceItemHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -25,24 +21,20 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
-import java.util.List;
 
-public class CoalGenerator extends FacedBlock {
+public class ElectricFurnace extends FacedBlock {
 
     private static final ResourceLocation WRENCH = new ResourceLocation("forge", "wrench");
     public static final BooleanProperty LIT = BooleanProperty.create("lit");
 
-    public CoalGenerator(Properties properties) {
+    public ElectricFurnace(Properties properties) {
         super(properties);
 
         this.setDefaultState(this.stateContainer.getBaseState().with(LIT, false));
@@ -55,40 +47,31 @@ public class CoalGenerator extends FacedBlock {
     }
 
     @Override
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit)
-    {
-        if(!worldIn.isRemote)
-        {
-            if(player.isCrouching())
-            {
-                if(player.getHeldItemMainhand().getItem().getTags().contains(WRENCH))
-                {
+    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+        if (!worldIn.isRemote) {
+            if (player.isCrouching()) {
+                if (player.getHeldItemMainhand().getItem().getTags().contains(WRENCH)) {
                     dismantleBlock(worldIn, pos);
                     return ActionResultType.SUCCESS;
                 }
             }
 
             TileEntity tileEntity = worldIn.getTileEntity(pos);
-            if(tileEntity instanceof INamedContainerProvider)
-            {
+            if (tileEntity instanceof INamedContainerProvider) {
                 NetworkHooks.openGui((ServerPlayerEntity) player, (INamedContainerProvider) tileEntity, tileEntity.getPos());
-            }
-            else
-            {
+            } else {
                 throw new IllegalStateException("Our named container provider is missing!");
             }
         }
         return ActionResultType.SUCCESS;
     }
 
-    private void dismantleBlock(World worldIn, BlockPos pos)
-    {
+    private void dismantleBlock(World worldIn, BlockPos pos) {
         ItemStack itemStack = new ItemStack(this);
 
-        CoalGeneratorTileEntity localTileEntity = (CoalGeneratorTileEntity) worldIn.getTileEntity(pos);
+        ElectricFurnaceTileEntity localTileEntity = (ElectricFurnaceTileEntity) worldIn.getTileEntity(pos);
         int internalEnergy = localTileEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
-        if(internalEnergy > 0)
-        {
+        if (internalEnergy > 0) {
             CompoundNBT energyValue = new CompoundNBT();
             energyValue.putInt("value", internalEnergy);
 
@@ -109,32 +92,28 @@ public class CoalGenerator extends FacedBlock {
     }
 
     @Override
-    public boolean removedByPlayer(BlockState state, World world, BlockPos pos, PlayerEntity player, boolean willHarvest, IFluidState fluid)
-    {
+    public boolean removedByPlayer(BlockState state, World world, BlockPos pos, PlayerEntity player, boolean willHarvest, IFluidState fluid) {
         return willHarvest || super.removedByPlayer(state, world, pos, player, willHarvest, fluid);
     }
 
     @Override
-    public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, TileEntity te, ItemStack stack)
-    {
+    public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, TileEntity te, ItemStack stack) {
         super.harvestBlock(worldIn, player, pos, state, te, stack);
         worldIn.removeBlock(pos, false);
     }
 
     @Override
-    public boolean hasTileEntity(BlockState state)
-    {
+    public boolean hasTileEntity(BlockState state) {
         return true;
     }
 
     @Nullable
     @Override
-    public TileEntity createTileEntity(BlockState state, IBlockReader world)
-    {
-        return new CoalGeneratorTileEntity(ModTileEntityTypes.COAL_GENERATOR.get());
+    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+        return new ElectricFurnaceTileEntity(ModTileEntityTypes.ELECTRIC_FURNACE.get());
     }
 
-    @OnlyIn(Dist.CLIENT)
+    /*@OnlyIn(Dist.CLIENT)
     @Override
     public void addInformation(ItemStack stack, IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn)
     {
@@ -157,15 +136,15 @@ public class CoalGenerator extends FacedBlock {
             if (compoundnbt.contains("SumBurnTime"))
                 sum = compoundnbt.getCompound("SumBurnTime").getInt("value");
         }
-        Tooltip.showInfoCtrlCoalGenerator(energy, maxEn, gen, curr, sum, tooltip);
-    }
+        Tooltip.showInfoCtrlElectricFurnace(energy, maxEn, gen, curr, sum, tooltip);
+    }*/
 
     @Override
     public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
         TileEntity tile = worldIn.getTileEntity(pos);
-        if (tile instanceof CoalGeneratorTileEntity && state.getBlock() != newState.getBlock()) {
-            CoalGeneratorTileEntity furnace = (CoalGeneratorTileEntity) tile;
-            ((CoalGeneratorItemHandler) furnace.getInventory()).toNonNullList().forEach(item -> {
+        if (tile instanceof ElectricFurnaceTileEntity && state.getBlock() != newState.getBlock()) {
+            ElectricFurnaceTileEntity furnace = (ElectricFurnaceTileEntity) tile;
+            ((ElectricFurnaceItemHandler) furnace.getInventory()).toNonNullList().forEach(item -> {
                 ItemEntity itemEntity = new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), item);
                 worldIn.addEntity(itemEntity);
             });
@@ -175,6 +154,5 @@ public class CoalGenerator extends FacedBlock {
             worldIn.removeTileEntity(pos);
         }
     }
-
 
 }

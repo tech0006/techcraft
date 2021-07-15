@@ -1,8 +1,8 @@
 package com.tech0006.techcraft.GUI.Screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.tech0006.techcraft.GUI.Container.CoalGeneratorContainer;
-import com.tech0006.techcraft.blocks.TileEntity.CoalGeneratorTileEntity;
+import com.tech0006.techcraft.GUI.Container.ElectricFurnaceContainer;
+import com.tech0006.techcraft.blocks.TileEntity.ElectricFurnaceTileEntity;
 import com.tech0006.techcraft.techcraft;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
@@ -11,13 +11,12 @@ import net.minecraft.util.text.ITextComponent;
 
 import java.util.Collections;
 
-public class CoalGeneratorScreen extends ContainerScreen<CoalGeneratorContainer> {
+public class ElectricFurnaceScreen extends ContainerScreen<ElectricFurnaceContainer> {
 
-    private static final ResourceLocation TEXTURES = new ResourceLocation(techcraft.MOD_ID, "textures/gui/coal_generator.png");
-    private final CoalGeneratorTileEntity tile;
-    private int currEn = 0;
+    private static final ResourceLocation TEXTURES = new ResourceLocation(techcraft.MOD_ID, "textures/gui/electric_furnace.png");
+    private final ElectricFurnaceTileEntity tile;
 
-    public CoalGeneratorScreen(CoalGeneratorContainer container, PlayerInventory inv, ITextComponent name) {
+    public ElectricFurnaceScreen(ElectricFurnaceContainer container, PlayerInventory inv, ITextComponent name) {
         super(container, inv, name);
         this.tile = container.tile;
     }
@@ -28,19 +27,13 @@ public class CoalGeneratorScreen extends ContainerScreen<CoalGeneratorContainer>
         super.render(mouseX, mouseY, partialTicks);
         this.renderHoveredToolTip(mouseX, mouseY);
         if (mouseX > guiLeft + 7 && mouseX < guiLeft + 29 && mouseY > guiTop + 10 && mouseY < guiTop + 77)
-            this.renderTooltip(Collections.singletonList("Energy: " + getPercent() + "%  " + getEnergyFormatted(tile.energyClient) + "/" + getEnergyFormatted(tile.maxEnergy)), mouseX, mouseY, font);
+            this.renderTooltip(Collections.singletonList("Energy: " + getPercent() + "%  " + getEnergyFormatted(tile.getEnergyStored()) + "/" + getEnergyFormatted(tile.getMaxEnergy())), mouseX, mouseY, font);
     }
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-        /*String energy = "Stored energy: " + getCurrEnergyFormatted(tile.energyClient);
-        this.font.drawString(energy, (xSize / 2 - font.getStringWidth(energy) / 2) + 14, 35, 4210752);
-
-        String maxEnergy = "Max capacity: " + getMaxEnergyFormatted(tile.maxEnergy);
-        this.font.drawString(maxEnergy, (xSize / 2 - font.getStringWidth(maxEnergy) / 2) + 14, 45, 4210752);*/
-
-        String generation = "Generation: " + tile.energyProductionClient + " FE/t";
-        this.font.drawString(generation, (xSize / 2 - font.getStringWidth(generation) / 2) + 14, 55, 4210752);
+        String generation = "Energy consumption: " + getEnergyFormatted(tile.getCost()) + "/t";
+        this.font.drawString(generation, (xSize / 2 - 10 - font.getStringWidth(generation) / 2) + 14, 65, 4210752);
     }
 
     @Override
@@ -53,11 +46,9 @@ public class CoalGeneratorScreen extends ContainerScreen<CoalGeneratorContainer>
         int y = this.getEnergyScaled(60);
         this.blit(this.guiLeft + 10, this.guiTop + 12 + y, 176, 0, 16, 60 - y);
 
-        // Render burning flame
-        if (this.container.isBurning()) {
-            int l = this.container.getBurnTimeScaled();
-            this.blit(35 + this.guiLeft, 14 + this.guiTop + 12 - l, 176, 72 - l, 14, l + 1);
-        }
+        // Render arrow
+        int l = this.container.getProgressScaled(24);
+        this.blit(74 + guiLeft, 29 + guiTop, 176, 60, l + 1, 18);
     }
 
     private String getEnergyFormatted(int energy) {
@@ -72,8 +63,8 @@ public class CoalGeneratorScreen extends ContainerScreen<CoalGeneratorContainer>
     }
 
     private int getPercent() {
-        Long currentEnergy = new Long(tile.energyClient);
-        int maxEnergy = tile.maxEnergy;
+        Long currentEnergy = new Long(tile.getEnergyStored());
+        int maxEnergy = tile.getMaxEnergy();
 
         long result = currentEnergy * 100 / maxEnergy;
 

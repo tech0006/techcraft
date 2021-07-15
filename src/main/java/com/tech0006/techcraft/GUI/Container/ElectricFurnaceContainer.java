@@ -1,6 +1,6 @@
 package com.tech0006.techcraft.GUI.Container;
 
-import com.tech0006.techcraft.blocks.TileEntity.CoalGeneratorTileEntity;
+import com.tech0006.techcraft.blocks.TileEntity.ElectricFurnaceTileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.ContainerType;
@@ -12,17 +12,23 @@ import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class CoalGeneratorContainer extends Container {
+public class ElectricFurnaceContainer extends Container {
 
-    public final CoalGeneratorTileEntity tile;
+    public final ElectricFurnaceTileEntity tile;
     private final PlayerEntity player;
 
-    public CoalGeneratorContainer(ContainerType<?> type, int windowId, World world, BlockPos pos, PlayerEntity player) {
+    public ElectricFurnaceContainer(ContainerType<?> type, int windowId, World world, BlockPos pos, PlayerEntity player) {
         super(type, windowId);
-        this.tile = (CoalGeneratorTileEntity) world.getTileEntity(pos);
+        this.tile = (ElectricFurnaceTileEntity) world.getTileEntity(pos);
         this.player = player;
 
-        this.addSlot(new SlotItemHandler(tile.getInventory(), 0, 58, 12));
+        this.addSlot(new SlotItemHandler(tile.getInventory(), 0, 50, 30));
+        this.addSlot(new SlotItemHandler(tile.getInventory(), 1, 105, 30) {
+            @Override
+            public boolean isItemValid(ItemStack stack) {
+                return false;
+            }
+        });
         int si;
         int sj;
         for (si = 0; si < 3; ++si)
@@ -32,12 +38,18 @@ public class CoalGeneratorContainer extends Container {
             this.addSlot(new Slot(player.inventory, si, 8 + si * 18, 142));
     }
 
-    public CoalGeneratorContainer(ContainerType<?> type, int windowId, World world, BlockPos pos, PlayerEntity player, CoalGeneratorTileEntity tileentity) {
+    public ElectricFurnaceContainer(ContainerType<?> type, int windowId, World world, BlockPos pos, PlayerEntity player, ElectricFurnaceTileEntity tileentity) {
         super(type, windowId);
-        this.tile = (CoalGeneratorTileEntity) world.getServer().getWorld(DimensionType.OVERWORLD).getTileEntity(pos);
+        this.tile = (ElectricFurnaceTileEntity) world.getServer().getWorld(DimensionType.OVERWORLD).getTileEntity(pos);
         this.player = player;
 
-        this.addSlot(new SlotItemHandler(tile.getInventory(), 0, 58, 12));
+        this.addSlot(new SlotItemHandler(tile.getInventory(), 0, 50, 30));
+        this.addSlot(new SlotItemHandler(tile.getInventory(), 1, 105, 30) {
+            @Override
+            public boolean isItemValid(ItemStack stack) {
+                return false;
+            }
+        });
         int si;
         int sj;
         for (si = 0; si < 3; ++si)
@@ -59,11 +71,11 @@ public class CoalGeneratorContainer extends Container {
         if (slot != null && slot.getHasStack()) {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
-            if (index < 1) {
-                if (!this.mergeItemStack(itemstack1, 1, this.inventorySlots.size(), true)) {
+            if (index < 2) {
+                if (!this.mergeItemStack(itemstack1, 2, this.inventorySlots.size(), true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
+            } else if (!this.mergeItemStack(itemstack1, 0, 2, false)) {
                 return ItemStack.EMPTY;
             }
 
@@ -76,14 +88,9 @@ public class CoalGeneratorContainer extends Container {
         return itemstack;
     }
 
-    public boolean isBurning() {
-        return this.tile.currBurnTime > 0;
+    public int getProgressScaled(int width) {
+        int i = tile.processTime;
+        int j = tile.processTimeTotal;
+        return i != 0 && j != 0 ? width * (j - i) / j : 0;
     }
-
-    public int getBurnTimeScaled() {
-        int i = this.tile.currBurnTime;
-        int j = this.tile.sumBurnTime;
-        return i != 0 && j != 0 ? i * 13 / j : 0;
-    }
-
 }

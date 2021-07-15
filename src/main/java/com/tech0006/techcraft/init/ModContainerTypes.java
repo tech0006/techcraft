@@ -34,4 +34,14 @@ public class ModContainerTypes {
                         data.readBlockPos(),
                         techcraft.proxy.getClientPlayer());
             }));
+
+    public static final RegistryObject<ContainerType<ElectricFurnaceContainer>> ELECTRIC_FURNACE = CONTAINER_TYPES.register("electric_furnace",
+            () -> IForgeContainerType.create((windowId, inv, data) ->
+            {
+                return new ElectricFurnaceContainer(ModContainerTypes.ELECTRIC_FURNACE.get(),
+                        windowId,
+                        techcraft.proxy.getClientWorld(),
+                        data.readBlockPos(),
+                        techcraft.proxy.getClientPlayer());
+            }));
 }
