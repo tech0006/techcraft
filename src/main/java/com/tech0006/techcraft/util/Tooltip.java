@@ -19,6 +19,14 @@ public class Tooltip {
             addInformationLocalized(tooltip, "message.techcraft.hold_ctrl", "");
     }
 
+    public static void showInfoCtrlElectricFurnace(int energy, int maxEnergy, int generation, int currBurnTime, int sumBurnTime, List<ITextComponent> tooltip) {
+        if (Screen.hasControlDown()) {
+            String s = "Energy: " + energy + "\nMax energy: " + maxEnergy + "\nEnergy consumption: " + generation + "\nCurrent burn time: " + currBurnTime + "\nTotal burn time: " + sumBurnTime;
+            addInformationLocalized(tooltip, "message.techcraft.ctrl_info", s);
+        } else
+            addInformationLocalized(tooltip, "message.techcraft.hold_ctrl", "");
+    }
+
     private static void addInformationLocalized(List<ITextComponent> tooltip, String key, String parameters) {
         String translated = I18n.format(key) + parameters;
         translated = COMPILE.matcher(translated).replaceAll("\u00a7");

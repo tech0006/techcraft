@@ -28,12 +28,14 @@ public abstract class PoweredTile extends TileEntity implements ITickableTileEnt
     public void read(CompoundNBT compound) {
         super.read(compound);
         energy.readNBT(compound);
+        energyUse = compound.getInt("Use");
     }
 
     @Override
     public CompoundNBT write(CompoundNBT compound) {
         super.write(compound);
         energy.writeNBT(compound);
+        compound.putInt("Use", energyUse);
         return compound;
     }
 

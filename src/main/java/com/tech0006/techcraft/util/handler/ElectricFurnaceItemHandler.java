@@ -5,6 +5,8 @@ import net.minecraft.item.Items;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.items.ItemStackHandler;
 
+import javax.annotation.Nonnull;
+
 public class ElectricFurnaceItemHandler extends ItemStackHandler {
 
     public ElectricFurnaceItemHandler(int size, ItemStack... stacks) {
@@ -66,4 +68,16 @@ public class ElectricFurnaceItemHandler extends ItemStackHandler {
     public String toString() {
         return this.stacks.toString();
     }
+
+    @Nonnull
+    @Override
+    public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
+        if(slot == 2)
+        {
+            return ItemStack.EMPTY;
+        }
+        return super.insertItem(slot, stack, simulate);
+    }
+
+
 }

@@ -3,9 +3,11 @@ package com.tech0006.techcraft.blocks;
 import com.tech0006.techcraft.blocks.TileEntity.ElectricFurnaceTileEntity;
 import com.tech0006.techcraft.blocks.base.FacedBlock;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
+import com.tech0006.techcraft.util.Tooltip;
 import com.tech0006.techcraft.util.handler.ElectricFurnaceItemHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -21,13 +23,17 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class ElectricFurnace extends FacedBlock {
 
@@ -113,10 +119,9 @@ public class ElectricFurnace extends FacedBlock {
         return new ElectricFurnaceTileEntity(ModTileEntityTypes.ELECTRIC_FURNACE.get());
     }
 
-    /*@OnlyIn(Dist.CLIENT)
+    @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn)
-    {
+    public void addInformation(ItemStack stack, IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         CompoundNBT compoundnbt = stack.getChildTag("BlockEntityTag");
         int energy = 0;
         int maxEn = 0;
@@ -124,20 +129,18 @@ public class ElectricFurnace extends FacedBlock {
 
         int curr = 0;
         int sum = 0;
-        if(compoundnbt != null) {
-            if (compoundnbt.contains("energy"))
-                energy = compoundnbt.getCompound("energy").getInt("value");
-            if (compoundnbt.contains("maxEn"))
-                maxEn = compoundnbt.getCompound("maxEn").getInt("value");
-            if (compoundnbt.contains("gen"))
-                gen = compoundnbt.getCompound("gen").getInt("value");
+        if (compoundnbt != null) {
+            if (compoundnbt.contains("Energy"))
+                energy = compoundnbt.getCompound("Energy").getInt("value");
+            if (compoundnbt.contains("Max"))
+                maxEn = compoundnbt.getCompound("Max").getInt("value");
             if (compoundnbt.contains("CurrBurnTime"))
                 curr = compoundnbt.getCompound("CurrBurnTime").getInt("value");
             if (compoundnbt.contains("SumBurnTime"))
                 sum = compoundnbt.getCompound("SumBurnTime").getInt("value");
         }
         Tooltip.showInfoCtrlElectricFurnace(energy, maxEn, gen, curr, sum, tooltip);
-    }*/
+    }
 
     @Override
     public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {

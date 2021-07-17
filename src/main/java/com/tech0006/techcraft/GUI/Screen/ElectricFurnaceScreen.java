@@ -33,7 +33,7 @@ public class ElectricFurnaceScreen extends ContainerScreen<ElectricFurnaceContai
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
         String generation = "Energy consumption: " + getEnergyFormatted(tile.getCost()) + "/t";
-        this.font.drawString(generation, (xSize / 2 - 10 - font.getStringWidth(generation) / 2) + 14, 65, 4210752);
+        this.font.drawString(generation, (xSize / 2 - font.getStringWidth(generation) / 2) + 14, 65, 4210752);
     }
 
     @Override

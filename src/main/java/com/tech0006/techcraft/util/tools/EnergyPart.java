@@ -1,7 +1,6 @@
 package com.tech0006.techcraft.util.tools;
 
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.energy.IEnergyStorage;
 
 import javax.annotation.Nonnull;
@@ -23,11 +22,13 @@ public abstract class EnergyPart extends SelfLazy<IEnergyStorage> implements IEn
     }
 
     public void readNBT(CompoundNBT nbt) {
-        stored = MathHelper.clamp(nbt.getInt("E"), 0, max);
+        stored = nbt.getInt("Energy");
+        max = nbt.getInt("Max");
     }
 
     public void writeNBT(CompoundNBT nbt) {
-        nbt.putInt("E", stored);
+        nbt.putInt("Energy", stored);
+        nbt.putInt("Max", max);
     }
 
     @Override

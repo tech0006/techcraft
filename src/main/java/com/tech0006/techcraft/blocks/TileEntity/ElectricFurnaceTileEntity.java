@@ -1,6 +1,7 @@
 package com.tech0006.techcraft.blocks.TileEntity;
 
 import com.tech0006.techcraft.GUI.Container.ElectricFurnaceContainer;
+import com.tech0006.techcraft.blocks.CoalGenerator;
 import com.tech0006.techcraft.blocks.TileEntity.base.PoweredTile;
 import com.tech0006.techcraft.blocks.TileEntity.update.UpdateElectricFurnace;
 import com.tech0006.techcraft.init.ModContainerTypes;
@@ -11,6 +12,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
@@ -20,6 +22,7 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
@@ -46,12 +49,38 @@ public class ElectricFurnaceTileEntity extends PoweredTile implements INamedCont
 
     public ElectricFurnaceTileEntity(TileEntityType tileEntityTypeIn) {
         super(tileEntityTypeIn, 2);
-        inventory = new ElectricFurnaceItemHandler(2);
+        inventory = new ElectricFurnaceItemHandler(3);
     }
 
     public ElectricFurnaceTileEntity() {
         super(ModTileEntityTypes.ELECTRIC_FURNACE.get(), 2);
-        inventory = new ElectricFurnaceItemHandler(2);
+        inventory = new ElectricFurnaceItemHandler(3);
+    }
+
+    @Override
+    public void read(CompoundNBT compound) {
+
+        NonNullList<ItemStack> inv = NonNullList.<ItemStack>withSize(this.inventory.getSlots(), ItemStack.EMPTY);
+        ItemStackHelper.loadAllItems(compound, inv);
+        this.inventory.setNonNullList(inv);
+
+        this.processTime = compound.getInt("CurrBurnTime");
+        this.processTimeTotal = compound.getInt("SumBurnTime");
+
+
+        super.read(compound);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public CompoundNBT write(CompoundNBT compound) {
+
+
+        ItemStackHelper.saveAllItems(compound, this.inventory.toNonNullList(), false);
+        compound.putInt("CurrBurnTime", this.processTime);
+        compound.putInt("SumBurnTime", this.processTimeTotal);
+
+        return super.write(compound);
     }
 
     @Override
@@ -64,8 +93,10 @@ public class ElectricFurnaceTileEntity extends PoweredTile implements INamedCont
                     energy.use(energyUse);
                     if (!isBurn()) {
                         processTime = processTimeTotal = 0;
-                        inventory.insertItem(1, r.getRecipeOutput(), false);
+                        inventory.insertItem(1, inventory.getStackInSlot(2), false);
                         r = null;
+                        inventory.setStackInSlot(2, ItemStack.EMPTY);
+                        this.world.setBlockState(this.getPos(), this.getBlockState().with(CoalGenerator.LIT, false));
                     }
                 }
             } else {
@@ -76,12 +107,17 @@ public class ElectricFurnaceTileEntity extends PoweredTile implements INamedCont
                         if (inventory.getStackInSlot(1).getItem() == recipe.getRecipeOutput().getItem() || inventory.getStackInSlot(1).getItem() == ItemStack.EMPTY.getItem()) {
                             if (inventory.getStackInSlot(1).getCount() < inventory.getStackInSlot(1).getItem().getItemStackLimit(inventory.getStackInSlot(1))) {
                                 r = recipe;
+                                //out = r.getRecipeOutput();
+                                inventory.setStackInSlot(2, r.getRecipeOutput());
                                 processTime = processTimeTotal = r.getCookTime();
                                 inventory.decrStackSize(0, 1);
+
+                                this.world.setBlockState(this.getPos(), this.getBlockState().with(CoalGenerator.LIT, true));
                             }
                         }
                     } else {
                         r = null;
+                        inventory.setStackInSlot(2, ItemStack.EMPTY);
                     }
                 }
             }
