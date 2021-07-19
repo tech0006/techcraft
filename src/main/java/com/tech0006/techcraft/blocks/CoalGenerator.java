@@ -124,24 +124,11 @@ public class CoalGenerator extends FacedBlock {
     public void addInformation(ItemStack stack, IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         CompoundNBT compoundnbt = stack.getChildTag("BlockEntityTag");
         int energy = 0;
-        int maxEn = 0;
-        int gen = 0;
-
-        int curr = 0;
-        int sum = 0;
         if (compoundnbt != null) {
             if (compoundnbt.contains("energy"))
                 energy = compoundnbt.getCompound("energy").getInt("value");
-            if (compoundnbt.contains("maxEn"))
-                maxEn = compoundnbt.getCompound("maxEn").getInt("value");
-            if (compoundnbt.contains("gen"))
-                gen = compoundnbt.getCompound("gen").getInt("value");
-            if (compoundnbt.contains("CurrBurnTime"))
-                curr = compoundnbt.getCompound("CurrBurnTime").getInt("value");
-            if (compoundnbt.contains("SumBurnTime"))
-                sum = compoundnbt.getCompound("SumBurnTime").getInt("value");
         }
-        Tooltip.showInfoCtrlCoalGenerator(energy, maxEn, gen, curr, sum, tooltip);
+        Tooltip.showInfoCtrlCoalGenerator(energy, tooltip);
     }
 
     @Override

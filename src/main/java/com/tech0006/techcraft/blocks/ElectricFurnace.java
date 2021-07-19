@@ -99,11 +99,15 @@ public class ElectricFurnace extends FacedBlock {
 
     @Override
     public boolean removedByPlayer(BlockState state, World world, BlockPos pos, PlayerEntity player, boolean willHarvest, IFluidState fluid) {
+        /*ItemEntity en = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), ((ElectricFurnaceTileEntity)world.getTileEntity(pos)).getCurrRecipeInput() );
+        world.addEntity(en);*/
         return willHarvest || super.removedByPlayer(state, world, pos, player, willHarvest, fluid);
     }
 
     @Override
     public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, TileEntity te, ItemStack stack) {
+        /*ItemEntity en = new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), ((ElectricFurnaceTileEntity)worldIn.getTileEntity(pos)).getCurrRecipeInput() );
+        worldIn.addEntity(en);*/
         super.harvestBlock(worldIn, player, pos, state, te, stack);
         worldIn.removeBlock(pos, false);
     }
@@ -124,22 +128,11 @@ public class ElectricFurnace extends FacedBlock {
     public void addInformation(ItemStack stack, IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         CompoundNBT compoundnbt = stack.getChildTag("BlockEntityTag");
         int energy = 0;
-        int maxEn = 0;
-        int gen = 0;
-
-        int curr = 0;
-        int sum = 0;
         if (compoundnbt != null) {
-            if (compoundnbt.contains("Energy"))
-                energy = compoundnbt.getCompound("Energy").getInt("value");
-            if (compoundnbt.contains("Max"))
-                maxEn = compoundnbt.getCompound("Max").getInt("value");
-            if (compoundnbt.contains("CurrBurnTime"))
-                curr = compoundnbt.getCompound("CurrBurnTime").getInt("value");
-            if (compoundnbt.contains("SumBurnTime"))
-                sum = compoundnbt.getCompound("SumBurnTime").getInt("value");
+            if (compoundnbt.contains("energy"))
+                energy = compoundnbt.getInt("energy");
         }
-        Tooltip.showInfoCtrlElectricFurnace(energy, maxEn, gen, curr, sum, tooltip);
+        Tooltip.showInfoCtrlElectricFurnace(energy, tooltip);
     }
 
     @Override
@@ -147,10 +140,23 @@ public class ElectricFurnace extends FacedBlock {
         TileEntity tile = worldIn.getTileEntity(pos);
         if (tile instanceof ElectricFurnaceTileEntity && state.getBlock() != newState.getBlock()) {
             ElectricFurnaceTileEntity furnace = (ElectricFurnaceTileEntity) tile;
-            ((ElectricFurnaceItemHandler) furnace.getInventory()).toNonNullList().forEach(item -> {
+
+            ItemEntity itemEntity = new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), furnace.inventory.getStackInSlot(0));
+            worldIn.addEntity(itemEntity);
+
+            itemEntity = new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), furnace.inventory.getStackInSlot(1));
+            worldIn.addEntity(itemEntity);
+
+            itemEntity = new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), furnace.inventory.getStackInSlot(3));
+            worldIn.addEntity(itemEntity);
+
+            /*((ElectricFurnaceItemHandler) furnace.getInventory()).toNonNullList().forEach(item -> {
                 ItemEntity itemEntity = new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), item);
                 worldIn.addEntity(itemEntity);
-            });
+
+                ItemEntity en = new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), ((ElectricFurnaceTileEntity)worldIn.getTileEntity(pos)).getCurrRecipeInput() );
+                worldIn.addEntity(en);
+            });*/
         }
 
         if (state.hasTileEntity() && state.getBlock() != newState.getBlock()) {

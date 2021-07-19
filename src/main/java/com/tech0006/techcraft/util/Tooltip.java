@@ -11,17 +11,17 @@ import java.util.regex.Pattern;
 public class Tooltip {
     private static final Pattern COMPILE = Pattern.compile("@", Pattern.LITERAL);
 
-    public static void showInfoCtrlCoalGenerator(int energy, int maxEnergy, int generation, int currBurnTime, int sumBurnTime, List<ITextComponent> tooltip) {
+    public static void showInfoCtrlCoalGenerator(int energy, List<ITextComponent> tooltip) {
         if (Screen.hasControlDown()) {
-            String s = "Energy: " + energy + "\nMax energy: " + maxEnergy + "\nGeneration: " + generation + "\nCurrent burn time: " + currBurnTime + "\nTotal burn time: " + sumBurnTime;
+            String s = "Energy: " + energy;
             addInformationLocalized(tooltip, "message.techcraft.ctrl_info", s);
         } else
             addInformationLocalized(tooltip, "message.techcraft.hold_ctrl", "");
     }
 
-    public static void showInfoCtrlElectricFurnace(int energy, int maxEnergy, int generation, int currBurnTime, int sumBurnTime, List<ITextComponent> tooltip) {
+    public static void showInfoCtrlElectricFurnace(int energy, List<ITextComponent> tooltip) {
         if (Screen.hasControlDown()) {
-            String s = "Energy: " + energy + "\nMax energy: " + maxEnergy + "\nEnergy consumption: " + generation + "\nCurrent burn time: " + currBurnTime + "\nTotal burn time: " + sumBurnTime;
+            String s = "Energy: " + energy;
             addInformationLocalized(tooltip, "message.techcraft.ctrl_info", s);
         } else
             addInformationLocalized(tooltip, "message.techcraft.hold_ctrl", "");

@@ -47,14 +47,18 @@ public class ElectricFurnaceTileEntity extends PoweredTile implements INamedCont
     public int processTime, processTimeTotal;
     public AbstractCookingRecipe r;
 
+    public ItemStack getCurrRecipeInput() {
+        return inventory.getStackInSlot(3);
+    }
+
     public ElectricFurnaceTileEntity(TileEntityType tileEntityTypeIn) {
         super(tileEntityTypeIn, 2);
-        inventory = new ElectricFurnaceItemHandler(3);
+        inventory = new ElectricFurnaceItemHandler(4);
     }
 
     public ElectricFurnaceTileEntity() {
         super(ModTileEntityTypes.ELECTRIC_FURNACE.get(), 2);
-        inventory = new ElectricFurnaceItemHandler(3);
+        inventory = new ElectricFurnaceItemHandler(4);
     }
 
     @Override
@@ -96,6 +100,7 @@ public class ElectricFurnaceTileEntity extends PoweredTile implements INamedCont
                         inventory.insertItem(1, inventory.getStackInSlot(2), false);
                         r = null;
                         inventory.setStackInSlot(2, ItemStack.EMPTY);
+                        inventory.setStackInSlot(3, ItemStack.EMPTY);
                         this.world.setBlockState(this.getPos(), this.getBlockState().with(CoalGenerator.LIT, false));
                     }
                 }
@@ -109,6 +114,7 @@ public class ElectricFurnaceTileEntity extends PoweredTile implements INamedCont
                                 r = recipe;
                                 //out = r.getRecipeOutput();
                                 inventory.setStackInSlot(2, r.getRecipeOutput());
+                                inventory.setStackInSlot(3, inventory.getStackInSlot(0).copy());
                                 processTime = processTimeTotal = r.getCookTime();
                                 inventory.decrStackSize(0, 1);
 
@@ -118,6 +124,7 @@ public class ElectricFurnaceTileEntity extends PoweredTile implements INamedCont
                     } else {
                         r = null;
                         inventory.setStackInSlot(2, ItemStack.EMPTY);
+                        inventory.setStackInSlot(3, ItemStack.EMPTY);
                     }
                 }
             }

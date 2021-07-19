@@ -22,12 +22,12 @@ public abstract class EnergyPart extends SelfLazy<IEnergyStorage> implements IEn
     }
 
     public void readNBT(CompoundNBT nbt) {
-        stored = nbt.getInt("Energy");
+        stored = nbt.getInt("energy");
         max = nbt.getInt("Max");
     }
 
     public void writeNBT(CompoundNBT nbt) {
-        nbt.putInt("Energy", stored);
+        nbt.putInt("energy", stored);
         nbt.putInt("Max", max);
     }
 
