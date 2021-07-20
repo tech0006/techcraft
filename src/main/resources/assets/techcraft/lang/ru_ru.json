@@ -3,6 +3,7 @@
   "itemGroup.techcraft_tool_tab": "Techcraft инструменты",
   "itemGroup.techcraft_armor_tab": "Techcraft броня",
   "itemGroup.techcraft_mechanism_tab": "Techcraft механизмы",
+  "itemGroup.techcraft_components_tab": "Techcraft компоненты",
   "item.techcraft.copper_ingot": "Медный слиток",
   "item.techcraft.tin_ingot": "Оловянный слиток",
   "item.techcraft.bronze_ingot": "Бронзовый слиток",
@@ -76,6 +77,11 @@
   "message.techcraft.hold_ctrl": "Удерживайте CTRL, чтобы получить информацию",
   "block.techcraft.electric_furnace": "Электрическая печь",
   "item.techcraft.electric_furnace": "Электрическая печь",
-  "item.techcraft.heating_element": "Нагревательный элемент"
+  "item.techcraft.heating_element": "Нагревательный элемент",
+  "item.techcraft.copper_wire": "Медная проволока",
+  "item.techcraft.tin_wire": "Оловянная проволока",
+  "item.techcraft.bronze_wire": "Бронзовая проволока",
+  "item.techcraft.iron_wire": "Железная проволока",
+  "item.techcraft.gold_wire": "Золотая проволока"
 
 }

@@ -1,0 +1,2 @@
+-Added localization of Techcraft components tab
+-Added copper, tin, bronze, iron, gold wires

@@ -3,6 +3,7 @@
   "itemGroup.techcraft_tool_tab": "Techcraft tools",
   "itemGroup.techcraft_armor_tab": "Techcraft armor",
   "itemGroup.techcraft_mechanism_tab": "Techcraft mechanisms",
+  "itemGroup.techcraft_components_tab": "Techcraft components",
   "item.techcraft.copper_ingot": "Copper ingot",
   "item.techcraft.tin_ingot": "Tin ingot",
   "item.techcraft.bronze_ingot": "Bronze ingot",
@@ -76,5 +77,11 @@
   "message.techcraft.hold_ctrl": "Hold CTRL to info",
   "block.techcraft.electric_furnace": "Electric furnace",
   "item.techcraft.electric_furnace": "Electric furnace",
-  "item.techcraft.heating_element": "Heating element"
+  "item.techcraft.heating_element": "Heating element",
+  "item.techcraft.copper_wire": "Copper wire",
+  "item.techcraft.tin_wire": "Tin wire",
+  "item.techcraft.bronze_wire": "Bronze wire",
+  "item.techcraft.iron_wire": "Iron wire",
+  "item.techcraft.gold_wire": "Gold wire"
+
 }

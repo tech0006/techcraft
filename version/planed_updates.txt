@@ -1,5 +1,6 @@
 Add wire maker:
     -add wire maker(like tc_forge)
+    -add wires
 
 Electric update:
     -add electric component
@@ -15,3 +16,6 @@ Add wire(blocks):
 
 Add hand crusher:
     -add hand crusher like ae2_crusher
+
+UI update:
+    -update machine ui

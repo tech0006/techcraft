@@ -205,4 +205,15 @@ public class Items {
     public static final RegistryObject<Item> HEATING_ELEMENT = ITEMS.register("heating_element",
             () -> new Item(new Item.Properties().group(Groups.techcraft_components_tab)));
 
+    public static final RegistryObject<Item> COPPER_WIRE = ITEMS.register("copper_wire",
+            () -> new Item(new Item.Properties().group(Groups.techcraft_components_tab)));
+    public static final RegistryObject<Item> TIN_WIRE = ITEMS.register("tin_wire",
+            () -> new Item(new Item.Properties().group(Groups.techcraft_components_tab)));
+    public static final RegistryObject<Item> BRONZE_WIRE = ITEMS.register("bronze_wire",
+            () -> new Item(new Item.Properties().group(Groups.techcraft_components_tab)));
+    public static final RegistryObject<Item> IRON_WIRE = ITEMS.register("iron_wire",
+            () -> new Item(new Item.Properties().group(Groups.techcraft_components_tab)));
+    public static final RegistryObject<Item> GOLD_WIRE = ITEMS.register("gold_wire",
+            () -> new Item(new Item.Properties().group(Groups.techcraft_components_tab)));
+
 }
