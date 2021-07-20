@@ -202,7 +202,7 @@ public class Items {
             () -> new BlockItem(Blocks.ELECTRIC_FURNACE.get(),
                     new Item.Properties().group(Groups.techcraft_mechanism_tab)));
 
-
-
+    public static final RegistryObject<Item> HEATING_ELEMENT = ITEMS.register("heating_element",
+            () -> new Item(new Item.Properties().group(Groups.techcraft_components_tab)));
 
 }

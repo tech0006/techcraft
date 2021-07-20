@@ -73,6 +73,9 @@
   "block.techcraft.coal_generator": "Угольный генератор",
   "item.techcraft.coal_generator": "Угольный генератор",
   "message.techcraft.ctrl_info": "Информация\n",
-  "message.techcraft.hold_ctrl": "Удерживайте CTRL, чтобы получить информацию"
+  "message.techcraft.hold_ctrl": "Удерживайте CTRL, чтобы получить информацию",
+  "block.techcraft.electric_furnace": "Электрическая печь",
+  "item.techcraft.electric_furnace": "Электрическая печь",
+  "item.techcraft.heating_element": "Нагревательный элемент"
 
 }

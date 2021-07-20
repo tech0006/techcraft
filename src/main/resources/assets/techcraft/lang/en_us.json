@@ -73,5 +73,8 @@
   "block.techcraft.coal_generator": "Coal generator",
   "item.techcraft.coal_generator": "Coal generator",
   "message.techcraft.ctrl_info": "Info\n",
-  "message.techcraft.hold_ctrl": "Hold CTRL to info"
+  "message.techcraft.hold_ctrl": "Hold CTRL to info",
+  "block.techcraft.electric_furnace": "Electric furnace",
+  "item.techcraft.electric_furnace": "Electric furnace",
+  "item.techcraft.heating_element": "Heating element"
 }

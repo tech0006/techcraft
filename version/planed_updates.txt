@@ -1,0 +1,17 @@
+Add wire maker:
+    -add wire maker(like tc_forge)
+
+Electric update:
+    -add electric component
+
+Optimize coal generator:
+    -update coal generator code for electric furnace style
+
+Add crusher:
+    -add electric crusher(like electric furnace)
+
+Add wire(blocks):
+    -add wire blocks for energy transporting
+
+Add hand crusher:
+    -add hand crusher like ae2_crusher

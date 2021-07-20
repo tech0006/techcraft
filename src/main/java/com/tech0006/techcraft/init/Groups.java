@@ -20,4 +20,5 @@ public class Groups {
     public static ItemGroup techcraft_tool_tab = createGroup("techcraft_tool_tab", Items.COPPER_AXE);
     public static ItemGroup techcraft_armor_tab = createGroup("techcraft_armor_tab", Items.COPPER_HELMET);
     public static ItemGroup techcraft_mechanism_tab = createGroup("techcraft_mechanism_tab", Items.COPPER_SAFE);
+    public static ItemGroup techcraft_components_tab = createGroup("techcraft_components_tab", Items.HEATING_ELEMENT);
 }

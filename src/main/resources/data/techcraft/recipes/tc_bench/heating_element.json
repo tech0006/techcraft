@@ -1,0 +1,22 @@
+{
+  "type": "techcraft:tc_bench",
+  "pattern": [
+    "XXXXXX",
+    "XYYYYX",
+    "XYXXYX",
+    "XYXXYX",
+    "XX  XX",
+    "X    X"
+  ],
+  "key": {
+    "X": {
+      "item": "techcraft:iron_plate"
+    },
+    "Y": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "techcraft:heating_element"
+  }
+}
