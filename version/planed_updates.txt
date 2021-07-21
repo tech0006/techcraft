@@ -1,9 +1,5 @@
-Add wire maker:
-    -add wire maker(like tc_forge)
-    -add wires
-
 Electric update:
-    -add electric component
+    -add electric components
 
 Optimize coal generator:
     -update coal generator code for electric furnace style

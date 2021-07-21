@@ -44,4 +44,7 @@ public class ModContainerTypes {
                         data.readBlockPos(),
                         techcraft.proxy.getClientPlayer());
             }));
+
+    public static final RegistryObject<ContainerType<WireShaperContainer>> WIRE_SHAPER = CONTAINER_TYPES.register("wire_shaper",
+            () -> IForgeContainerType.create(WireShaperContainer::new));
 }

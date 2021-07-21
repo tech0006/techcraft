@@ -3,10 +3,13 @@ package com.tech0006.techcraft.integration.modules.jei;
 
 import com.tech0006.techcraft.blocks.TileEntity.TCbenchTileEntity;
 import com.tech0006.techcraft.blocks.TileEntity.TCforgeTileEntity;
+import com.tech0006.techcraft.blocks.TileEntity.WireShaperTileEntity;
+import com.tech0006.techcraft.blocks.WireShaper;
 import com.tech0006.techcraft.init.Items;
 import com.tech0006.techcraft.init.RecipeSerializerInit;
 import com.tech0006.techcraft.integration.modules.jei.recipeCategory.TCbenchRecipeCategory;
 import com.tech0006.techcraft.integration.modules.jei.recipeCategory.TCforgeRecipeCategory;
+import com.tech0006.techcraft.integration.modules.jei.recipeCategory.WireShaperRecipeCategory;
 import com.tech0006.techcraft.techcraft;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -30,6 +33,7 @@ public class Plugin implements IModPlugin {
         IModPlugin.super.registerCategories(registration);
         registration.addRecipeCategories(new TCbenchRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new TCforgeRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new WireShaperRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
@@ -37,6 +41,7 @@ public class Plugin implements IModPlugin {
         IModPlugin.super.registerRecipes(registration);
         registration.addRecipes(TCbenchTileEntity.findRecipesByType(RecipeSerializerInit.TC_BENCH_TYPE), TCbenchRecipeCategory.UID);
         registration.addRecipes(TCforgeTileEntity.findRecipesByType(RecipeSerializerInit.TC_FORGE_TYPE), TCforgeRecipeCategory.UID);
+        registration.addRecipes(WireShaperTileEntity.findRecipesByType(RecipeSerializerInit.WIRE_SHAPER_TYPE), WireShaperRecipeCategory.UID);
     }
 
     @Override
@@ -48,6 +53,9 @@ public class Plugin implements IModPlugin {
 
         grindstone = new ItemStack(Items.TC_FORGE.get(), 1);
         registration.addRecipeCatalyst(grindstone, TCforgeRecipeCategory.UID);
+
+        grindstone = new ItemStack(Items.WIRE_SHAPER.get(), 1);
+        registration.addRecipeCatalyst(grindstone, WireShaperRecipeCategory.UID);
     }
 
 }

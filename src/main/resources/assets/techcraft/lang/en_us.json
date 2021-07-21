@@ -82,6 +82,8 @@
   "item.techcraft.tin_wire": "Tin wire",
   "item.techcraft.bronze_wire": "Bronze wire",
   "item.techcraft.iron_wire": "Iron wire",
-  "item.techcraft.gold_wire": "Gold wire"
-
+  "item.techcraft.gold_wire": "Gold wire",
+  "block.techcraft.wire_shaper": "Wire shaper",
+  "item.techcraft.wire_shaper": "Wire shaper",
+  "container.techcraft.wire_shaper": "Wire shaper"
 }

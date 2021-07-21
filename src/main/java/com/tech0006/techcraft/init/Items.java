@@ -216,4 +216,7 @@ public class Items {
     public static final RegistryObject<Item> GOLD_WIRE = ITEMS.register("gold_wire",
             () -> new Item(new Item.Properties().group(Groups.techcraft_components_tab)));
 
+    public static final RegistryObject<Item> WIRE_SHAPER = ITEMS.register("wire_shaper",
+            () -> new BlockItem(Blocks.WIRE_SHAPER.get(),
+                    new Item.Properties().group(Groups.techcraft_mechanism_tab)));
 }

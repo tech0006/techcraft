@@ -1,6 +1,7 @@
 package com.tech0006.techcraft.GUI.Container;
 
-import com.tech0006.techcraft.blocks.TileEntity.TCforgeTileEntity;
+import com.tech0006.techcraft.blocks.TileEntity.WireShaperTileEntity;
+import com.tech0006.techcraft.blocks.WireShaper;
 import com.tech0006.techcraft.init.Blocks;
 import com.tech0006.techcraft.init.ModContainerTypes;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,16 +18,16 @@ import net.minecraftforge.items.SlotItemHandler;
 import javax.annotation.Nonnull;
 import java.util.Objects;
 
-public class TCforgeContainer extends Container {
+public class WireShaperContainer extends Container {
 
-    public TCforgeTileEntity tileEntity;
+    public WireShaperTileEntity tileEntity;
     private IWorldPosCallable canInteractWithCallable;
 
 
     // Server Constructor
-    public TCforgeContainer(int windowID, PlayerInventory playerInv,
-                            TCforgeTileEntity tile) {
-        super(ModContainerTypes.TC_FORGE.get(), windowID);
+    public WireShaperContainer(int windowID, PlayerInventory playerInv,
+                               WireShaperTileEntity tile) {
+        super(ModContainerTypes.WIRE_SHAPER.get(), windowID);
 
         this.tileEntity = tile;
         this.canInteractWithCallable = IWorldPosCallable.of(tile.getWorld(), tile.getPos());
@@ -49,23 +50,23 @@ public class TCforgeContainer extends Container {
     }
 
     // Client Constructor
-    public TCforgeContainer(final int windowID, final PlayerInventory playerInv, final PacketBuffer data) {
+    public WireShaperContainer(final int windowID, final PlayerInventory playerInv, final PacketBuffer data) {
         this(windowID, playerInv, getTileEntity(playerInv, data));
     }
 
-    private static TCforgeTileEntity getTileEntity(final PlayerInventory playerInv, final PacketBuffer data) {
+    private static WireShaperTileEntity getTileEntity(final PlayerInventory playerInv, final PacketBuffer data) {
         Objects.requireNonNull(playerInv, "playerInv cannot be null");
         Objects.requireNonNull(data, "data cannot be null");
         final TileEntity tileAtPos = playerInv.player.world.getTileEntity(data.readBlockPos());
-        if (tileAtPos instanceof TCforgeTileEntity) {
-            return (TCforgeTileEntity) tileAtPos;
+        if (tileAtPos instanceof WireShaperTileEntity) {
+            return (WireShaperTileEntity) tileAtPos;
         }
         throw new IllegalStateException("TileEntity is not correct " + tileAtPos);
     }
 
     @Override
     public boolean canInteractWith(PlayerEntity playerIn) {
-        return isWithinUsableDistance(canInteractWithCallable, playerIn, Blocks.TC_FORGE.get());
+        return isWithinUsableDistance(canInteractWithCallable, playerIn, Blocks.WIRE_SHAPER.get());
     }
 
 
@@ -79,9 +80,11 @@ public class TCforgeContainer extends Container {
             returnStack = slotStack.copy();
 
             int mycount = this.inventorySlots.get(0).getStack().getCount();
-            if (index == 1) {
+            if (index == 1)
+            {
                 slotStack.setCount(mycount);
             }
+
             final int containerSlots = this.inventorySlots.size() - player.inventory.mainInventory.size();
             if (index < containerSlots) {
                 if (!mergeItemStack(slotStack, containerSlots, this.inventorySlots.size(), true)) {
@@ -113,12 +116,12 @@ public class TCforgeContainer extends Container {
             }
             slot.onTake(player, slotStack);
 
-            if (index == 1)
-            {
+            if (index == 1) {
                 for (int i = 0; i < mycount; i++) {
                     int a = (int) (Math.random() * 100);
                     if (a == 1) {
                         player.world.destroyBlock(this.tileEntity.getPos(), false);
+
                     }
                 }
             }
@@ -138,9 +141,11 @@ public class TCforgeContainer extends Container {
             if (this.inventorySlots.get(0).getStack() != ItemStack.EMPTY) {
                 this.inventorySlots.get(0).getStack().setCount(this.inventorySlots.get(0).getStack().getCount() - count);
             }
+
             int a = (int) (Math.random() * 100);
             if (a == 1) {
                 player.world.destroyBlock(this.tileEntity.getPos(), false);
+
             }
         }
         return stack;

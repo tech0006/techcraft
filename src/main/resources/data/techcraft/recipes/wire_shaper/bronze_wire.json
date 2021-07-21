@@ -1,0 +1,9 @@
+{
+  "type": "techcraft:wire_shaper",
+  "input": {
+    "item": "techcraft:bronze_plate"
+  },
+  "result": {
+    "item": "techcraft:bronze_wire"
+  }
+}

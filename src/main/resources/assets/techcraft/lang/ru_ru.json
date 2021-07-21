@@ -82,6 +82,8 @@
   "item.techcraft.tin_wire": "Оловянная проволока",
   "item.techcraft.bronze_wire": "Бронзовая проволока",
   "item.techcraft.iron_wire": "Железная проволока",
-  "item.techcraft.gold_wire": "Золотая проволока"
-
+  "item.techcraft.gold_wire": "Золотая проволока",
+  "block.techcraft.wire_shaper": "Формовщик проводов",
+  "item.techcraft.wire_shaper": "Формовщик проводов",
+  "container.techcraft.wire_shaper": "Формовщик проводов"
 }

@@ -1,0 +1,22 @@
+{
+  "type": "techcraft:tc_bench",
+  "pattern": [
+    "XIXXIX",
+    " IXXI ",
+    " IXXI ",
+    " IXXI ",
+    " IXXI ",
+    "XIXXIX"
+  ],
+  "key": {
+    "X": {
+      "item": "techcraft:iron_plate"
+    },
+    "I": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "techcraft:wire_shaper"
+  }
+}

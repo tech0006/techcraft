@@ -1,0 +1,9 @@
+{
+  "type": "techcraft:wire_shaper",
+  "input": {
+    "item": "techcraft:copper_plate"
+  },
+  "result": {
+    "item": "techcraft:copper_wire"
+  }
+}

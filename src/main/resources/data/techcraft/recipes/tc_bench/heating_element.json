@@ -3,17 +3,17 @@
   "pattern": [
     "XXXXXX",
     "XYYYYX",
+    "XYYYYX",
     "XYXXYX",
-    "XYXXYX",
-    "XX  XX",
-    "X    X"
+    "XY  YX",
+    "Y    Y"
   ],
   "key": {
     "X": {
       "item": "techcraft:iron_plate"
     },
     "Y": {
-      "item": "minecraft:redstone"
+      "tag": "techcraft:wire"
     }
   },
   "result": {

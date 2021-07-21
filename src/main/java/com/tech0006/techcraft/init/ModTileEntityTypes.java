@@ -29,4 +29,7 @@ public class ModTileEntityTypes {
             () -> TileEntityType.Builder.create(CoalGeneratorTileEntity::new, Blocks.COAL_GENERATOR.get()).build(null));
     public static final RegistryObject<TileEntityType<ElectricFurnaceTileEntity>> ELECTRIC_FURNACE = TILE_ENTITY_TYPES.register("electric_furnace",
             () -> TileEntityType.Builder.create(ElectricFurnaceTileEntity::new, Blocks.ELECTRIC_FURNACE.get()).build(null));
+
+    public static final RegistryObject<TileEntityType<WireShaperTileEntity>> WIRE_SHAPER = TILE_ENTITY_TYPES.register("wire_shaper",
+            () -> TileEntityType.Builder.create(WireShaperTileEntity::new, Blocks.WIRE_SHAPER.get()).build(null));
 }
