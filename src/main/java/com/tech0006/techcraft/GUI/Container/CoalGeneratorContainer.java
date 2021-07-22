@@ -77,12 +77,12 @@ public class CoalGeneratorContainer extends Container {
     }
 
     public boolean isBurning() {
-        return this.tile.currBurnTime > 0;
+        return this.tile.processTime > 0;
     }
 
     public int getBurnTimeScaled() {
-        int i = this.tile.currBurnTime;
-        int j = this.tile.sumBurnTime;
+        int i = this.tile.processTime;
+        int j = this.tile.processTimeTotal;
         return i != 0 && j != 0 ? i * 13 / j : 0;
     }
 

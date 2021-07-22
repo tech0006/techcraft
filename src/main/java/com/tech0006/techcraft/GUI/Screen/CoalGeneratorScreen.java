@@ -28,7 +28,7 @@ public class CoalGeneratorScreen extends ContainerScreen<CoalGeneratorContainer>
         super.render(mouseX, mouseY, partialTicks);
         this.renderHoveredToolTip(mouseX, mouseY);
         if (mouseX > guiLeft + 7 && mouseX < guiLeft + 29 && mouseY > guiTop + 10 && mouseY < guiTop + 77)
-            this.renderTooltip(Collections.singletonList("Energy: " + getPercent() + "%  " + getEnergyFormatted(tile.energyClient) + "/" + getEnergyFormatted(tile.maxEnergy)), mouseX, mouseY, font);
+            this.renderTooltip(Collections.singletonList("Energy: " + getPercent() + "%  " + getEnergyFormatted(tile.getEnergyStored()) + "/" + getEnergyFormatted(tile.getMaxEnergy())), mouseX, mouseY, font);
     }
 
     @Override
@@ -39,7 +39,7 @@ public class CoalGeneratorScreen extends ContainerScreen<CoalGeneratorContainer>
         String maxEnergy = "Max capacity: " + getMaxEnergyFormatted(tile.maxEnergy);
         this.font.drawString(maxEnergy, (xSize / 2 - font.getStringWidth(maxEnergy) / 2) + 14, 45, 4210752);*/
 
-        String generation = "Generation: " + tile.energyProductionClient + " FE/t";
+        String generation = "Generation: " + (-tile.currentAmountEnergyProduced()) + " FE/t";
         this.font.drawString(generation, (xSize / 2 - font.getStringWidth(generation) / 2) + 14, 55, 4210752);
     }
 
@@ -72,8 +72,8 @@ public class CoalGeneratorScreen extends ContainerScreen<CoalGeneratorContainer>
     }
 
     private int getPercent() {
-        Long currentEnergy = new Long(tile.energyClient);
-        int maxEnergy = tile.maxEnergy;
+        Long currentEnergy = new Long(tile.getEnergyStored());
+        int maxEnergy = tile.getMaxEnergy();
 
         long result = currentEnergy * 100 / maxEnergy;
 

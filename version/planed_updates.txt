@@ -1,3 +1,9 @@
+Port for 1.16:
+    -port for 1.16
+
+Compatibility with Alchemestry mod:
+    -compatibility with Alchemestry mod
+
 Electric update:
     -add electric components
 
@@ -15,3 +21,9 @@ Add hand crusher:
 
 UI update:
     -update machine ui
+
+Fix bug of tc _forge and wire_shaper:
+    -fix bug(no everytime closes GUI when block breaks)
+
+Port for 1.17:
+    -port for 1.17

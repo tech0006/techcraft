@@ -1,5 +1,1 @@
--Added localization of Techcraft components tab
--Added copper, tin, bronze, iron, gold wires
--added wire shaper
--fixed bug of Techcraft forge
--updated heating element recipe
+-Optimized coal generator
