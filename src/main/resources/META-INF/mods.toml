@@ -1,0 +1,39 @@
+modLoader = "javafml"
+loaderVersion = "[36,)"
+license="See Curseforge for details"
+
+[[mods]]
+    modId = "techcraft"
+    version = "1.16.5-0.0.5"
+    displayName = "Tech Craft"
+    displayURL = "https://www.curseforge.com/minecraft/mc-mods/tc-techcraft"
+    authors = "tech0006"
+    description = '''A lot of tech, computers, mechanics and more...'''
+
+[[dependencies.techcraft]]
+    modId="forge" #mandatory
+    mandatory=true #mandatory
+    versionRange="[36.1.17,)" #mandatory
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.techcraft]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5]"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.techcraft]]
+    modId = "jei"
+    mandatory = false
+    versionRange = "[6,)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.techcraft]]
+    modId = "waila"
+    mandatory = false
+    versionRange = "[1,)"
+    ordering = "NONE"
+    side = "BOTH"

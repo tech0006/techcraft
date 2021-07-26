@@ -1,0 +1,9 @@
+{
+  "type": "techcraft:tc_forge",
+  "input": {
+    "item": "techcraft:tin_ingot"
+  },
+  "result": {
+    "item": "techcraft:tin_plate"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "techcraft:tc_bench",
+  "pattern": [
+    "XXXXXX",
+    "XY  YX",
+    "X ZZ X",
+    "X ZZ X",
+    "XY  YX",
+    "XXXXXX"
+  ],
+  "key": {
+    "X": {
+      "item": "techcraft:iron_plate"
+    },
+    "Y": {
+      "item": "minecraft:iron_ingot"
+    },
+    "Z": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "result": {
+    "item": "techcraft:coal_generator"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "techcraft:block/wire_shaper"
+    }
+  }
+}

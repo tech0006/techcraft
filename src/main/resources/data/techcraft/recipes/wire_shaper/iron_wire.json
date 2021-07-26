@@ -1,0 +1,9 @@
+{
+  "type": "techcraft:wire_shaper",
+  "input": {
+    "item": "techcraft:iron_plate"
+  },
+  "result": {
+    "item": "techcraft:iron_wire"
+  }
+}

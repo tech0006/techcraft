@@ -1,0 +1,25 @@
+{
+  "type": "techcraft:tc_bench",
+  "pattern": [
+    "XXXXXX",
+    "XYYYYX",
+    "XYZZYX",
+    "XYZZYX",
+    "XYYYYX",
+    "XXXXXX"
+  ],
+  "key": {
+    "X": {
+      "item": "techcraft:copper_plate"
+    },
+    "Y": {
+      "item": "techcraft:copper_ingot"
+    },
+    "Z": {
+      "item": "minecraft:chest"
+    }
+  },
+  "result": {
+    "item": "techcraft:copper_safe"
+  }
+}

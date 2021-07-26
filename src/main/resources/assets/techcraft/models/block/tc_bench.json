@@ -1,0 +1,8 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "top": "techcraft:block/tc_bench_up",
+    "front": "techcraft:block/tc_bench",
+    "side": "techcraft:block/tc_bench"
+  }
+}

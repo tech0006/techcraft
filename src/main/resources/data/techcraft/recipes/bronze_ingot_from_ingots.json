@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    "X#"
+  ],
+  "key": {
+    "#": {
+      "item": "techcraft:tin_ingot"
+    },
+    "X": {
+      "item": "techcraft:copper_ingot"
+    }
+  },
+  "result": {
+    "item": "techcraft:bronze_ingot",
+    "count": 4
+  }
+}
