@@ -7,9 +7,6 @@ Compatibility with Alchemestry mod:
 Electric update:
     -add electric components
 
-Optimize coal generator:
-    -update coal generator code for electric furnace style
-
 Add crusher:
     -add electric crusher(like electric furnace)
 
