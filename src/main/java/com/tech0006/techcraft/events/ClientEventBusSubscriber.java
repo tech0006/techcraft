@@ -26,5 +26,6 @@ public class ClientEventBusSubscriber {
         ScreenManager.registerFactory(ModContainerTypes.ELECTRIC_FURNACE.get(), ElectricFurnaceScreen::new);
 
         ScreenManager.registerFactory(ModContainerTypes.WIRE_SHAPER.get(), WireShaperScreen::new);
+        ScreenManager.registerFactory(ModContainerTypes.ALLOY_PLANT.get(), AlloyPlantScreen::new);
     }
 }

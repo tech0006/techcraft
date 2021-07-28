@@ -219,4 +219,9 @@ public class Items {
     public static final RegistryObject<Item> WIRE_SHAPER = ITEMS.register("wire_shaper",
             () -> new BlockItem(Blocks.WIRE_SHAPER.get(),
                     new Item.Properties().group(Groups.techcraft_mechanism_tab)));
+    public static final RegistryObject<Item> ALLOY_PLANT = ITEMS.register("alloy_plant",
+            () -> new BlockItem(Blocks.ALLOY_PLANT.get(),
+                    new Item.Properties().group(Groups.techcraft_mechanism_tab)));
+
+
 }

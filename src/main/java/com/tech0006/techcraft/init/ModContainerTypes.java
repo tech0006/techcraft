@@ -47,4 +47,6 @@ public class ModContainerTypes {
 
     public static final RegistryObject<ContainerType<WireShaperContainer>> WIRE_SHAPER = CONTAINER_TYPES.register("wire_shaper",
             () -> IForgeContainerType.create(WireShaperContainer::new));
+    public static final RegistryObject<ContainerType<AlloyPlantContainer>> ALLOY_PLANT = CONTAINER_TYPES.register("alloy_plant",
+            () -> IForgeContainerType.create(AlloyPlantContainer::new));
 }

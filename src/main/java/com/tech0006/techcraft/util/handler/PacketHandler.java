@@ -1,5 +1,6 @@
 package com.tech0006.techcraft.util.handler;
 
+import com.tech0006.techcraft.blocks.TileEntity.update.UpdateAlloyPlant;
 import com.tech0006.techcraft.blocks.TileEntity.update.UpdateCoalGenerator;
 import com.tech0006.techcraft.blocks.TileEntity.update.UpdateElectricFurnace;
 import com.tech0006.techcraft.techcraft;
@@ -34,6 +35,12 @@ public class PacketHandler {
                 UpdateElectricFurnace::toBytes,
                 UpdateElectricFurnace::new,
                 UpdateElectricFurnace::handle,
+                Optional.of(NetworkDirection.PLAY_TO_CLIENT));
+        INSTANCE.registerMessage(id++,
+                UpdateAlloyPlant.class,
+                UpdateAlloyPlant::toBytes,
+                UpdateAlloyPlant::new,
+                UpdateAlloyPlant::handle,
                 Optional.of(NetworkDirection.PLAY_TO_CLIENT));
     }
 

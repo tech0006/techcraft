@@ -1,6 +1,7 @@
 package com.tech0006.techcraft.init;
 
 
+import com.tech0006.techcraft.blocks.AlloyPlant;
 import com.tech0006.techcraft.blocks.TileEntity.*;
 import com.tech0006.techcraft.techcraft;
 import net.minecraft.tileentity.TileEntityType;
@@ -32,4 +33,7 @@ public class ModTileEntityTypes {
 
     public static final RegistryObject<TileEntityType<WireShaperTileEntity>> WIRE_SHAPER = TILE_ENTITY_TYPES.register("wire_shaper",
             () -> TileEntityType.Builder.create(WireShaperTileEntity::new, Blocks.WIRE_SHAPER.get()).build(null));
+
+    public static final RegistryObject<TileEntityType<AlloyPlantTileEntity>> ALLOY_PLANT = TILE_ENTITY_TYPES.register("alloy_plant",
+            () -> TileEntityType.Builder.create(AlloyPlantTileEntity::new, Blocks.ALLOY_PLANT.get()).build(null));
 }
