@@ -46,7 +46,7 @@ public class AlloyPlantScreen extends ContainerScreen<AlloyPlantContainer> {
 
         // Render arrow
         int l = this.container.getProgressScaled(24);
-        this.blit(74 + guiLeft, 29 + guiTop, 176, 60, l + 1, 18);
+        this.blit(72 + guiLeft, 32 + guiTop, 176, 60, l + 1, 18);
     }
 
     private int getEnergyScaled(int pixels) {

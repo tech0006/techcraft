@@ -3,7 +3,7 @@ loaderVersion = "[31,)"
 
 [[mods]]
     modId = "techcraft"
-    version = "1.15.2-0.0.1"
+    version = "1.15.2-0.0.6"
     displayName = "Tech Craft"
     displayURL = "https://www.curseforge.com/minecraft/mc-mods/tc-techcraft"
     authors = "tech0006"

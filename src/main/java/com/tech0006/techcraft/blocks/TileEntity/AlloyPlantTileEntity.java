@@ -1,6 +1,8 @@
 package com.tech0006.techcraft.blocks.TileEntity;
 
 import com.tech0006.techcraft.GUI.Container.AlloyPlantContainer;
+import com.tech0006.techcraft.blocks.AlloyPlant;
+import com.tech0006.techcraft.blocks.CoalGenerator;
 import com.tech0006.techcraft.blocks.TileEntity.base.LavaFluidTile;
 import com.tech0006.techcraft.blocks.TileEntity.update.UpdateAlloyPlant;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
@@ -74,7 +76,6 @@ public class AlloyPlantTileEntity extends LavaFluidTile implements INamedContain
     public void tick() {
 
         if (this.world != null && !this.world.isRemote) {
-            System.out.println(this.tank.getFluid().getAmount() + "\t" + this.processTime + "\t" + this.processTimeTotal);
             if (processTime > 0) {
                 if (this.getFluid() > 0) {
                     this.decrFluid(1);
@@ -83,6 +84,7 @@ public class AlloyPlantTileEntity extends LavaFluidTile implements INamedContain
                         processTimeTotal = 0;
                         this.inventory.insertItem(3, this.inventory.getStackInSlot(4).copy(), false);
                         this.inventory.setStackInSlot(4, ItemStack.EMPTY);
+                        this.world.setBlockState(this.getPos(), this.getBlockState().with(AlloyPlant.LIT, false));
                     }
                 } else {
                     if (processTime < processTimeTotal) {
@@ -94,10 +96,18 @@ public class AlloyPlantTileEntity extends LavaFluidTile implements INamedContain
                     AlloyPlantRecipe recipe = getRecipe();
                     if (recipe != null) {
                         this.processTimeTotal = this.processTime = 200;
-                        this.inventory.decrStackSize(0, 1);
-                        this.inventory.decrStackSize(1, 1);
-                        this.inventory.decrStackSize(2, 1);
+
+                        if (!recipe.getIngredients().get(0).hasNoMatchingItems())
+                            this.inventory.decrStackSize(0, recipe.getIngredients().get(0).getMatchingStacks()[0].getCount());
+
+                        if (!recipe.getIngredients().get(1).hasNoMatchingItems())
+                            this.inventory.decrStackSize(1, recipe.getIngredients().get(1).getMatchingStacks()[0].getCount());
+
+                        if (!recipe.getIngredients().get(2).hasNoMatchingItems())
+                            this.inventory.decrStackSize(2, recipe.getIngredients().get(2).getMatchingStacks()[0].getCount());
+
                         this.inventory.setStackInSlot(4, recipe.getRecipeOutput().copy());
+                        this.world.setBlockState(this.getPos(), this.getBlockState().with(AlloyPlant.LIT, true));
                     }
                 }
             }

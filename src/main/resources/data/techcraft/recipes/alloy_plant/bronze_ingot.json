@@ -1,7 +1,8 @@
 {
   "type": "techcraft:alloy_plant",
   "input1": {
-    "item": "techcraft:copper_ingot"
+    "item": "techcraft:copper_ingot",
+    "count": 3
   },
   "input2": {
     "item": "techcraft:tin_ingot"
@@ -10,6 +11,7 @@
     "item": "minecraft:air"
   },
   "result": {
-    "item": "techcraft:bronze_ingot"
+    "item": "techcraft:bronze_ingot",
+    "count": 4
   }
 }

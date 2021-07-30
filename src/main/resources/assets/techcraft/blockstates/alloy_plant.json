@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "lit=false": {
       "model": "techcraft:block/alloy_plant"
+    },
+    "lit=true": {
+      "model": "techcraft:block/alloy_plant_on"
     }
   }
 }
