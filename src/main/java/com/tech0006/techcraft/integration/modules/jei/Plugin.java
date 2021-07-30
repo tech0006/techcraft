@@ -4,7 +4,6 @@ package com.tech0006.techcraft.integration.modules.jei;
 import com.tech0006.techcraft.blocks.TileEntity.TCbenchTileEntity;
 import com.tech0006.techcraft.blocks.TileEntity.TCforgeTileEntity;
 import com.tech0006.techcraft.blocks.TileEntity.WireShaperTileEntity;
-import com.tech0006.techcraft.blocks.WireShaper;
 import com.tech0006.techcraft.init.Items;
 import com.tech0006.techcraft.init.RecipeSerializerInit;
 import com.tech0006.techcraft.integration.modules.jei.recipeCategory.TCbenchRecipeCategory;

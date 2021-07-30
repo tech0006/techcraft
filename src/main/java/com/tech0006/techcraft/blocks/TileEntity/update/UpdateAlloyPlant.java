@@ -1,6 +1,5 @@
 package com.tech0006.techcraft.blocks.TileEntity.update;
 
-import com.tech0006.techcraft.blocks.AlloyPlant;
 import com.tech0006.techcraft.blocks.TileEntity.AlloyPlantTileEntity;
 import com.tech0006.techcraft.techcraft;
 import net.minecraft.network.PacketBuffer;

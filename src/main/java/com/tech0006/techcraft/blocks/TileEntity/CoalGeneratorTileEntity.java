@@ -6,7 +6,6 @@ import com.tech0006.techcraft.blocks.TileEntity.base.GeneratorTile;
 import com.tech0006.techcraft.blocks.TileEntity.update.UpdateCoalGenerator;
 import com.tech0006.techcraft.init.ModContainerTypes;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
-import com.tech0006.techcraft.util.TCEnergyStorage;
 import com.tech0006.techcraft.util.handler.CoalGeneratorItemHandler;
 import com.tech0006.techcraft.util.handler.PacketHandler;
 import net.minecraft.entity.player.PlayerEntity;

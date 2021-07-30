@@ -1,12 +1,10 @@
 package com.tech0006.techcraft.GUI.Container;
 
-import com.tech0006.techcraft.blocks.AlloyPlant;
 import com.tech0006.techcraft.blocks.TileEntity.AlloyPlantTileEntity;
 import com.tech0006.techcraft.init.Blocks;
 import com.tech0006.techcraft.init.ModContainerTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.ClickType;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
@@ -15,7 +13,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IWorldPosCallable;
 import net.minecraftforge.items.SlotItemHandler;
 
-import javax.annotation.Nonnull;
 import java.util.Objects;
 
 public class AlloyPlantContainer extends Container {
@@ -32,8 +29,10 @@ public class AlloyPlantContainer extends Container {
         this.tileEntity = tile;
         this.canInteractWithCallable = IWorldPosCallable.of(tile.getWorld(), tile.getPos());
 
-        this.addSlot(new SlotItemHandler(tileEntity.getInventory(), 0, 56, 34));
-        this.addSlot(new SlotItemHandler(tileEntity.getInventory(), 1, 110, 34) {
+        this.addSlot(new SlotItemHandler(tileEntity.getInventory(), 0, 50, 10));
+        this.addSlot(new SlotItemHandler(tileEntity.getInventory(), 1, 50, 34));
+        this.addSlot(new SlotItemHandler(tileEntity.getInventory(), 2, 50, 58));
+        this.addSlot(new SlotItemHandler(tileEntity.getInventory(), 3, 105, 34) {
             @Override
             public boolean isItemValid(ItemStack stack) {
                 return false;
@@ -91,5 +90,11 @@ public class AlloyPlantContainer extends Container {
             }
         }
         return itemstack;
+    }
+
+    public int getProgressScaled(int width) {
+        int i = tileEntity.processTime;
+        int j = tileEntity.processTimeTotal;
+        return i != 0 && j != 0 ? width * (j - i) / j : 0;
     }
 }

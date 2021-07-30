@@ -1,0 +1,15 @@
+{
+  "type": "techcraft:alloy_plant",
+  "input1": {
+    "item": "techcraft:copper_ingot"
+  },
+  "input2": {
+    "item": "techcraft:tin_ingot"
+  },
+  "input3": {
+    "item": "minecraft:air"
+  },
+  "result": {
+    "item": "techcraft:bronze_ingot"
+  }
+}

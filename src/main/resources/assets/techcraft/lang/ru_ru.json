@@ -85,5 +85,8 @@
   "item.techcraft.gold_wire": "Золотая проволока",
   "block.techcraft.wire_shaper": "Формовщик проводов",
   "item.techcraft.wire_shaper": "Формовщик проводов",
-  "container.techcraft.wire_shaper": "Формовщик проводов"
+  "container.techcraft.wire_shaper": "Формовщик проводов",
+  "block.techcraft.alloy_plant": "Завод сплавов",
+  "item.techcraft.alloy_plant": "Завод сплавов",
+  "container.techcraft.alloy_plant": "Завод сплавов"
 }

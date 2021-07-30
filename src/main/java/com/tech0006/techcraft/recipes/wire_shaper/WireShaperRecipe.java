@@ -3,7 +3,6 @@ package com.tech0006.techcraft.recipes.wire_shaper;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
-import com.tech0006.techcraft.blocks.WireShaper;
 import com.tech0006.techcraft.init.RecipeSerializerInit;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -18,7 +17,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
-public class WireShaperRecipe  implements IWireShaperRecipe {
+public class WireShaperRecipe implements IWireShaperRecipe {
     private final Ingredient recipeItem;
     private final ItemStack recipeOutput;
     private final ResourceLocation id;

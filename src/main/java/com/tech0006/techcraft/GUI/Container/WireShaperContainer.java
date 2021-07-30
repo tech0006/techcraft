@@ -1,7 +1,6 @@
 package com.tech0006.techcraft.GUI.Container;
 
 import com.tech0006.techcraft.blocks.TileEntity.WireShaperTileEntity;
-import com.tech0006.techcraft.blocks.WireShaper;
 import com.tech0006.techcraft.init.Blocks;
 import com.tech0006.techcraft.init.ModContainerTypes;
 import net.minecraft.entity.player.PlayerEntity;
@@ -80,8 +79,7 @@ public class WireShaperContainer extends Container {
             returnStack = slotStack.copy();
 
             int mycount = this.inventorySlots.get(0).getStack().getCount();
-            if (index == 1)
-            {
+            if (index == 1) {
                 slotStack.setCount(mycount);
             }
 

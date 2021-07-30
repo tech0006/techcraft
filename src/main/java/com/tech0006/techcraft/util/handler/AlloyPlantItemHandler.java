@@ -40,8 +40,8 @@ public class AlloyPlantItemHandler extends ItemStackHandler {
 
     public void removeStackFromSlot(int index) {
         int count = this.stacks.get(index).getCount();
-        if (index == 1) {
-            for (int i = 0; i < 1; i++) {
+        if (index == 5) {
+            for (int i = 0; i < 5; i++) {
                 if (this.stacks.get(i).getItem() != Items.AIR) {
                     if (this.stacks.get(i).getCount() == count) {
                         this.stacks.set(i, new ItemStack(Items.AIR));

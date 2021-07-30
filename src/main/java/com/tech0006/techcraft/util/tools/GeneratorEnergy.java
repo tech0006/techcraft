@@ -33,8 +33,7 @@ public class GeneratorEnergy extends EnergyPart {
     public int extractEnergy(int maxExtract, boolean simulate) {
         if (maxExtract <= 0) return 0;
         int r = Math.min(maxExtract, max - stored);
-        if(r > 0 && !simulate)
-        {
+        if (r > 0 && !simulate) {
             stored -= r;
         }
         return r;

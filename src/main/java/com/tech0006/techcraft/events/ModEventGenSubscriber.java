@@ -21,9 +21,9 @@ public class ModEventGenSubscriber {
             biome.addFeature(
                     GenerationStage.Decoration.UNDERGROUND_ORES,
                     Feature.ORE.withConfiguration(
-                            new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-                                    Blocks.COPPER_ORE.get().getDefaultState(),
-                                    15))
+                                    new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE,
+                                            Blocks.COPPER_ORE.get().getDefaultState(),
+                                            15))
                             .withPlacement(
                                     Placement.COUNT_RANGE.configure(
                                             new CountRangeConfig(20, 0, 0, 100)))
@@ -32,9 +32,9 @@ public class ModEventGenSubscriber {
             biome.addFeature(
                     GenerationStage.Decoration.UNDERGROUND_ORES,
                     Feature.ORE.withConfiguration(
-                            new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-                                    Blocks.TIN_ORE.get().getDefaultState(),
-                                    10))
+                                    new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE,
+                                            Blocks.TIN_ORE.get().getDefaultState(),
+                                            10))
                             .withPlacement(
                                     Placement.COUNT_RANGE.configure(
                                             new CountRangeConfig(15, 0, 0, 100)))

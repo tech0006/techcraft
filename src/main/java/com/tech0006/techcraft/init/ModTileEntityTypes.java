@@ -1,7 +1,6 @@
 package com.tech0006.techcraft.init;
 
 
-import com.tech0006.techcraft.blocks.AlloyPlant;
 import com.tech0006.techcraft.blocks.TileEntity.*;
 import com.tech0006.techcraft.techcraft;
 import net.minecraft.tileentity.TileEntityType;

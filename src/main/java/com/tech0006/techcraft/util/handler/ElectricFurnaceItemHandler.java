@@ -72,8 +72,7 @@ public class ElectricFurnaceItemHandler extends ItemStackHandler {
     @Nonnull
     @Override
     public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
-        if(slot == 2)
-        {
+        if (slot == 2) {
             return ItemStack.EMPTY;
         }
         return super.insertItem(slot, stack, simulate);

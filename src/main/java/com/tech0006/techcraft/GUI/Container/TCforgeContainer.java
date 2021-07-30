@@ -113,8 +113,7 @@ public class TCforgeContainer extends Container {
             }
             slot.onTake(player, slotStack);
 
-            if (index == 1)
-            {
+            if (index == 1) {
                 for (int i = 0; i < mycount; i++) {
                     int a = (int) (Math.random() * 100);
                     if (a == 1) {

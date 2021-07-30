@@ -1,6 +1,5 @@
 package com.tech0006.techcraft.util.fluidTank;
 
-import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
@@ -17,8 +16,7 @@ public class LavaFluidTank extends FluidTank {
     public boolean isFluidValid(FluidStack stack) {
         if (stack.getFluid() == Fluids.LAVA)
             return true;
-        else
-        {
+        else {
             return false;
         }
     }
@@ -27,8 +25,7 @@ public class LavaFluidTank extends FluidTank {
     public boolean isFluidValid(int tank, @Nonnull FluidStack stack) {
         if (stack.getFluid() == Fluids.LAVA)
             return true;
-        else
-        {
+        else {
             return false;
         }
     }

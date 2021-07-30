@@ -84,6 +84,7 @@ public class AlloyPlant extends FacedBlock {
         TileEntity tile = worldIn.getTileEntity(pos);
         if (tile instanceof AlloyPlantTileEntity && state.getBlock() != newState.getBlock()) {
             AlloyPlantTileEntity furnace = (AlloyPlantTileEntity) tile;
+            furnace.getInventory().setStackInSlot(4, ItemStack.EMPTY);
             ((AlloyPlantItemHandler) furnace.getInventory()).toNonNullList().forEach(item -> {
                 ItemEntity itemEntity = new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), item);
                 worldIn.addEntity(itemEntity);
