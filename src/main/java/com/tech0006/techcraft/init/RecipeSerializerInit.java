@@ -1,6 +1,8 @@
 package com.tech0006.techcraft.init;
 
 import com.tech0006.techcraft.blocks.WireShaper;
+import com.tech0006.techcraft.recipes.alloy_plant.AlloyPlantRecipe;
+import com.tech0006.techcraft.recipes.alloy_plant.IAlloyPlantRecipe;
 import com.tech0006.techcraft.recipes.tc_bench.ITCbenchRecipe;
 import com.tech0006.techcraft.recipes.tc_bench.TCbenchRecipe;
 import com.tech0006.techcraft.recipes.tc_forge.ITCforgeRecipe;
@@ -29,6 +31,9 @@ public class RecipeSerializerInit {
     public static final IRecipeSerializer<WireShaperRecipe> WIRE_SHAPER_RECIPE_SERIALIZER = new WireShaperRecipe.WireShaperRecipeSerializer();
     public static final IRecipeType<IWireShaperRecipe> WIRE_SHAPER_TYPE = registerType(IWireShaperRecipe.RECIPE_TYPE_ID);
 
+    public static final IRecipeSerializer<AlloyPlantRecipe> ALLOY_PLANT_RECIPE_SERIALIZER = new AlloyPlantRecipe.AlloyPlantRecipeSerializer();
+    public static final IRecipeType<IAlloyPlantRecipe> ALLOY_PLANT_TYPE = registerType(IAlloyPlantRecipe.RECIPE_TYPE_ID);
+
 
     public static final DeferredRegister<IRecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(
             ForgeRegistries.RECIPE_SERIALIZERS, techcraft.MOD_ID);
@@ -40,6 +45,8 @@ public class RecipeSerializerInit {
             () -> TC_FORGE_RECIPE_SERIALIZER);
     public static final RegistryObject<IRecipeSerializer<?>> WIRE_SHAPER_SERIALIZER = RECIPE_SERIALIZERS.register("wire_shaper",
             () -> WIRE_SHAPER_RECIPE_SERIALIZER);
+    public static final RegistryObject<IRecipeSerializer<?>> ALLOY_PLANT_SERIALIZER = RECIPE_SERIALIZERS.register("alloy_plant",
+            () -> ALLOY_PLANT_RECIPE_SERIALIZER);
 
 
     private static class RecipeType<T extends IRecipe<?>> implements IRecipeType<T> {

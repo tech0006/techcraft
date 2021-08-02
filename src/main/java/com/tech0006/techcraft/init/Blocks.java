@@ -111,4 +111,11 @@ public class Blocks {
                     .harvestLevel(0)
                     .sound(SoundType.METAL)));
 
+    public static final RegistryObject<Block> ALLOY_PLANT = BLOCKS.register("alloy_plant",
+            () -> new AlloyPlant(Block.Properties.of(Material.METAL)
+                    .strength(3.0f, 3.0f)
+                    .harvestTool(ToolType.PICKAXE)
+                    .harvestLevel(0)
+                    .sound(SoundType.METAL)));
+
 }

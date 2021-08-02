@@ -85,5 +85,8 @@
   "item.techcraft.gold_wire": "Gold wire",
   "block.techcraft.wire_shaper": "Wire shaper",
   "item.techcraft.wire_shaper": "Wire shaper",
-  "container.techcraft.wire_shaper": "Wire shaper"
+  "container.techcraft.wire_shaper": "Wire shaper",
+  "block.techcraft.alloy_plant": "Alloy plant",
+  "item.techcraft.alloy_plant": "Alloy plant",
+  "container.techcraft.alloy_plant": "Alloy plant"
 }

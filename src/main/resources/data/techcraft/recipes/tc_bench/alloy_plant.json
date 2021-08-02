@@ -1,0 +1,22 @@
+{
+  "type": "techcraft:tc_bench",
+  "pattern": [
+    "XXXXXX",
+    "X  XYX",
+    "X  XYX",
+    "X  XYX",
+    "X  XYX",
+    "XXXXXX"
+  ],
+  "key": {
+    "X": {
+      "item": "techcraft:bronze_plate"
+    },
+    "Y": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "result": {
+    "item": "techcraft:alloy_plant"
+  }
+}

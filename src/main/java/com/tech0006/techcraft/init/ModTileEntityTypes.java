@@ -32,4 +32,6 @@ public class ModTileEntityTypes {
 
     public static final RegistryObject<TileEntityType<WireShaperTileEntity>> WIRE_SHAPER = TILE_ENTITY_TYPES.register("wire_shaper",
             () -> TileEntityType.Builder.of(WireShaperTileEntity::new, Blocks.WIRE_SHAPER.get()).build(null));
+    public static final RegistryObject<TileEntityType<AlloyPlantTileEntity>> ALLOY_PLANT = TILE_ENTITY_TYPES.register("alloy_plant",
+            () -> TileEntityType.Builder.of(AlloyPlantTileEntity::new, Blocks.ALLOY_PLANT.get()).build(null));
 }
