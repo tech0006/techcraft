@@ -5,7 +5,7 @@ import com.tech0006.techcraft.init.ModTileEntityTypes;
 import com.tech0006.techcraft.init.RecipeSerializerInit;
 import com.tech0006.techcraft.recipes.tc_bench.TCbenchRecipe;
 import com.tech0006.techcraft.techcraft;
-import com.tech0006.techcraft.util.handler.TCbenchItemHandler;
+import com.tech0006.techcraft.util.handler.TCItemHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.player.PlayerEntity;
@@ -47,12 +47,12 @@ import java.util.stream.Collectors;
 public class TCbenchTileEntity extends TileEntity implements ITickableTileEntity, INamedContainerProvider {
 
     private ITextComponent customName;
-    private TCbenchItemHandler inventory;
+    private TCItemHandler inventory;
 
     public TCbenchTileEntity(TileEntityType<?> tileEntityTypeIn) {
         super(tileEntityTypeIn);
 
-        this.inventory = new TCbenchItemHandler(37);
+        this.inventory = new TCItemHandler(37);
     }
 
     public TCbenchTileEntity() {

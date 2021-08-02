@@ -2,7 +2,7 @@ package com.tech0006.techcraft.blocks;
 
 import com.tech0006.techcraft.blocks.TileEntity.TCbenchTileEntity;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
-import com.tech0006.techcraft.util.handler.TCbenchItemHandler;
+import com.tech0006.techcraft.util.handler.TCItemHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
@@ -65,7 +65,7 @@ public class TCbench extends Block {
         TileEntity tile = worldIn.getTileEntity(pos);
         if (tile instanceof TCbenchTileEntity && state.getBlock() != newState.getBlock()) {
             TCbenchTileEntity furnace = (TCbenchTileEntity) tile;
-            ((TCbenchItemHandler) furnace.getInventory()).toNonNullList().forEach(item -> {
+            ((TCItemHandler) furnace.getInventory()).toNonNullList().forEach(item -> {
                 ItemEntity itemEntity = new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), item);
                 worldIn.addEntity(itemEntity);
             });

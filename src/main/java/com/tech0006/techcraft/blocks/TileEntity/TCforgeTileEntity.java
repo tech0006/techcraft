@@ -6,7 +6,7 @@ import com.tech0006.techcraft.init.ModTileEntityTypes;
 import com.tech0006.techcraft.init.RecipeSerializerInit;
 import com.tech0006.techcraft.recipes.tc_forge.TCforgeRecipe;
 import com.tech0006.techcraft.techcraft;
-import com.tech0006.techcraft.util.handler.TCforgeItemHandler;
+import com.tech0006.techcraft.util.handler.TCItemHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.player.PlayerEntity;
@@ -47,12 +47,12 @@ import java.util.stream.Collectors;
 public class TCforgeTileEntity extends TileEntity implements ITickableTileEntity, INamedContainerProvider {
 
     private ITextComponent customName;
-    private TCforgeItemHandler inventory;
+    private TCItemHandler inventory;
 
     public TCforgeTileEntity(TileEntityType<?> tileEntityTypeIn) {
         super(tileEntityTypeIn);
 
-        this.inventory = new TCforgeItemHandler(2);
+        this.inventory = new TCItemHandler(2);
     }
 
     public TCforgeTileEntity() {

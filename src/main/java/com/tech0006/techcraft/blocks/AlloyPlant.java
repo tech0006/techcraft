@@ -3,7 +3,7 @@ package com.tech0006.techcraft.blocks;
 import com.tech0006.techcraft.blocks.TileEntity.AlloyPlantTileEntity;
 import com.tech0006.techcraft.blocks.base.FacedBlock;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
-import com.tech0006.techcraft.util.handler.AlloyPlantItemHandler;
+import com.tech0006.techcraft.util.handler.TCItemHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
@@ -85,7 +85,7 @@ public class AlloyPlant extends FacedBlock {
         if (tile instanceof AlloyPlantTileEntity && state.getBlock() != newState.getBlock()) {
             AlloyPlantTileEntity furnace = (AlloyPlantTileEntity) tile;
             furnace.getInventory().setStackInSlot(4, ItemStack.EMPTY);
-            ((AlloyPlantItemHandler) furnace.getInventory()).toNonNullList().forEach(item -> {
+            ((TCItemHandler) furnace.getInventory()).toNonNullList().forEach(item -> {
                 ItemEntity itemEntity = new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), item);
                 worldIn.addEntity(itemEntity);
             });

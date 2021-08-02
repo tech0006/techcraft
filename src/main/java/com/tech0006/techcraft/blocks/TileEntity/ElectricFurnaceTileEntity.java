@@ -6,8 +6,8 @@ import com.tech0006.techcraft.blocks.TileEntity.base.PoweredTile;
 import com.tech0006.techcraft.blocks.TileEntity.update.UpdateElectricFurnace;
 import com.tech0006.techcraft.init.ModContainerTypes;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
-import com.tech0006.techcraft.util.handler.ElectricFurnaceItemHandler;
 import com.tech0006.techcraft.util.handler.PacketHandler;
+import com.tech0006.techcraft.util.handler.TCItemHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.player.PlayerEntity;
@@ -42,7 +42,7 @@ import java.util.stream.Collectors;
 
 public class ElectricFurnaceTileEntity extends PoweredTile implements INamedContainerProvider {
 
-    public ElectricFurnaceItemHandler inventory;
+    public TCItemHandler inventory;
 
     public int processTime, processTimeTotal;
     public AbstractCookingRecipe r;
@@ -53,12 +53,12 @@ public class ElectricFurnaceTileEntity extends PoweredTile implements INamedCont
 
     public ElectricFurnaceTileEntity(TileEntityType tileEntityTypeIn) {
         super(tileEntityTypeIn, 2);
-        inventory = new ElectricFurnaceItemHandler(4);
+        inventory = new TCItemHandler(4);
     }
 
     public ElectricFurnaceTileEntity() {
         super(ModTileEntityTypes.ELECTRIC_FURNACE.get(), 2);
-        inventory = new ElectricFurnaceItemHandler(4);
+        inventory = new TCItemHandler(4);
     }
 
     @Override
@@ -132,7 +132,7 @@ public class ElectricFurnaceTileEntity extends PoweredTile implements INamedCont
         }
     }
 
-    public ElectricFurnaceItemHandler getInventory() {
+    public TCItemHandler getInventory() {
         return inventory;
     }
 

@@ -5,9 +5,9 @@ import net.minecraft.item.Items;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.items.ItemStackHandler;
 
-public class WireShaperItemHandler extends ItemStackHandler {
+public class TCItemHandler extends ItemStackHandler {
 
-    public WireShaperItemHandler(int size, ItemStack... stacks) {
+    public TCItemHandler(int size, ItemStack... stacks) {
         super(size);
 
         for (int index = 0; index < stacks.length; index++) {
@@ -39,20 +39,6 @@ public class WireShaperItemHandler extends ItemStackHandler {
     }
 
     public void removeStackFromSlot(int index) {
-        int count = this.stacks.get(index).getCount();
-        if (index == 1) {
-            for (int i = 0; i < 1; i++) {
-                if (this.stacks.get(i).getItem() != Items.AIR) {
-                    if (this.stacks.get(i).getCount() == count) {
-                        this.stacks.set(i, new ItemStack(Items.AIR));
-                    }
-
-                }
-                if (this.stacks.get(i).getItem() != Items.AIR) {
-                    this.stacks.get(i).setCount(this.stacks.get(i).getCount() - count);
-                }
-            }
-        }
         this.stacks.set(index, ItemStack.EMPTY);
         this.onContentsChanged(index);
     }
@@ -79,6 +65,4 @@ public class WireShaperItemHandler extends ItemStackHandler {
     public String toString() {
         return this.stacks.toString();
     }
-
-
 }

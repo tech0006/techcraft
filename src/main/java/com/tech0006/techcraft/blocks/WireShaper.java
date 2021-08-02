@@ -3,7 +3,7 @@ package com.tech0006.techcraft.blocks;
 import com.tech0006.techcraft.blocks.TileEntity.WireShaperTileEntity;
 import com.tech0006.techcraft.blocks.base.FacedBlock;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
-import com.tech0006.techcraft.util.handler.WireShaperItemHandler;
+import com.tech0006.techcraft.util.handler.TCItemHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
@@ -77,7 +77,7 @@ public class WireShaper extends FacedBlock {
         TileEntity tile = worldIn.getTileEntity(pos);
         if (tile instanceof WireShaperTileEntity && state.getBlock() != newState.getBlock()) {
             WireShaperTileEntity furnace = (WireShaperTileEntity) tile;
-            ((WireShaperItemHandler) furnace.getInventory()).toNonNullList().forEach(item -> {
+            ((TCItemHandler) furnace.getInventory()).toNonNullList().forEach(item -> {
                 ItemEntity itemEntity = new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), item);
                 worldIn.addEntity(itemEntity);
             });

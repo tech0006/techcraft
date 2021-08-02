@@ -2,15 +2,14 @@ package com.tech0006.techcraft.blocks.TileEntity;
 
 import com.tech0006.techcraft.GUI.Container.AlloyPlantContainer;
 import com.tech0006.techcraft.blocks.AlloyPlant;
-import com.tech0006.techcraft.blocks.CoalGenerator;
 import com.tech0006.techcraft.blocks.TileEntity.base.LavaFluidTile;
 import com.tech0006.techcraft.blocks.TileEntity.update.UpdateAlloyPlant;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
 import com.tech0006.techcraft.init.RecipeSerializerInit;
 import com.tech0006.techcraft.recipes.alloy_plant.AlloyPlantRecipe;
 import com.tech0006.techcraft.techcraft;
-import com.tech0006.techcraft.util.handler.AlloyPlantItemHandler;
 import com.tech0006.techcraft.util.handler.PacketHandler;
+import com.tech0006.techcraft.util.handler.TCItemHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.player.PlayerEntity;
@@ -53,14 +52,14 @@ import java.util.stream.Collectors;
 public class AlloyPlantTileEntity extends LavaFluidTile implements INamedContainerProvider {
 
     private ITextComponent customName;
-    private AlloyPlantItemHandler inventory;
+    private TCItemHandler inventory;
 
     public int processTime = 0, processTimeTotal = 0;
 
     public AlloyPlantTileEntity(TileEntityType<?> tileEntityTypeIn) {
         super(tileEntityTypeIn);
 
-        this.inventory = new AlloyPlantItemHandler(5);
+        this.inventory = new TCItemHandler(5);
     }
 
     public AlloyPlantTileEntity() {
