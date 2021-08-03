@@ -94,19 +94,25 @@ public class AlloyPlantTileEntity extends LavaFluidTile implements INamedContain
                 if (getFluid() > 0) {
                     AlloyPlantRecipe recipe = getRecipe();
                     if (recipe != null) {
-                        this.processTimeTotal = this.processTime = 200;
+                        if (this.inventory.getStackInSlot(3).getItem() == recipe.getRecipeOutput().getItem() || this.inventory.getStackInSlot(3) == ItemStack.EMPTY)
+                        {
+                            if (this.inventory.getStackInSlot(3).getCount() <= recipe.getRecipeOutput().getMaxStackSize() - recipe.getRecipeOutput().getCount())
+                            {
+                                this.processTimeTotal = this.processTime = 200;
 
-                        if (!recipe.getIngredients().get(0).hasNoMatchingItems())
-                            this.inventory.decrStackSize(0, recipe.getIngredients().get(0).getMatchingStacks()[0].getCount());
+                                if (!recipe.getIngredients().get(0).hasNoMatchingItems())
+                                    this.inventory.decrStackSize(0, recipe.getIngredients().get(0).getMatchingStacks()[0].getCount());
 
-                        if (!recipe.getIngredients().get(1).hasNoMatchingItems())
-                            this.inventory.decrStackSize(1, recipe.getIngredients().get(1).getMatchingStacks()[0].getCount());
+                                if (!recipe.getIngredients().get(1).hasNoMatchingItems())
+                                    this.inventory.decrStackSize(1, recipe.getIngredients().get(1).getMatchingStacks()[0].getCount());
 
-                        if (!recipe.getIngredients().get(2).hasNoMatchingItems())
-                            this.inventory.decrStackSize(2, recipe.getIngredients().get(2).getMatchingStacks()[0].getCount());
+                                if (!recipe.getIngredients().get(2).hasNoMatchingItems())
+                                    this.inventory.decrStackSize(2, recipe.getIngredients().get(2).getMatchingStacks()[0].getCount());
 
-                        this.inventory.setStackInSlot(4, recipe.getRecipeOutput().copy());
-                        this.world.setBlockState(this.getPos(), this.getBlockState().with(AlloyPlant.LIT, true));
+                                this.inventory.setStackInSlot(4, recipe.getRecipeOutput().copy());
+                                this.world.setBlockState(this.getPos(), this.getBlockState().with(AlloyPlant.LIT, true));
+                            }
+                        }
                     }
                 }
             }
