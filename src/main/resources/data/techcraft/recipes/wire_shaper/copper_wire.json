@@ -1,7 +1,7 @@
 {
   "type": "techcraft:wire_shaper",
   "input": {
-    "item": "techcraft:copper_plate"
+    "tag": "forge:plates/copper"
   },
   "result": {
     "item": "techcraft:copper_wire"

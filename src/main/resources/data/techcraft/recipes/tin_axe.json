@@ -10,7 +10,7 @@
       "item": "minecraft:stick"
     },
     "X": {
-      "item": "techcraft:tin_ingot"
+      "tag": "forge:ingots/tin"
     }
   },
   "result": {

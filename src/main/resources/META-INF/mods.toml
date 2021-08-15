@@ -4,8 +4,8 @@ license="See Curseforge for details"
 
 [[mods]]
     modId = "techcraft"
-    version = "1.16.5-0.0.6"
-    displayName = "Tech Craft"
+    version = "1.16.5-0.0.7"
+    displayName = "Techcraft"
     displayURL = "https://www.curseforge.com/minecraft/mc-mods/tc-techcraft"
     authors = "tech0006"
     description = '''A lot of tech, computers, mechanics and more...'''
@@ -37,3 +37,10 @@ license="See Curseforge for details"
     versionRange = "[1,)"
     ordering = "NONE"
     side = "BOTH"
+
+[[dependencies.techcraft]]
+modId = "tconstruct"
+mandatory = false
+versionRange = "[3,)"
+ordering = "NONE"
+side = "BOTH"

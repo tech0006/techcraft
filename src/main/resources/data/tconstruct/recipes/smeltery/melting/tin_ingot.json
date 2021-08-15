@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "techcraft:tin_ingot"
+  },
+  "result": {
+    "fluid": "tconstruct:molten_tin",
+    "amount": 144
+  },
+  "temperature": 500,
+  "time": 50
+}

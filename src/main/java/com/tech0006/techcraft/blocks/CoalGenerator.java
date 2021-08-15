@@ -4,7 +4,7 @@ import com.tech0006.techcraft.blocks.TileEntity.CoalGeneratorTileEntity;
 import com.tech0006.techcraft.blocks.base.FacedBlock;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
 import com.tech0006.techcraft.util.Tooltip;
-import com.tech0006.techcraft.util.handler.CoalGeneratorItemHandler;
+import com.tech0006.techcraft.util.handler.TCItemHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.util.ITooltipFlag;
@@ -138,7 +138,7 @@ public class CoalGenerator extends FacedBlock {
         TileEntity tile = worldIn.getBlockEntity(pos);
         if (tile instanceof CoalGeneratorTileEntity && state.getBlock() != newState.getBlock()) {
             CoalGeneratorTileEntity furnace = (CoalGeneratorTileEntity) tile;
-            ((CoalGeneratorItemHandler) furnace.getInventory()).toNonNullList().forEach(item -> {
+            ((TCItemHandler) furnace.getInventory()).toNonNullList().forEach(item -> {
                 ItemEntity itemEntity = new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), item);
                 worldIn.addFreshEntity(itemEntity);
             });

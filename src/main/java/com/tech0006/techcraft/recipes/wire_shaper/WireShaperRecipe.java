@@ -3,7 +3,6 @@ package com.tech0006.techcraft.recipes.wire_shaper;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
-import com.tech0006.techcraft.blocks.WireShaper;
 import com.tech0006.techcraft.init.RecipeSerializerInit;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -18,7 +17,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
-public class WireShaperRecipe  implements IWireShaperRecipe {
+public class WireShaperRecipe implements IWireShaperRecipe {
     private final Ingredient recipeItem;
     private final ItemStack recipeOutput;
     private final ResourceLocation id;
@@ -93,17 +92,7 @@ public class WireShaperRecipe  implements IWireShaperRecipe {
     }
 
     private static Ingredient deserializeIn(JsonObject p_199798_0_) {
-
-        String s = JSONUtils.getAsString(p_199798_0_, "item");
-        Item item = Registry.ITEM.getOptional(new ResourceLocation(s)).orElseThrow(() -> {
-            return new JsonSyntaxException("Unknown item '" + s + "'");
-        });
-        if (p_199798_0_.has("data")) {
-            throw new JsonParseException("Disallowed data tag found");
-        } else {
-            int i = JSONUtils.getAsInt(p_199798_0_, "count", 1);
-            return Ingredient.of(net.minecraftforge.common.crafting.CraftingHelper.getItemStack(p_199798_0_, true));
-        }
+        return Ingredient.fromJson(p_199798_0_);
     }
 
     public static class WireShaperRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<WireShaperRecipe> {

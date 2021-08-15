@@ -6,10 +6,9 @@ import com.tech0006.techcraft.blocks.TileEntity.base.GeneratorTile;
 import com.tech0006.techcraft.blocks.TileEntity.update.UpdateCoalGenerator;
 import com.tech0006.techcraft.init.ModContainerTypes;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
-import com.tech0006.techcraft.util.TCEnergyStorage;
-import com.tech0006.techcraft.util.handler.CoalGeneratorItemHandler;
 import com.tech0006.techcraft.util.handler.PacketHandler;
 
+import com.tech0006.techcraft.util.handler.TCItemHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -40,19 +39,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class CoalGeneratorTileEntity extends GeneratorTile implements INamedContainerProvider {
 
-    public CoalGeneratorItemHandler inventory;
+    public TCItemHandler inventory;
 
     public int processTime, processTimeTotal;
 
     public CoalGeneratorTileEntity(TileEntityType tileEntityTypeIn) {
         super(tileEntityTypeIn, 2);
-        inventory = new CoalGeneratorItemHandler(4);
+        inventory = new TCItemHandler(4);
         this.energyUse = -5;
     }
 
     public CoalGeneratorTileEntity() {
         super(ModTileEntityTypes.COAL_GENERATOR.get(), 2);
-        inventory = new CoalGeneratorItemHandler(4);
+        inventory = new TCItemHandler(4);
         this.energyUse = -5;
     }
 
@@ -133,7 +132,7 @@ public class CoalGeneratorTileEntity extends GeneratorTile implements INamedCont
         }
     }
 
-    public CoalGeneratorItemHandler getInventory() {
+    public TCItemHandler getInventory() {
         return inventory;
     }
 

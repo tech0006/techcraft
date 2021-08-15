@@ -10,10 +10,10 @@
   ],
   "key": {
     "X": {
-      "item": "techcraft:iron_plate"
+      "tag": "forge:plates/iron"
     },
     "Y": {
-      "tag": "techcraft:wire"
+      "tag": "forge:wires"
     }
   },
   "result": {

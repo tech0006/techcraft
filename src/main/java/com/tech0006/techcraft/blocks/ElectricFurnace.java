@@ -4,7 +4,6 @@ import com.tech0006.techcraft.blocks.TileEntity.ElectricFurnaceTileEntity;
 import com.tech0006.techcraft.blocks.base.FacedBlock;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
 import com.tech0006.techcraft.util.Tooltip;
-import com.tech0006.techcraft.util.handler.ElectricFurnaceItemHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.util.ITooltipFlag;

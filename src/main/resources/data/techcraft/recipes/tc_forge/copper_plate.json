@@ -1,7 +1,7 @@
 {
   "type": "techcraft:tc_forge",
   "input": {
-    "item": "techcraft:copper_ingot"
+    "tag": "forge:ingots/copper"
   },
   "result": {
     "item": "techcraft:copper_plate"

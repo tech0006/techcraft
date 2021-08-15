@@ -1,7 +1,7 @@
 {
   "type": "techcraft:wire_shaper",
   "input": {
-    "item": "techcraft:bronze_plate"
+    "tag": "forge:plates/bronze"
   },
   "result": {
     "item": "techcraft:bronze_wire"

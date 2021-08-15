@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "techcraft:bronze_ingot"
+  },
+  "result": {
+    "fluid": "tconstruct:molten_bronze",
+    "amount": 144
+  },
+  "temperature": 500,
+  "time": 50
+}

@@ -94,17 +94,7 @@ public class TCforgeRecipe implements ITCforgeRecipe {
     }
 
     private static Ingredient deserializeIn(JsonObject p_199798_0_) {
-
-        String s = JSONUtils.getAsString(p_199798_0_, "item");
-        Item item = Registry.ITEM.getOptional(new ResourceLocation(s)).orElseThrow(() -> {
-            return new JsonSyntaxException("Unknown item '" + s + "'");
-        });
-        if (p_199798_0_.has("data")) {
-            throw new JsonParseException("Disallowed data tag found");
-        } else {
-            int i = JSONUtils.getAsInt(p_199798_0_, "count", 1);
-            return Ingredient.of(net.minecraftforge.common.crafting.CraftingHelper.getItemStack(p_199798_0_, true));
-        }
+        return Ingredient.fromJson(p_199798_0_);
     }
 
     public static class TCforgeRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<TCforgeRecipe> {

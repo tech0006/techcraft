@@ -6,7 +6,7 @@
   ],
   "key": {
     "X": {
-      "item": "techcraft:bronze_ingot"
+      "tag": "forge:ingots/bronze"
     }
   },
   "result": {

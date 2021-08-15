@@ -10,10 +10,10 @@
   ],
   "key": {
     "X": {
-      "item": "techcraft:tin_plate"
+      "tag": "forge:plates/tin"
     },
     "Y": {
-      "item": "techcraft:tin_ingot"
+      "tag": "forge:ingots/tin"
     },
     "Z": {
       "item": "minecraft:chest"

@@ -1,7 +1,7 @@
 {
   "type": "techcraft:wire_shaper",
   "input": {
-    "item": "techcraft:tin_plate"
+    "tag": "forge:plates/tin"
   },
   "result": {
     "item": "techcraft:tin_wire"

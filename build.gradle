@@ -122,7 +122,10 @@ repositories {
     name = "ModMaven"
     url = "https://modmaven.k-4u.nl"
   }
-    
+    maven {
+        name 'DVS1 Maven FS'
+        url 'https://dvs1.progwml6.com/files/maven'
+    }
 }
 
 dependencies {
@@ -130,6 +133,9 @@ dependencies {
 
 	compileOnly fg.deobf("mezz.jei:jei-1.16.5:7.6.1.75:api")
 	runtimeOnly fg.deobf("mezz.jei:jei-1.16.5:7.6.1.75")
+
+    runtimeOnly fg.deobf("slimeknights.mantle:Mantle:1.16.5-1.6.114")
+    runtimeOnly fg.deobf("slimeknights.tconstruct:TConstruct:1.16.5-3.1.1.252")
 
 }
 

@@ -3,7 +3,7 @@ package com.tech0006.techcraft.blocks;
 import com.tech0006.techcraft.blocks.TileEntity.TCforgeTileEntity;
 import com.tech0006.techcraft.blocks.base.FacedBlock;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
-import com.tech0006.techcraft.util.handler.TCforgeItemHandler;
+import com.tech0006.techcraft.util.handler.TCItemHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
@@ -96,7 +96,7 @@ public class TCforge extends FacedBlock {
         TileEntity tile = worldIn.getBlockEntity(pos);
         if (tile instanceof TCforgeTileEntity && state.getBlock() != newState.getBlock()) {
             TCforgeTileEntity furnace = (TCforgeTileEntity) tile;
-            ((TCforgeItemHandler) furnace.getInventory()).toNonNullList().forEach(item -> {
+            ((TCItemHandler) furnace.getInventory()).toNonNullList().forEach(item -> {
                 ItemEntity itemEntity = new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), item);
                 worldIn.addFreshEntity(itemEntity);
             });

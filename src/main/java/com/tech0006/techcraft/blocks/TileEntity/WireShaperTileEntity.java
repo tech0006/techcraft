@@ -6,8 +6,8 @@ import com.tech0006.techcraft.init.ModTileEntityTypes;
 import com.tech0006.techcraft.init.RecipeSerializerInit;
 import com.tech0006.techcraft.recipes.wire_shaper.WireShaperRecipe;
 import com.tech0006.techcraft.techcraft;
-import com.tech0006.techcraft.util.handler.WireShaperItemHandler;
 
+import com.tech0006.techcraft.util.handler.TCItemHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.world.ClientWorld;
@@ -49,12 +49,12 @@ import java.util.stream.Collectors;
 public class WireShaperTileEntity extends TileEntity implements ITickableTileEntity, INamedContainerProvider {
 
     private ITextComponent customName;
-    private WireShaperItemHandler inventory;
+    private TCItemHandler inventory;
 
     public WireShaperTileEntity(TileEntityType<?> tileEntityTypeIn) {
         super(tileEntityTypeIn);
 
-        this.inventory = new WireShaperItemHandler(2);
+        this.inventory = new TCItemHandler(2);
     }
 
     public WireShaperTileEntity() {
