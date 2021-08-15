@@ -10,7 +10,7 @@
   ],
   "key": {
     "X": {
-      "item": "techcraft:gold_plate"
+      "tag": "forge:plates/gold"
     },
     "Y": {
       "item": "minecraft:gold_ingot"

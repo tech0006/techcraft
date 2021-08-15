@@ -115,17 +115,7 @@ public class AlloyPlantRecipe implements IAlloyPlantRecipe {
     }
 
     private static Ingredient deserializeIn(JsonObject p_199798_0_) {
-
-        String s = JSONUtils.getString(p_199798_0_, "item");
-        Item item = Registry.ITEM.getValue(new ResourceLocation(s)).orElseThrow(() -> {
-            return new JsonSyntaxException("Unknown item '" + s + "'");
-        });
-        if (p_199798_0_.has("data")) {
-            throw new JsonParseException("Disallowed data tag found");
-        } else {
-            int i = JSONUtils.getInt(p_199798_0_, "count", 1);
-            return Ingredient.fromStacks(net.minecraftforge.common.crafting.CraftingHelper.getItemStack(p_199798_0_, true));
-        }
+        return Ingredient.deserialize(p_199798_0_);
     }
 
     public static class AlloyPlantRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<AlloyPlantRecipe> {
@@ -133,9 +123,33 @@ public class AlloyPlantRecipe implements IAlloyPlantRecipe {
 
         public AlloyPlantRecipe read(ResourceLocation recipeId, JsonObject json) {
             String s = JSONUtils.getString(json, "group", "");
-            Ingredient input1 = AlloyPlantRecipe.deserializeIn(JSONUtils.getJsonObject(json, "input1"));
-            Ingredient input2 = AlloyPlantRecipe.deserializeIn(JSONUtils.getJsonObject(json, "input2"));
-            Ingredient input3 = AlloyPlantRecipe.deserializeIn(JSONUtils.getJsonObject(json, "input3"));
+            Ingredient input1, input2, input3;
+            if (json.has("input1"))
+            {
+                input1 = AlloyPlantRecipe.deserializeIn(JSONUtils.getJsonObject(json, "input1"));
+            }
+            else
+            {
+                input1 = Ingredient.EMPTY;
+            }
+
+            if (json.has("input2"))
+            {
+                input2 = AlloyPlantRecipe.deserializeIn(JSONUtils.getJsonObject(json, "input2"));
+            }
+            else
+            {
+                input2 = Ingredient.EMPTY;
+            }
+
+            if (json.has("input3"))
+            {
+                input3 = AlloyPlantRecipe.deserializeIn(JSONUtils.getJsonObject(json, "input3"));
+            }
+            else
+            {
+                input3 = Ingredient.EMPTY;
+            }
             ItemStack itemstack = AlloyPlantRecipe.deserializeItem(JSONUtils.getJsonObject(json, "result"));
 
             NonNullList<Ingredient> inputs = NonNullList.create();

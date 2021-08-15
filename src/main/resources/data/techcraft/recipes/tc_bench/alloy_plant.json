@@ -10,7 +10,7 @@
   ],
   "key": {
     "X": {
-      "item": "techcraft:bronze_plate"
+      "tag": "forge:plates/bronze"
     },
     "Y": {
       "item": "minecraft:furnace"

@@ -1,7 +1,7 @@
 {
   "type": "techcraft:wire_shaper",
   "input": {
-    "item": "techcraft:iron_plate"
+    "tag": "forge:plates/iron"
   },
   "result": {
     "item": "techcraft:iron_wire"

@@ -1,14 +1,11 @@
 {
   "type": "techcraft:alloy_plant",
   "input1": {
-    "item": "techcraft:copper_ingot",
+    "tag": "forge:ingots/copper",
     "count": 3
   },
   "input2": {
-    "item": "techcraft:tin_ingot"
-  },
-  "input3": {
-    "item": "minecraft:air"
+    "tag": "forge:ingots/tin"
   },
   "result": {
     "item": "techcraft:bronze_ingot",

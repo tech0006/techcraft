@@ -92,17 +92,7 @@ public class WireShaperRecipe implements IWireShaperRecipe {
     }
 
     private static Ingredient deserializeIn(JsonObject p_199798_0_) {
-
-        String s = JSONUtils.getString(p_199798_0_, "item");
-        Item item = Registry.ITEM.getValue(new ResourceLocation(s)).orElseThrow(() -> {
-            return new JsonSyntaxException("Unknown item '" + s + "'");
-        });
-        if (p_199798_0_.has("data")) {
-            throw new JsonParseException("Disallowed data tag found");
-        } else {
-            int i = JSONUtils.getInt(p_199798_0_, "count", 1);
-            return Ingredient.fromStacks(net.minecraftforge.common.crafting.CraftingHelper.getItemStack(p_199798_0_, true));
-        }
+        return Ingredient.deserialize(p_199798_0_);
     }
 
     public static class WireShaperRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<WireShaperRecipe> {

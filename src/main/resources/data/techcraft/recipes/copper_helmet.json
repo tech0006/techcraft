@@ -6,7 +6,7 @@
   ],
   "key": {
     "X": {
-      "item": "techcraft:copper_ingot"
+      "tag": "forge:ingots/copper"
     }
   },
   "result": {

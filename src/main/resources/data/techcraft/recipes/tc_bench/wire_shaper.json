@@ -10,7 +10,7 @@
   ],
   "key": {
     "X": {
-      "item": "techcraft:iron_plate"
+      "tag": "forge:plates/iron"
     },
     "I": {
       "item": "minecraft:stick"

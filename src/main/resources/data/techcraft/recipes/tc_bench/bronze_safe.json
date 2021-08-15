@@ -10,10 +10,10 @@
   ],
   "key": {
     "X": {
-      "item": "techcraft:bronze_plate"
+      "tag": "forge:plates/bronze"
     },
     "Y": {
-      "item": "techcraft:bronze_ingot"
+      "tag": "forge:ingots/bronze"
     },
     "Z": {
       "item": "minecraft:chest"

@@ -7,16 +7,16 @@
   ],
   "key": {
     "X": {
-      "item": "techcraft:iron_plate"
+      "tag": "forge:plates/iron"
     },
     "#": {
-      "item": "techcraft:copper_plate"
+      "tag": "forge:plates/copper"
     },
     "Y": {
       "item": "minecraft:crafting_table"
     },
     "Q": {
-      "item": "techcraft:tin_plate"
+      "tag": "forge:plates/tin"
     },
     "Z": {
       "item": "minecraft:iron_block"
