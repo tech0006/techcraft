@@ -2,6 +2,7 @@ package com.tech0006.techcraft.util.handler;
 
 import com.tech0006.techcraft.blocks.TileEntity.update.UpdateAlloyPlant;
 import com.tech0006.techcraft.blocks.TileEntity.update.UpdateCoalGenerator;
+import com.tech0006.techcraft.blocks.TileEntity.update.UpdateElectricCrusher;
 import com.tech0006.techcraft.blocks.TileEntity.update.UpdateElectricFurnace;
 import com.tech0006.techcraft.techcraft;
 import net.minecraft.util.ResourceLocation;
@@ -42,7 +43,11 @@ public class PacketHandler {
                 UpdateAlloyPlant::new,
                 UpdateAlloyPlant::handle,
                 Optional.of(NetworkDirection.PLAY_TO_CLIENT));
+        INSTANCE.registerMessage(id++,
+                UpdateElectricCrusher.class,
+                UpdateElectricCrusher::toBytes,
+                UpdateElectricCrusher::new,
+                UpdateElectricCrusher::handle,
+                Optional.of(NetworkDirection.PLAY_TO_CLIENT));
     }
-
-    ;
 }

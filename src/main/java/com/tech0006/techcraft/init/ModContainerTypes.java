@@ -49,4 +49,14 @@ public class ModContainerTypes {
             () -> IForgeContainerType.create(WireShaperContainer::new));
     public static final RegistryObject<ContainerType<AlloyPlantContainer>> ALLOY_PLANT = CONTAINER_TYPES.register("alloy_plant",
             () -> IForgeContainerType.create(AlloyPlantContainer::new));
+
+    public static final RegistryObject<ContainerType<ElectricCrusherContainer>> ELECTRIC_CRUSHER = CONTAINER_TYPES.register("electric_crusher",
+            () -> IForgeContainerType.create((windowId, inv, data) ->
+            {
+                return new ElectricCrusherContainer(ModContainerTypes.ELECTRIC_CRUSHER.get(),
+                        windowId,
+                        techcraft.proxy.getClientWorld(),
+                        data.readBlockPos(),
+                        techcraft.proxy.getClientPlayer());
+            }));
 }

@@ -1,9 +1,9 @@
 {
   "credit": "Made with Blockbench",
   "textures": {
-    "0": "techcraft:block/texture",
-    "1": "techcraft:block/texture1",
-    "particle": "techcraft:block/texture"
+    "0": "techcraft:block/tc_forge_down",
+    "1": "techcraft:block/tc_forge_up",
+    "particle": "techcraft:block/tc_forge_down"
   },
   "elements": [
     {

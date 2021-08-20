@@ -225,4 +225,19 @@ public class Items {
     public static final RegistryObject<Item> ALLOY_PLANT = ITEMS.register("alloy_plant",
             () -> new BlockItem(Blocks.ALLOY_PLANT.get(),
                     new Item.Properties().tab(Groups.techcraft_mechanism_tab)));
+
+    public static final RegistryObject<Item> COPPER_DUST = ITEMS.register("copper_dust",
+            () -> new Item(new Item.Properties().tab(Groups.techcraft_components_tab)));
+    public static final RegistryObject<Item> TIN_DUST = ITEMS.register("tin_dust",
+            () -> new Item(new Item.Properties().tab(Groups.techcraft_components_tab)));
+    public static final RegistryObject<Item> BRONZE_DUST = ITEMS.register("bronze_dust",
+            () -> new Item(new Item.Properties().tab(Groups.techcraft_components_tab)));
+    public static final RegistryObject<Item> IRON_DUST = ITEMS.register("iron_dust",
+            () -> new Item(new Item.Properties().tab(Groups.techcraft_components_tab)));
+    public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust",
+            () -> new Item(new Item.Properties().tab(Groups.techcraft_components_tab)));
+
+    public static final RegistryObject<Item> ELECTRIC_CRUSHER = ITEMS.register("electric_crusher",
+            () -> new BlockItem(Blocks.ELECTRIC_CRUSHER.get(),
+                    new Item.Properties().tab(Groups.techcraft_mechanism_tab)));
 }

@@ -88,5 +88,12 @@
   "container.techcraft.wire_shaper": "Wire shaper",
   "block.techcraft.alloy_plant": "Alloy plant",
   "item.techcraft.alloy_plant": "Alloy plant",
-  "container.techcraft.alloy_plant": "Alloy plant"
+  "container.techcraft.alloy_plant": "Alloy plant",
+  "block.techcraft.electric_crusher": "Electric crusher",
+  "item.techcraft.electric_crusher": "Electric crusher",
+  "item.techcraft.copper_dust": "Copper dust",
+  "item.techcraft.tin_dust": "Tin dust",
+  "item.techcraft.bronze_dust": "Bronze dust",
+  "item.techcraft.iron_dust": "Iron dust",
+  "item.techcraft.gold_dust": "Gold dust"
 }

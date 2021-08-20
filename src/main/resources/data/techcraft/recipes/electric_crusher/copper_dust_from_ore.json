@@ -1,0 +1,10 @@
+{
+  "type": "techcraft:electric_crusher",
+  "input": {
+    "tag": "forge:ores/copper"
+  },
+  "result": {
+    "item": "techcraft:copper_dust",
+    "count": 2
+  }
+}

@@ -1,8 +1,9 @@
-package com.tech0006.techcraft.recipes.tc_forge;
+package com.tech0006.techcraft.recipes.electric_crusher;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
+import com.tech0006.techcraft.blocks.ElectricCrusher;
 import com.tech0006.techcraft.init.RecipeSerializerInit;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,13 +18,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
-public class TCforgeRecipe implements ITCforgeRecipe {
+public class ElectricCrusherRecipe implements IElectricCrusherRecipe {
     private final Ingredient recipeItem;
     private final ItemStack recipeOutput;
     private final ResourceLocation id;
     private final String group;
 
-    public TCforgeRecipe(Ingredient recipeItem, ItemStack recipeOutput, ResourceLocation id, String group) {
+    public ElectricCrusherRecipe(Ingredient recipeItem, ItemStack recipeOutput, ResourceLocation id, String group) {
         this.recipeItem = recipeItem;
         this.recipeOutput = recipeOutput;
         this.id = id;
@@ -58,7 +59,7 @@ public class TCforgeRecipe implements ITCforgeRecipe {
 
     @Override
     public IRecipeSerializer<?> getSerializer() {
-        return RecipeSerializerInit.TC_FORGE_RECIPE_SERIALIZER;
+        return RecipeSerializerInit.ELECTRIC_CRUSHER_RECIPE_SERIALIZER;
     }
 
     @Override
@@ -95,17 +96,17 @@ public class TCforgeRecipe implements ITCforgeRecipe {
         return Ingredient.fromJson(p_199798_0_);
     }
 
-    public static class TCforgeRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<TCforgeRecipe> {
-        private static final ResourceLocation NAME = new ResourceLocation("techcraft", "tc_forge");
+    public static class ElectricCrusherRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<ElectricCrusherRecipe> {
+        private static final ResourceLocation NAME = new ResourceLocation("techcraft", "electric_crusher");
 
-        public TCforgeRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
+        public ElectricCrusherRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
             String s = JSONUtils.getAsString(json, "group", "");
-            Ingredient input = TCforgeRecipe.deserializeIn(JSONUtils.getAsJsonObject(json, "input"));
-            ItemStack itemstack = TCforgeRecipe.deserializeItem(JSONUtils.getAsJsonObject(json, "result"));
-            return new TCforgeRecipe(input, itemstack, recipeId, s);
+            Ingredient input = ElectricCrusherRecipe.deserializeIn(JSONUtils.getAsJsonObject(json, "input"));
+            ItemStack itemstack = ElectricCrusherRecipe.deserializeItem(JSONUtils.getAsJsonObject(json, "result"));
+            return new ElectricCrusherRecipe(input, itemstack, recipeId, s);
         }
 
-        public TCforgeRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
+        public ElectricCrusherRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
             String s = buffer.readUtf(32767);
             Ingredient ing = Ingredient.EMPTY;
 
@@ -113,10 +114,10 @@ public class TCforgeRecipe implements ITCforgeRecipe {
 
 
             ItemStack itemstack = buffer.readItem();
-            return new TCforgeRecipe(ing, itemstack, recipeId, s);
+            return new ElectricCrusherRecipe(ing, itemstack, recipeId, s);
         }
 
-        public void toNetwork(PacketBuffer buffer, TCforgeRecipe recipe) {
+        public void toNetwork(PacketBuffer buffer, ElectricCrusherRecipe recipe) {
             buffer.writeUtf(recipe.group);
             Ingredient ingredient = recipe.recipeItem;
             ingredient.toNetwork(buffer);

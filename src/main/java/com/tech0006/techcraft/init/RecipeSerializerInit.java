@@ -1,8 +1,11 @@
 package com.tech0006.techcraft.init;
 
+import com.tech0006.techcraft.blocks.ElectricCrusher;
 import com.tech0006.techcraft.blocks.WireShaper;
 import com.tech0006.techcraft.recipes.alloy_plant.AlloyPlantRecipe;
 import com.tech0006.techcraft.recipes.alloy_plant.IAlloyPlantRecipe;
+import com.tech0006.techcraft.recipes.electric_crusher.ElectricCrusherRecipe;
+import com.tech0006.techcraft.recipes.electric_crusher.IElectricCrusherRecipe;
 import com.tech0006.techcraft.recipes.tc_bench.ITCbenchRecipe;
 import com.tech0006.techcraft.recipes.tc_bench.TCbenchRecipe;
 import com.tech0006.techcraft.recipes.tc_forge.ITCforgeRecipe;
@@ -34,6 +37,8 @@ public class RecipeSerializerInit {
     public static final IRecipeSerializer<AlloyPlantRecipe> ALLOY_PLANT_RECIPE_SERIALIZER = new AlloyPlantRecipe.AlloyPlantRecipeSerializer();
     public static final IRecipeType<IAlloyPlantRecipe> ALLOY_PLANT_TYPE = registerType(IAlloyPlantRecipe.RECIPE_TYPE_ID);
 
+    public static final IRecipeSerializer<ElectricCrusherRecipe> ELECTRIC_CRUSHER_RECIPE_SERIALIZER = new ElectricCrusherRecipe.ElectricCrusherRecipeSerializer();
+    public static final IRecipeType<IElectricCrusherRecipe> ELECTRIC_CRUSHER_TYPE = registerType(IElectricCrusherRecipe.RECIPE_TYPE_ID);
 
     public static final DeferredRegister<IRecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(
             ForgeRegistries.RECIPE_SERIALIZERS, techcraft.MOD_ID);
@@ -48,6 +53,8 @@ public class RecipeSerializerInit {
     public static final RegistryObject<IRecipeSerializer<?>> ALLOY_PLANT_SERIALIZER = RECIPE_SERIALIZERS.register("alloy_plant",
             () -> ALLOY_PLANT_RECIPE_SERIALIZER);
 
+    public static final RegistryObject<IRecipeSerializer<?>> ELECTRIC_CRUSHER_SERIALIZER = RECIPE_SERIALIZERS.register("electric_crusher",
+            () -> ELECTRIC_CRUSHER_RECIPE_SERIALIZER);
 
     private static class RecipeType<T extends IRecipe<?>> implements IRecipeType<T> {
         @Override

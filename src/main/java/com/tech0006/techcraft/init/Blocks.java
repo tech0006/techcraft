@@ -118,4 +118,11 @@ public class Blocks {
                     .harvestLevel(0)
                     .sound(SoundType.METAL)));
 
+    public static final RegistryObject<ElectricCrusher> ELECTRIC_CRUSHER = BLOCKS.register("electric_crusher",
+            () -> new ElectricCrusher(Block.Properties.of(Material.METAL)
+                    .strength(3.0f, 3.0f)
+                    .harvestTool(ToolType.PICKAXE)
+                    .harvestLevel(0)
+                    .sound(SoundType.METAL)));
+
 }

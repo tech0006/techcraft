@@ -4,7 +4,7 @@ license="See Curseforge for details"
 
 [[mods]]
     modId = "techcraft"
-    version = "1.16.5-0.0.7"
+    version = "1.16.5-0.0.8"
     displayName = "Techcraft"
     displayURL = "https://www.curseforge.com/minecraft/mc-mods/tc-techcraft"
     authors = "tech0006"

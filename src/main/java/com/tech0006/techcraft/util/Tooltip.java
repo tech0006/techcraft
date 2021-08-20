@@ -27,6 +27,14 @@ public class Tooltip {
             addInformationLocalized(tooltip, "message.techcraft.hold_ctrl", "");
     }
 
+    public static void showInfoCtrlElectricCrusher(int energy, List<ITextComponent> tooltip) {
+        if (Screen.hasControlDown()) {
+            String s = "Energy: " + energy;
+            addInformationLocalized(tooltip, "message.techcraft.ctrl_info", s);
+        } else
+            addInformationLocalized(tooltip, "message.techcraft.hold_ctrl", "");
+    }
+
     private static void addInformationLocalized(List<ITextComponent> tooltip, String key, String parameters) {
         String translated = I18n.get(key) + parameters;
         translated = COMPILE.matcher(translated).replaceAll("\u00a7");

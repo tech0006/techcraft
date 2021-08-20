@@ -1,0 +1,10 @@
+{
+  "type": "techcraft:electric_crusher",
+  "input": {
+    "tag": "forge:ores/tin"
+  },
+  "result": {
+    "item": "techcraft:tin_dust",
+    "count": 2
+  }
+}

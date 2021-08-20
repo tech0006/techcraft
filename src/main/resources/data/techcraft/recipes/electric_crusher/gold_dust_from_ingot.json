@@ -1,0 +1,9 @@
+{
+  "type": "techcraft:electric_crusher",
+  "input": {
+    "item": "minecraft:gold_ingot"
+  },
+  "result": {
+    "item": "techcraft:gold_dust"
+  }
+}

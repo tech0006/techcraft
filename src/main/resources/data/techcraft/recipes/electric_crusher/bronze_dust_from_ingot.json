@@ -1,0 +1,9 @@
+{
+  "type": "techcraft:electric_crusher",
+  "input": {
+    "tag": "forge:ingots/bronze"
+  },
+  "result": {
+    "item": "techcraft:bronze_dust"
+  }
+}
