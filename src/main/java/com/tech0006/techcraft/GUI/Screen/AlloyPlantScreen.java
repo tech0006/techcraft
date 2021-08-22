@@ -29,7 +29,7 @@ public class AlloyPlantScreen extends ContainerScreen<AlloyPlantContainer> {
         super.render(ms, mouseX, mouseY, partialTicks);
         this.renderTooltip(ms, mouseX, mouseY);
         if (mouseX > leftPos + 7 && mouseX < leftPos + 29 && mouseY > topPos + 10 && mouseY < topPos + 77)
-            this.renderTooltip(ms, new StringTextComponent("Fluid: " + getPercent() + "%  " + tile.getFluid() + "/" + tile.getFluidMax()), mouseX, mouseY);
+            this.renderTooltip(ms, new StringTextComponent("Lava: " + getPercent() + "%  " + tile.getFluid() + "/" + tile.getFluidMax()), mouseX, mouseY);
     }
 
     @Override

@@ -14,6 +14,8 @@ import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.AbstractCookingRecipe;
+import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.util.ResourceLocation;
 
 @JeiPlugin
@@ -33,6 +35,7 @@ public class Plugin implements IModPlugin {
         registration.addRecipeCategories(new WireShaperRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new AlloyPlantRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new ElectricCrusherRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new ElectricFurnaceRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
@@ -43,6 +46,8 @@ public class Plugin implements IModPlugin {
         registration.addRecipes(WireShaperTileEntity.findRecipesByType(RecipeSerializerInit.WIRE_SHAPER_TYPE), WireShaperRecipeCategory.UID);
         registration.addRecipes(AlloyPlantTileEntity.findRecipesByType(RecipeSerializerInit.ALLOY_PLANT_TYPE), AlloyPlantRecipeCategory.UID);
         registration.addRecipes(ElectricCrusherTileEntity.findRecipesByType(RecipeSerializerInit.ELECTRIC_CRUSHER_TYPE), ElectricCrusherRecipeCategory.UID);
+        registration.addRecipes(ElectricFurnaceTileEntity.findRecipesByType(IRecipeType.BLASTING), ElectricFurnaceRecipeCategory.UID);
+        registration.addRecipes(ElectricFurnaceTileEntity.findRecipesByType(IRecipeType.SMELTING), ElectricFurnaceRecipeCategory.UID);
     }
 
     @Override
@@ -63,6 +68,9 @@ public class Plugin implements IModPlugin {
 
         stack = new ItemStack(Items.ELECTRIC_CRUSHER.get(), 1);
         registration.addRecipeCatalyst(stack, ElectricCrusherRecipeCategory.UID);
+
+        stack = new ItemStack(Items.ELECTRIC_FURNACE.get(), 1);
+        registration.addRecipeCatalyst(stack, ElectricFurnaceRecipeCategory.UID);
     }
 
 }

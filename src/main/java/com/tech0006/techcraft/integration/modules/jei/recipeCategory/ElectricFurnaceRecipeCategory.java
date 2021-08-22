@@ -14,14 +14,15 @@ import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.AbstractCookingRecipe;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ElectricCrusherRecipeCategory implements IRecipeCategory<ElectricCrusherRecipe> {
+public class ElectricFurnaceRecipeCategory implements IRecipeCategory<AbstractCookingRecipe> {
 
-    public static final ResourceLocation UID = new ResourceLocation(techcraft.MOD_ID, "electric_crusher");
+    public static final ResourceLocation UID = new ResourceLocation(techcraft.MOD_ID, "electric_furnace");
 
     private final String localizedName;
 
@@ -31,10 +32,10 @@ public class ElectricCrusherRecipeCategory implements IRecipeCategory<ElectricCr
 
     private final IDrawableAnimated arrow, energyBar;
 
-    public ElectricCrusherRecipeCategory(IGuiHelper guiHelper) {
-        this.localizedName = I18n.get("block.techcraft.electric_crusher");
+    public ElectricFurnaceRecipeCategory(IGuiHelper guiHelper) {
+        this.localizedName = I18n.get("block.techcraft.electric_furnace");
 
-        ResourceLocation location = new ResourceLocation(techcraft.MOD_ID, "textures/gui/electric_crusher.png");
+        ResourceLocation location = new ResourceLocation(techcraft.MOD_ID, "textures/gui/electric_furnace.png");
         this.background = guiHelper.createDrawable(location, 8, 10, 116, 66);
 
         this.icon = guiHelper.createDrawableIngredient(new ItemStack(Items.ELECTRIC_CRUSHER.get(), 1));
@@ -44,7 +45,7 @@ public class ElectricCrusherRecipeCategory implements IRecipeCategory<ElectricCr
     }
 
     @Override
-    public void draw(ElectricCrusherRecipe recipe, MatrixStack matrixStack, double mouseX, double mouseY) {
+    public void draw(AbstractCookingRecipe recipe, MatrixStack matrixStack, double mouseX, double mouseY) {
         IRecipeCategory.super.draw(recipe, matrixStack, mouseX, mouseY);
         this.arrow.draw(matrixStack, 66, 19);
         this.energyBar.draw(matrixStack, 2, 2);
@@ -56,8 +57,8 @@ public class ElectricCrusherRecipeCategory implements IRecipeCategory<ElectricCr
     }
 
     @Override
-    public Class<? extends ElectricCrusherRecipe> getRecipeClass() {
-        return ElectricCrusherRecipe.class;
+    public Class<? extends AbstractCookingRecipe> getRecipeClass() {
+        return AbstractCookingRecipe.class;
     }
 
     @Override
@@ -76,7 +77,7 @@ public class ElectricCrusherRecipeCategory implements IRecipeCategory<ElectricCr
     }
 
     @Override
-    public void setIngredients(ElectricCrusherRecipe recipe, IIngredients iIngredients) {
+    public void setIngredients(AbstractCookingRecipe recipe, IIngredients iIngredients) {
         iIngredients.setInputIngredients(recipe.getIngredients().subList(0, recipe.getIngredients().size()));
         List<ItemStack> outputs = new ArrayList<>(1);
         outputs.add(recipe.getResultItem());
@@ -84,7 +85,7 @@ public class ElectricCrusherRecipeCategory implements IRecipeCategory<ElectricCr
     }
 
     @Override
-    public void setRecipe(IRecipeLayout recipeLayout, ElectricCrusherRecipe recipe, IIngredients ingredients) {
+    public void setRecipe(IRecipeLayout recipeLayout, AbstractCookingRecipe recipe, IIngredients ingredients) {
         IGuiItemStackGroup itemStacks = recipeLayout.getItemStacks();
 
         itemStacks.init(0, true, 41, 19);
