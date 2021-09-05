@@ -6,7 +6,6 @@ import com.tech0006.techcraft.init.ModTileEntityTypes;
 import com.tech0006.techcraft.init.RecipeSerializerInit;
 import com.tech0006.techcraft.recipes.tc_forge.TCforgeRecipe;
 import com.tech0006.techcraft.techcraft;
-
 import com.tech0006.techcraft.util.handler.TCItemHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.Minecraft;

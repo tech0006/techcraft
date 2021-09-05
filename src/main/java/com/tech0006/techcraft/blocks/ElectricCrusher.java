@@ -1,7 +1,6 @@
 package com.tech0006.techcraft.blocks;
 
 import com.tech0006.techcraft.blocks.TileEntity.ElectricCrusherTileEntity;
-import com.tech0006.techcraft.blocks.TileEntity.ElectricFurnaceTileEntity;
 import com.tech0006.techcraft.blocks.base.FacedBlock;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
 import com.tech0006.techcraft.util.Tooltip;

@@ -3,7 +3,6 @@ package com.tech0006.techcraft.recipes.electric_crusher;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
-import com.tech0006.techcraft.blocks.ElectricCrusher;
 import com.tech0006.techcraft.init.RecipeSerializerInit;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

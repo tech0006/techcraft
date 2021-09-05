@@ -2,7 +2,6 @@ package com.tech0006.techcraft.integration.modules.jei.recipeCategory;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.tech0006.techcraft.init.Items;
-import com.tech0006.techcraft.recipes.electric_crusher.ElectricCrusherRecipe;
 import com.tech0006.techcraft.techcraft;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.IRecipeLayout;

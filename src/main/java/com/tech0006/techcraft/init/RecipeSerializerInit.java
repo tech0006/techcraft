@@ -1,7 +1,5 @@
 package com.tech0006.techcraft.init;
 
-import com.tech0006.techcraft.blocks.ElectricCrusher;
-import com.tech0006.techcraft.blocks.WireShaper;
 import com.tech0006.techcraft.recipes.alloy_plant.AlloyPlantRecipe;
 import com.tech0006.techcraft.recipes.alloy_plant.IAlloyPlantRecipe;
 import com.tech0006.techcraft.recipes.electric_crusher.ElectricCrusherRecipe;

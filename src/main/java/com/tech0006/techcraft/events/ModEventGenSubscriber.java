@@ -1,7 +1,6 @@
 package com.tech0006.techcraft.events;
 
 import com.tech0006.techcraft.init.Blocks;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;

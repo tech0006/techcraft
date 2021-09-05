@@ -11,8 +11,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 
-import java.util.Collections;
-
 public class CoalGeneratorScreen extends ContainerScreen<CoalGeneratorContainer> {
 
     private static final ResourceLocation TEXTURES = new ResourceLocation(techcraft.MOD_ID, "textures/gui/coal_generator.png");

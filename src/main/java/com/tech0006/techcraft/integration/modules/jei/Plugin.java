@@ -1,9 +1,7 @@
 package com.tech0006.techcraft.integration.modules.jei;
 
 
-import com.tech0006.techcraft.blocks.ElectricCrusher;
 import com.tech0006.techcraft.blocks.TileEntity.*;
-import com.tech0006.techcraft.blocks.WireShaper;
 import com.tech0006.techcraft.init.Items;
 import com.tech0006.techcraft.init.RecipeSerializerInit;
 import com.tech0006.techcraft.integration.modules.jei.recipeCategory.*;
@@ -14,7 +12,6 @@ import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.AbstractCookingRecipe;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.util.ResourceLocation;
 

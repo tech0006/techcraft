@@ -240,4 +240,8 @@ public class Items {
     public static final RegistryObject<Item> ELECTRIC_CRUSHER = ITEMS.register("electric_crusher",
             () -> new BlockItem(Blocks.ELECTRIC_CRUSHER.get(),
                     new Item.Properties().tab(Groups.techcraft_mechanism_tab)));
+
+    public static final RegistryObject<Item> ENERGY_PIPE = ITEMS.register("energy_pipe",
+            () -> new BlockItem(Blocks.ENERGY_PIPE.get(),
+                    new Item.Properties().tab(Groups.techcraft_transport_tab)));
 }

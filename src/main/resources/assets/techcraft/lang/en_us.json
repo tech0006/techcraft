@@ -95,5 +95,7 @@
   "item.techcraft.tin_dust": "Tin dust",
   "item.techcraft.bronze_dust": "Bronze dust",
   "item.techcraft.iron_dust": "Iron dust",
-  "item.techcraft.gold_dust": "Gold dust"
+  "item.techcraft.gold_dust": "Gold dust",
+  "item.techcraft.energy_pipe": "Energy cable (Experimental)",
+  "block.techcraft.energy_pipe": "Energy cable (Experimental)"
 }

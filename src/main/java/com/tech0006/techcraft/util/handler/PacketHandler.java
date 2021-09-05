@@ -1,9 +1,6 @@
 package com.tech0006.techcraft.util.handler;
 
-import com.tech0006.techcraft.blocks.TileEntity.update.UpdateAlloyPlant;
-import com.tech0006.techcraft.blocks.TileEntity.update.UpdateCoalGenerator;
-import com.tech0006.techcraft.blocks.TileEntity.update.UpdateElectricCrusher;
-import com.tech0006.techcraft.blocks.TileEntity.update.UpdateElectricFurnace;
+import com.tech0006.techcraft.blocks.TileEntity.update.*;
 import com.tech0006.techcraft.techcraft;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.network.NetworkDirection;
@@ -48,6 +45,12 @@ public class PacketHandler {
                 UpdateElectricCrusher::toBytes,
                 UpdateElectricCrusher::new,
                 UpdateElectricCrusher::handle,
+                Optional.of(NetworkDirection.PLAY_TO_CLIENT));
+        INSTANCE.registerMessage(id++,
+                UpdateEnergyPipe.class,
+                UpdateEnergyPipe::toBytes,
+                UpdateEnergyPipe::new,
+                UpdateEnergyPipe::handle,
                 Optional.of(NetworkDirection.PLAY_TO_CLIENT));
     }
 }

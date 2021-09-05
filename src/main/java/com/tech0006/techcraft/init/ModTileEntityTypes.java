@@ -27,6 +27,7 @@ public class ModTileEntityTypes {
 
     public static final RegistryObject<TileEntityType<CoalGeneratorTileEntity>> COAL_GENERATOR = TILE_ENTITY_TYPES.register("coal_generator",
             () -> TileEntityType.Builder.of(CoalGeneratorTileEntity::new, Blocks.COAL_GENERATOR.get()).build(null));
+
     public static final RegistryObject<TileEntityType<ElectricFurnaceTileEntity>> ELECTRIC_FURNACE = TILE_ENTITY_TYPES.register("electric_furnace",
             () -> TileEntityType.Builder.of(ElectricFurnaceTileEntity::new, Blocks.ELECTRIC_FURNACE.get()).build(null));
 
@@ -37,4 +38,7 @@ public class ModTileEntityTypes {
 
     public static final RegistryObject<TileEntityType<ElectricCrusherTileEntity>> ELECTRIC_CRUSHER = TILE_ENTITY_TYPES.register("electric_crusher",
             () -> TileEntityType.Builder.of(ElectricCrusherTileEntity::new, Blocks.ELECTRIC_CRUSHER.get()).build(null));
+
+    public static final RegistryObject<TileEntityType<EnergyPipeTileEntity>> ENERGY_PIPE = TILE_ENTITY_TYPES.register("energy_pipe",
+            () -> TileEntityType.Builder.of(EnergyPipeTileEntity::new, Blocks.ENERGY_PIPE.get()).build(null));
 }

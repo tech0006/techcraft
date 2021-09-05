@@ -1,8 +1,8 @@
 package com.tech0006.techcraft.util.tools;
 
-public class GeneratorEnergy extends EnergyPart {
+public class PipeEnergy extends EnergyPart {
 
-    public GeneratorEnergy(int max) {
+    public PipeEnergy(int max) {
         super(max);
     }
 
@@ -21,12 +21,17 @@ public class GeneratorEnergy extends EnergyPart {
 
     @Override
     public boolean canReceive() {
-        return false;
+        return true;
     }
 
     @Override
     public int receiveEnergy(int maxReceive, boolean simulate) {
-        return 0;
+        if (maxReceive <= 0) return 0;
+        int r = Math.min(maxReceive, max - stored);
+        if (r > 0 && !simulate) {
+            stored += r;
+        }
+        return r;
     }
 
     @Override

@@ -95,5 +95,7 @@
   "item.techcraft.tin_dust": "Оловянная пыль",
   "item.techcraft.bronze_dust": "Бронзовая пыль",
   "item.techcraft.iron_dust": "Железная пыль",
-  "item.techcraft.gold_dust": "Золотая пыль"
+  "item.techcraft.gold_dust": "Золотая пыль",
+  "item.techcraft.energy_pipe": "Энергетическая кабель (Экспериментально)",
+  "block.techcraft.energy_pipe": "Энергетическая кабель (Экспериментально)"
 }

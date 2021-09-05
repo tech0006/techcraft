@@ -7,7 +7,6 @@ import com.tech0006.techcraft.blocks.TileEntity.update.UpdateElectricFurnace;
 import com.tech0006.techcraft.init.ModContainerTypes;
 import com.tech0006.techcraft.init.ModTileEntityTypes;
 import com.tech0006.techcraft.util.handler.PacketHandler;
-
 import com.tech0006.techcraft.util.handler.TCItemHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.Minecraft;
