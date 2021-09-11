@@ -37,11 +37,19 @@ public class EnergyPipeTileEntity extends PipeTile {
         }
     }
 
+    public int getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
+    }
+
     private void sendEnergy() {
         AtomicInteger capacity = new AtomicInteger(getEnergyStored());
 
-        for (int i = 0; (i < Direction.values().length) && (capacity.get() > 0); i++) {
+        boolean[] sides = new boolean[6];
+        for (boolean side : sides) { side = false; }
+
+        for (int i = getRandomNumber(0, 6); (i < Direction.values().length) && (capacity.get() > 0); i = getRandomNumber(0, 6)) {
             Direction facing = Direction.values()[i];
+            sides[i] = true;
             TileEntity tileEntity = level.getBlockEntity(worldPosition.relative(facing));
             if (tileEntity != null) {
                 tileEntity.getCapability(CapabilityEnergy.ENERGY, facing.getOpposite()).ifPresent(handler ->
@@ -52,6 +60,19 @@ public class EnergyPipeTileEntity extends PipeTile {
                         energy.use(received);
                     }
                 });
+            }
+
+            boolean flag = true;
+            for (boolean side : sides)
+            {
+                if (!side) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag)
+            {
+                return;
             }
         }
     }

@@ -2,7 +2,8 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "techcraft:block/energy_pipe_short",
-		"1": "techcraft:block/energy_pipe_long"
+		"1": "techcraft:block/energy_pipe_long",
+		"particle": "techcraft:block/energy_pipe_long"
 	},
 	"elements": [
 		{
