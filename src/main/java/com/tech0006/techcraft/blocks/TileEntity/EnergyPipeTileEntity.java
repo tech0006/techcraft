@@ -63,17 +63,8 @@ public class EnergyPipeTileEntity extends PipeTile {
             }
 
             boolean flag = true;
-            for (boolean side : sides)
-            {
-                if (!side) {
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag)
-            {
-                return;
-            }
+            for (boolean side : sides) { if (!side) { flag = false; break; } }
+            if (flag) { return; }
         }
     }
 
