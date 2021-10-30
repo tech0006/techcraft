@@ -1,6 +1,5 @@
 package com.tech0006.techcraft.blocks.TileEntity.base;
 
-import com.tech0006.techcraft.util.tools.MachineEnergy;
 import com.tech0006.techcraft.util.tools.PipeEnergy;
 import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundNBT;
@@ -14,6 +13,7 @@ import net.minecraftforge.energy.CapabilityEnergy;
 
 public abstract class PipeTile extends TileEntity implements ITickableTileEntity {
     protected final PipeEnergy energy = new PipeEnergy(5);
+    protected int use_val = 1;
 
 
     public PipeTile(TileEntityType tileEntityTypeIn) {

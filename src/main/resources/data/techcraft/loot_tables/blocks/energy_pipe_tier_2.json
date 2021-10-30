@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "techcraft:energy_pipe"
+          "name": "techcraft:energy_pipe_tier_2"
         }
       ],
       "conditions": [

@@ -1,0 +1,42 @@
+{
+  "multipart": [
+    {
+      "apply": {"model": "techcraft:block/energy_pipe_tier_3_base"}
+    }, {
+      "when": {
+        "north": true
+      },
+      "apply": {"model": "techcraft:block/energy_pipe_tier_3_multipart"}
+    },
+    {
+      "when": {
+        "east": true
+      },
+      "apply": {"model": "techcraft:block/energy_pipe_tier_3_multipart", "y": 90}
+    },
+    {
+      "when": {
+        "south": true
+      },
+      "apply": {"model": "techcraft:block/energy_pipe_tier_3_multipart", "x": 180}
+    },
+    {
+      "when": {
+        "west": true
+      },
+      "apply": {"model": "techcraft:block/energy_pipe_tier_3_multipart", "y": 270}
+    },
+    {
+      "when": {
+        "up": true
+      },
+      "apply": {"model": "techcraft:block/energy_pipe_tier_3_multipart", "x": 270}
+    },
+    {
+      "when": {
+        "down": true
+      },
+      "apply": {"model": "techcraft:block/energy_pipe_tier_3_multipart", "x": 90}
+    }
+  ]
+}

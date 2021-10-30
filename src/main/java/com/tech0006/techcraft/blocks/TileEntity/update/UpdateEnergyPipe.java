@@ -1,6 +1,6 @@
 package com.tech0006.techcraft.blocks.TileEntity.update;
 
-import com.tech0006.techcraft.blocks.TileEntity.CoalGeneratorTileEntity;
+import com.tech0006.techcraft.blocks.TileEntity.pipe.energy.EnergyPipeTileEntity;
 import com.tech0006.techcraft.techcraft;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
@@ -35,8 +35,8 @@ public class UpdateEnergyPipe {
             World world = techcraft.proxy.getClientWorld();
             if (world.isLoaded(pos)) {
                 TileEntity te = world.getBlockEntity(pos);
-                if (te instanceof CoalGeneratorTileEntity) {
-                    CoalGeneratorTileEntity gen = (CoalGeneratorTileEntity) te;
+                if (te instanceof EnergyPipeTileEntity) {
+                    EnergyPipeTileEntity gen = (EnergyPipeTileEntity) te;
                     gen.getEnergy().setStored(currentEnergy);
                 }
             }

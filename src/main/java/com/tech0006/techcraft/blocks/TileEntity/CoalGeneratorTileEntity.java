@@ -45,13 +45,13 @@ public class CoalGeneratorTileEntity extends GeneratorTile implements INamedCont
     public CoalGeneratorTileEntity(TileEntityType tileEntityTypeIn) {
         super(tileEntityTypeIn, 2);
         inventory = new TCItemHandler(4);
-        this.energyUse = -5;
+        this.energyUse = -10;
     }
 
     public CoalGeneratorTileEntity() {
         super(ModTileEntityTypes.COAL_GENERATOR.get(), 2);
         inventory = new TCItemHandler(4);
-        this.energyUse = -5;
+        this.energyUse = -10;
     }
 
     @Override

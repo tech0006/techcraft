@@ -4,7 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
-import org.lwjgl.system.CallbackI;
 
 public class BlockTransmitter  extends Block {
     public static final BooleanProperty UP = BooleanProperty.create("up");

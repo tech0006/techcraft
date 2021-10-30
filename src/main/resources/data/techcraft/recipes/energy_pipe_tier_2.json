@@ -10,10 +10,10 @@
       "tag": "minecraft:wool"
     },
     "X": {
-      "tag": "forge:wires"
+      "item": "techcraft:energy_pipe_tier_1"
     }
   },
   "result": {
-    "item": "techcraft:energy_pipe"
+    "item": "techcraft:energy_pipe_tier_2"
   }
 }

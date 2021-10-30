@@ -1,6 +1,10 @@
 package com.tech0006.techcraft.init;
 
 import com.tech0006.techcraft.blocks.*;
+import com.tech0006.techcraft.blocks.pipe.energy.tier_1.EnergyPipeTier1;
+import com.tech0006.techcraft.blocks.pipe.energy.tier_2.EnergyPipeTier2;
+import com.tech0006.techcraft.blocks.pipe.energy.tier_3.EnergyPipeTier3;
+import com.tech0006.techcraft.blocks.pipe.energy.tier_4.EnergyPipeTier4;
 import com.tech0006.techcraft.techcraft;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -125,8 +129,27 @@ public class Blocks {
                     .harvestLevel(2)
                     .sound(SoundType.METAL)));
 
-    public static final RegistryObject<EnergyPipe> ENERGY_PIPE = BLOCKS.register("energy_pipe",
-            () -> new EnergyPipe(Block.Properties.of(Material.METAL)
+    public static final RegistryObject<EnergyPipeTier1> ENERGY_PIPE_TIER_1 = BLOCKS.register("energy_pipe_tier_1",
+            () -> new EnergyPipeTier1(Block.Properties.of(Material.METAL)
+                    .strength(1.0f, 1.0f)
+                    .harvestTool(ToolType.PICKAXE)
+                    .harvestLevel(0)
+                    .sound(SoundType.METAL)));
+
+    public static final RegistryObject<EnergyPipeTier2> ENERGY_PIPE_TIER_2 = BLOCKS.register("energy_pipe_tier_2",
+            () -> new EnergyPipeTier2(Block.Properties.of(Material.METAL)
+                    .strength(1.0f, 1.0f)
+                    .harvestTool(ToolType.PICKAXE)
+                    .harvestLevel(0)
+                    .sound(SoundType.METAL)));
+    public static final RegistryObject<EnergyPipeTier3> ENERGY_PIPE_TIER_3 = BLOCKS.register("energy_pipe_tier_3",
+            () -> new EnergyPipeTier3(Block.Properties.of(Material.METAL)
+                    .strength(1.0f, 1.0f)
+                    .harvestTool(ToolType.PICKAXE)
+                    .harvestLevel(0)
+                    .sound(SoundType.METAL)));
+    public static final RegistryObject<EnergyPipeTier4> ENERGY_PIPE_TIER_4 = BLOCKS.register("energy_pipe_tier_4",
+            () -> new EnergyPipeTier4(Block.Properties.of(Material.METAL)
                     .strength(1.0f, 1.0f)
                     .harvestTool(ToolType.PICKAXE)
                     .harvestLevel(0)

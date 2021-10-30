@@ -2,6 +2,10 @@ package com.tech0006.techcraft.init;
 
 
 import com.tech0006.techcraft.blocks.TileEntity.*;
+import com.tech0006.techcraft.blocks.TileEntity.pipe.energy.tier_1.EnergyPipeTileEntityTier1;
+import com.tech0006.techcraft.blocks.TileEntity.pipe.energy.tier_2.EnergyPipeTileEntityTier2;
+import com.tech0006.techcraft.blocks.TileEntity.pipe.energy.tier_3.EnergyPipeTileEntityTier3;
+import com.tech0006.techcraft.blocks.TileEntity.pipe.energy.tier_4.EnergyPipeTileEntityTier4;
 import com.tech0006.techcraft.techcraft;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
@@ -39,6 +43,12 @@ public class ModTileEntityTypes {
     public static final RegistryObject<TileEntityType<ElectricCrusherTileEntity>> ELECTRIC_CRUSHER = TILE_ENTITY_TYPES.register("electric_crusher",
             () -> TileEntityType.Builder.of(ElectricCrusherTileEntity::new, Blocks.ELECTRIC_CRUSHER.get()).build(null));
 
-    public static final RegistryObject<TileEntityType<EnergyPipeTileEntity>> ENERGY_PIPE = TILE_ENTITY_TYPES.register("energy_pipe",
-            () -> TileEntityType.Builder.of(EnergyPipeTileEntity::new, Blocks.ENERGY_PIPE.get()).build(null));
+    public static final RegistryObject<TileEntityType<EnergyPipeTileEntityTier1>> ENERGY_PIPE_TIER_1 = TILE_ENTITY_TYPES.register("energy_pipe_tier_1",
+            () -> TileEntityType.Builder.of(EnergyPipeTileEntityTier1::new, Blocks.ENERGY_PIPE_TIER_1.get()).build(null));
+    public static final RegistryObject<TileEntityType<EnergyPipeTileEntityTier2>> ENERGY_PIPE_TIER_2 = TILE_ENTITY_TYPES.register("energy_pipe_tier_2",
+            () -> TileEntityType.Builder.of(EnergyPipeTileEntityTier2::new, Blocks.ENERGY_PIPE_TIER_2.get()).build(null));
+    public static final RegistryObject<TileEntityType<EnergyPipeTileEntityTier3>> ENERGY_PIPE_TIER_3 = TILE_ENTITY_TYPES.register("energy_pipe_tier_3",
+            () -> TileEntityType.Builder.of(EnergyPipeTileEntityTier3::new, Blocks.ENERGY_PIPE_TIER_3.get()).build(null));
+    public static final RegistryObject<TileEntityType<EnergyPipeTileEntityTier4>> ENERGY_PIPE_TIER_4 = TILE_ENTITY_TYPES.register("energy_pipe_tier_4",
+            () -> TileEntityType.Builder.of(EnergyPipeTileEntityTier4::new, Blocks.ENERGY_PIPE_TIER_4.get()).build(null));
 }

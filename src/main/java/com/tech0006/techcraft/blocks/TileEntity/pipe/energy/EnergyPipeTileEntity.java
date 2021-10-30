@@ -1,8 +1,7 @@
-package com.tech0006.techcraft.blocks.TileEntity;
+package com.tech0006.techcraft.blocks.TileEntity.pipe.energy;
 
 import com.tech0006.techcraft.blocks.TileEntity.base.PipeTile;
 import com.tech0006.techcraft.blocks.TileEntity.update.UpdateEnergyPipe;
-import com.tech0006.techcraft.init.ModTileEntityTypes;
 import com.tech0006.techcraft.util.handler.PacketHandler;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
@@ -14,7 +13,6 @@ import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.fml.network.PacketDistributor;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class EnergyPipeTileEntity extends PipeTile {
@@ -22,10 +20,6 @@ public class EnergyPipeTileEntity extends PipeTile {
 
     public EnergyPipeTileEntity(TileEntityType tileEntityTypeIn) {
         super(tileEntityTypeIn);
-    }
-
-    public EnergyPipeTileEntity() {
-        super(ModTileEntityTypes.ENERGY_PIPE.get());
     }
 
     @Override
@@ -55,7 +49,7 @@ public class EnergyPipeTileEntity extends PipeTile {
                 tileEntity.getCapability(CapabilityEnergy.ENERGY, facing.getOpposite()).ifPresent(handler ->
                 {
                     if (handler.canReceive()) {
-                        int received = handler.receiveEnergy(1, false);
+                        int received = handler.receiveEnergy(use_val, false);
                         capacity.addAndGet(-received);
                         energy.use(received);
                     }

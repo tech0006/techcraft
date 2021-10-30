@@ -14,35 +14,6 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 public class ModEventGenSubscriber {
 
-
-    /*@SubscribeEvent
-    public static void onInitBiomesGen(FMLCommonSetupEvent event) {
-        for (Biome biome : ForgeRegistries.BIOMES) {
-
-            biome.addFeature(
-                    GenerationStage.Decoration.UNDERGROUND_ORES,
-                    Feature.ORE.configured(
-                            new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-                                    Blocks.COPPER_ORE.get().defaultBlockState(),
-                                    15))
-                            .withPlacement(
-                                    Placement.RANGE.configure(
-                                            new TopSolidRangeConfig(20, 0, 0, 100)))
-            );
-
-            biome.addFeature(
-                    GenerationStage.Decoration.UNDERGROUND_ORES,
-                    Feature.ORE.configured(
-                            new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-                                    Blocks.TIN_ORE.get().defaultBlockState(),
-                                    10))
-                            .withPlacement(
-                                    Placement.COUNT_RANGE.configure(
-                                            new CountRangeConfig(15, 0, 0, 100)))
-            );
-
-        }
-    }*/
 	
 	public static void generateOres(final BiomeLoadingEvent event) {
 		if (!(event.getCategory().equals(Biome.Category.NETHER) || event.getCategory().equals(Biome.Category.THEEND))) {

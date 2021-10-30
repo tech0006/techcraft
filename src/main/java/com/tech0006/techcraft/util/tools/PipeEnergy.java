@@ -6,6 +6,7 @@ public class PipeEnergy extends EnergyPart {
         super(max);
     }
 
+
     public boolean use(int amount) {
         boolean b = stored >= amount;
         if (b) {

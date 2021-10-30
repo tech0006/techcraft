@@ -4,6 +4,7 @@
   "itemGroup.techcraft_armor_tab": "Techcraft armor",
   "itemGroup.techcraft_mechanism_tab": "Techcraft mechanisms",
   "itemGroup.techcraft_components_tab": "Techcraft components",
+  "itemGroup.techcraft_transport_tab": "Techcraft transport",
   "item.techcraft.copper_ingot": "Copper ingot",
   "item.techcraft.tin_ingot": "Tin ingot",
   "item.techcraft.bronze_ingot": "Bronze ingot",
@@ -96,6 +97,12 @@
   "item.techcraft.bronze_dust": "Bronze dust",
   "item.techcraft.iron_dust": "Iron dust",
   "item.techcraft.gold_dust": "Gold dust",
-  "item.techcraft.energy_pipe": "Energy cable (Experimental)",
-  "block.techcraft.energy_pipe": "Energy cable (Experimental)"
+  "item.techcraft.energy_pipe_tier_1": "Energy cable tier 1",
+  "block.techcraft.energy_pipe_tier_1": "Energy cable tier 1",
+  "item.techcraft.energy_pipe_tier_2": "Energy cable tier 2",
+  "block.techcraft.energy_pipe_tier_2": "Energy cable tier 2",
+  "item.techcraft.energy_pipe_tier_3": "Energy cable tier 3",
+  "block.techcraft.energy_pipe_tier_3": "Energy cable tier 3",
+  "item.techcraft.energy_pipe_tier_4": "Energy cable tier 4",
+  "block.techcraft.energy_pipe_tier_4": "Energy cable tier 4"
 }

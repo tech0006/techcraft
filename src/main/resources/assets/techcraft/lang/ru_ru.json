@@ -4,6 +4,7 @@
   "itemGroup.techcraft_armor_tab": "Techcraft броня",
   "itemGroup.techcraft_mechanism_tab": "Techcraft механизмы",
   "itemGroup.techcraft_components_tab": "Techcraft компоненты",
+  "itemGroup.techcraft_transport_tab": "Techcraft транспорт",
   "item.techcraft.copper_ingot": "Медный слиток",
   "item.techcraft.tin_ingot": "Оловянный слиток",
   "item.techcraft.bronze_ingot": "Бронзовый слиток",
@@ -96,6 +97,12 @@
   "item.techcraft.bronze_dust": "Бронзовая пыль",
   "item.techcraft.iron_dust": "Железная пыль",
   "item.techcraft.gold_dust": "Золотая пыль",
-  "item.techcraft.energy_pipe": "Энергетическая кабель (Экспериментально)",
-  "block.techcraft.energy_pipe": "Энергетическая кабель (Экспериментально)"
+  "item.techcraft.energy_pipe_tier_1": "Энергетическая кабель 1-ого уровня",
+  "block.techcraft.energy_pipe_tier_1": "Энергетическая кабель 1-ого уровня",
+  "item.techcraft.energy_pipe_tier_2": "Энергетическая кабель 2-ого уровня",
+  "block.techcraft.energy_pipe_tier_2": "Энергетическая кабель 2-ого уровня",
+  "item.techcraft.energy_pipe_tier_3": "Энергетическая кабель 3-ого уровня",
+  "block.techcraft.energy_pipe_tier_3": "Энергетическая кабель 3-ого уровня",
+  "item.techcraft.energy_pipe_tier_4": "Энергетическая кабель 4-ого уровня",
+  "block.techcraft.energy_pipe_tier_4": "Энергетическая кабель 4-ого уровня"
 }

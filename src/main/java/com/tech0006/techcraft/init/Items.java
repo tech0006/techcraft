@@ -241,7 +241,16 @@ public class Items {
             () -> new BlockItem(Blocks.ELECTRIC_CRUSHER.get(),
                     new Item.Properties().tab(Groups.techcraft_mechanism_tab)));
 
-    public static final RegistryObject<Item> ENERGY_PIPE = ITEMS.register("energy_pipe",
-            () -> new BlockItem(Blocks.ENERGY_PIPE.get(),
+    public static final RegistryObject<Item> ENERGY_PIPE_TIER_1 = ITEMS.register("energy_pipe_tier_1",
+            () -> new BlockItem(Blocks.ENERGY_PIPE_TIER_1.get(),
+                    new Item.Properties().tab(Groups.techcraft_transport_tab)));
+    public static final RegistryObject<Item> ENERGY_PIPE_TIER_2 = ITEMS.register("energy_pipe_tier_2",
+            () -> new BlockItem(Blocks.ENERGY_PIPE_TIER_2.get(),
+                    new Item.Properties().tab(Groups.techcraft_transport_tab)));
+    public static final RegistryObject<Item> ENERGY_PIPE_TIER_3 = ITEMS.register("energy_pipe_tier_3",
+            () -> new BlockItem(Blocks.ENERGY_PIPE_TIER_3.get(),
+                    new Item.Properties().tab(Groups.techcraft_transport_tab)));
+    public static final RegistryObject<Item> ENERGY_PIPE_TIER_4 = ITEMS.register("energy_pipe_tier_4",
+            () -> new BlockItem(Blocks.ENERGY_PIPE_TIER_4.get(),
                     new Item.Properties().tab(Groups.techcraft_transport_tab)));
 }
