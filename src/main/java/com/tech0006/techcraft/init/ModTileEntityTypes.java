@@ -6,6 +6,9 @@ import com.tech0006.techcraft.blocks.TileEntity.pipe.energy.tier_1.EnergyPipeTil
 import com.tech0006.techcraft.blocks.TileEntity.pipe.energy.tier_2.EnergyPipeTileEntityTier2;
 import com.tech0006.techcraft.blocks.TileEntity.pipe.energy.tier_3.EnergyPipeTileEntityTier3;
 import com.tech0006.techcraft.blocks.TileEntity.pipe.energy.tier_4.EnergyPipeTileEntityTier4;
+import com.tech0006.techcraft.blocks.TileEntity.pipe.energy.tier_5.EnergyPipeTileEntityTier5;
+import com.tech0006.techcraft.blocks.TileEntity.pipe.energy.tier_6.EnergyPipeTileEntityTier6;
+import com.tech0006.techcraft.blocks.TileEntity.pipe.energy.tier_7.EnergyPipeTileEntityTier7;
 import com.tech0006.techcraft.techcraft;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
@@ -51,4 +54,10 @@ public class ModTileEntityTypes {
             () -> TileEntityType.Builder.of(EnergyPipeTileEntityTier3::new, Blocks.ENERGY_PIPE_TIER_3.get()).build(null));
     public static final RegistryObject<TileEntityType<EnergyPipeTileEntityTier4>> ENERGY_PIPE_TIER_4 = TILE_ENTITY_TYPES.register("energy_pipe_tier_4",
             () -> TileEntityType.Builder.of(EnergyPipeTileEntityTier4::new, Blocks.ENERGY_PIPE_TIER_4.get()).build(null));
+    public static final RegistryObject<TileEntityType<EnergyPipeTileEntityTier5>> ENERGY_PIPE_TIER_5 = TILE_ENTITY_TYPES.register("energy_pipe_tier_5",
+            () -> TileEntityType.Builder.of(EnergyPipeTileEntityTier5::new, Blocks.ENERGY_PIPE_TIER_5.get()).build(null));
+    public static final RegistryObject<TileEntityType<EnergyPipeTileEntityTier6>> ENERGY_PIPE_TIER_6 = TILE_ENTITY_TYPES.register("energy_pipe_tier_6",
+            () -> TileEntityType.Builder.of(EnergyPipeTileEntityTier6::new, Blocks.ENERGY_PIPE_TIER_6.get()).build(null));
+    public static final RegistryObject<TileEntityType<EnergyPipeTileEntityTier7>> ENERGY_PIPE_TIER_7 = TILE_ENTITY_TYPES.register("energy_pipe_tier_7",
+            () -> TileEntityType.Builder.of(EnergyPipeTileEntityTier7::new, Blocks.ENERGY_PIPE_TIER_7.get()).build(null));
 }

@@ -104,5 +104,11 @@
   "item.techcraft.energy_pipe_tier_3": "Energy cable tier 3",
   "block.techcraft.energy_pipe_tier_3": "Energy cable tier 3",
   "item.techcraft.energy_pipe_tier_4": "Energy cable tier 4",
-  "block.techcraft.energy_pipe_tier_4": "Energy cable tier 4"
+  "block.techcraft.energy_pipe_tier_4": "Energy cable tier 4",
+  "item.techcraft.energy_pipe_tier_5": "Energy cable tier 5",
+  "block.techcraft.energy_pipe_tier_5": "Energy cable tier 5",
+  "item.techcraft.energy_pipe_tier_6": "Energy cable tier 6",
+  "block.techcraft.energy_pipe_tier_6": "Energy cable tier 6",
+  "item.techcraft.energy_pipe_tier_7": "Energy cable tier 7",
+  "block.techcraft.energy_pipe_tier_7": "Energy cable tier 7"
 }

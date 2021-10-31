@@ -43,13 +43,13 @@ public class CoalGeneratorTileEntity extends GeneratorTile implements INamedCont
     public int processTime, processTimeTotal;
 
     public CoalGeneratorTileEntity(TileEntityType tileEntityTypeIn) {
-        super(tileEntityTypeIn, 2);
+        super(tileEntityTypeIn, 10);
         inventory = new TCItemHandler(4);
         this.energyUse = -10;
     }
 
     public CoalGeneratorTileEntity() {
-        super(ModTileEntityTypes.COAL_GENERATOR.get(), 2);
+        super(ModTileEntityTypes.COAL_GENERATOR.get(), 10);
         inventory = new TCItemHandler(4);
         this.energyUse = -10;
     }
@@ -114,7 +114,7 @@ public class CoalGeneratorTileEntity extends GeneratorTile implements INamedCont
                 tileEntity.getCapability(CapabilityEnergy.ENERGY, facing.getOpposite()).ifPresent(handler ->
                 {
                     if (handler.canReceive()) {
-                        int received = handler.receiveEnergy(5, false);
+                        int received = handler.receiveEnergy(10, false);
                         capacity.addAndGet(-received);
                         energy.use(received);
                     }

@@ -253,4 +253,13 @@ public class Items {
     public static final RegistryObject<Item> ENERGY_PIPE_TIER_4 = ITEMS.register("energy_pipe_tier_4",
             () -> new BlockItem(Blocks.ENERGY_PIPE_TIER_4.get(),
                     new Item.Properties().tab(Groups.techcraft_transport_tab)));
+    public static final RegistryObject<Item> ENERGY_PIPE_TIER_5 = ITEMS.register("energy_pipe_tier_5",
+            () -> new BlockItem(Blocks.ENERGY_PIPE_TIER_5.get(),
+                    new Item.Properties().tab(Groups.techcraft_transport_tab)));
+    public static final RegistryObject<Item> ENERGY_PIPE_TIER_6 = ITEMS.register("energy_pipe_tier_6",
+            () -> new BlockItem(Blocks.ENERGY_PIPE_TIER_6.get(),
+                    new Item.Properties().tab(Groups.techcraft_transport_tab)));
+    public static final RegistryObject<Item> ENERGY_PIPE_TIER_7 = ITEMS.register("energy_pipe_tier_7",
+            () -> new BlockItem(Blocks.ENERGY_PIPE_TIER_7.get(),
+                    new Item.Properties().tab(Groups.techcraft_transport_tab)));
 }

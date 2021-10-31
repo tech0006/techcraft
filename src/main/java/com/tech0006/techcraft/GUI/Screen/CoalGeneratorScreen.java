@@ -33,11 +33,7 @@ public class CoalGeneratorScreen extends ContainerScreen<CoalGeneratorContainer>
 
     @Override
     protected void renderLabels(MatrixStack ms, int mouseX, int mouseY) {
-        /*String energy = "Stored energy: " + getCurrEnergyFormatted(tile.energyClient);
-        this.font.drawString(energy, (xSize / 2 - font.getStringWidth(energy) / 2) + 14, 35, 4210752);
 
-        String maxEnergy = "Max capacity: " + getMaxEnergyFormatted(tile.maxEnergy);
-        this.font.drawString(maxEnergy, (xSize / 2 - font.getStringWidth(maxEnergy) / 2) + 14, 45, 4210752);*/
 
         String generation = "Generation: " + (-tile.currentAmountEnergyProduced()) + " FE/t";
         this.font.draw(ms, generation, (imageWidth / 2 - font.width(generation) / 2) + 14, 55, 4210752);
