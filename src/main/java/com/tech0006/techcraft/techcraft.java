@@ -1,11 +1,11 @@
 package com.tech0006.techcraft;
 
-import com.tech0006.techcraft.events.ModEventGenSubscriber;
 import com.tech0006.techcraft.init.*;
 import com.tech0006.techcraft.util.handler.PacketHandler;
 import com.tech0006.techcraft.util.proxy.IProxy;
 import com.tech0006.techcraft.util.proxy.Proxy;
 import com.tech0006.techcraft.util.proxy.ProxyClient;
+import com.tech0006.techcraft.world.structure.Structures;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -31,9 +31,10 @@ public class techcraft {
 
         Blocks.BLOCKS.register(eventBus);
         Items.ITEMS.register(eventBus);
+        Structures.register(eventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
-        MinecraftForge.EVENT_BUS.addListener(ModEventGenSubscriber::generateOres);
+        //MinecraftForge.EVENT_BUS.addListener(OreGeneration::generateOres);
         ModTileEntityTypes.TILE_ENTITY_TYPES.register(eventBus);
         ModContainerTypes.CONTAINER_TYPES.register(eventBus);
         RecipeSerializerInit.RECIPE_SERIALIZERS.register(eventBus);
@@ -43,6 +44,7 @@ public class techcraft {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
+        Structures.setupStructures();
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {

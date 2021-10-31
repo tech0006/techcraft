@@ -1,4 +1,4 @@
-package com.tech0006.techcraft.events;
+package com.tech0006.techcraft.world.generation;
 
 import com.tech0006.techcraft.init.Blocks;
 import net.minecraft.block.BlockState;
@@ -12,7 +12,7 @@ import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
-public class ModEventGenSubscriber {
+public class OreGeneration {
 
 	
 	public static void generateOres(final BiomeLoadingEvent event) {
