@@ -2,7 +2,7 @@ package com.tech0006.techcraft.blocks.TileEntity.update;
 
 import com.tech0006.techcraft.blocks.TileEntity.ElectricCrusherTileEntity;
 import com.tech0006.techcraft.techcraft;
-import com.tech0006.techcraft.util.tools.MachineEnergy;
+import com.tech0006.techcraft.util.tools.energy.MachineEnergy;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;

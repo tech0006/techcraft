@@ -1,6 +1,6 @@
 package com.tech0006.techcraft.blocks.TileEntity.base;
 
-import com.tech0006.techcraft.util.tools.PipeEnergy;
+import com.tech0006.techcraft.util.tools.energy.PipeEnergy;
 import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;

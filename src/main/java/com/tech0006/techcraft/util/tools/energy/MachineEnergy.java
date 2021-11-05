@@ -1,11 +1,10 @@
-package com.tech0006.techcraft.util.tools;
+package com.tech0006.techcraft.util.tools.energy;
 
-public class PipeEnergy extends EnergyPart {
+public class MachineEnergy extends EnergyPart {
 
-    public PipeEnergy(int max) {
+    public MachineEnergy(int max) {
         super(max);
     }
-
 
     public boolean use(int amount) {
         boolean b = stored >= amount;
@@ -17,7 +16,7 @@ public class PipeEnergy extends EnergyPart {
 
     @Override
     public boolean canExtract() {
-        return true;
+        return false;
     }
 
     @Override
@@ -37,12 +36,6 @@ public class PipeEnergy extends EnergyPart {
 
     @Override
     public int extractEnergy(int maxExtract, boolean simulate) {
-        if (maxExtract <= 0) return 0;
-        int r = Math.min(maxExtract, max - stored);
-        if(r > 0 && !simulate)
-        {
-            stored -= r;
-        }
-        return r;
+        return 0;
     }
 }

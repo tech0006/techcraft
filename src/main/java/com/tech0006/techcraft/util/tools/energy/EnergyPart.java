@@ -1,4 +1,4 @@
-package com.tech0006.techcraft.util.tools;
+package com.tech0006.techcraft.util.tools.energy;
 
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraftforge.energy.IEnergyStorage;

@@ -110,5 +110,6 @@
   "item.techcraft.energy_pipe_tier_6": "Energy cable tier 6",
   "block.techcraft.energy_pipe_tier_6": "Energy cable tier 6",
   "item.techcraft.energy_pipe_tier_7": "Energy cable tier 7",
-  "block.techcraft.energy_pipe_tier_7": "Energy cable tier 7"
+  "block.techcraft.energy_pipe_tier_7": "Energy cable tier 7",
+  "entity.techcraft.scientist": "Scientist"
 }

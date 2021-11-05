@@ -1,11 +1,14 @@
 package com.tech0006.techcraft.events;
 
 import com.tech0006.techcraft.GUI.Screen.*;
+import com.tech0006.techcraft.client.entity.render.ScientistRender;
 import com.tech0006.techcraft.init.ModContainerTypes;
+import com.tech0006.techcraft.init.ModEntityTypes;
 import com.tech0006.techcraft.techcraft;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
@@ -29,5 +32,9 @@ public class ClientEventBusSubscriber {
         ScreenManager.register(ModContainerTypes.ALLOY_PLANT.get(), AlloyPlantScreen::new);
 
         ScreenManager.register(ModContainerTypes.ELECTRIC_CRUSHER.get(), ElectricCrusherScreen::new);
+
+
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCIENTIST.get(), ScientistRender::new);
+
     }
 }

@@ -110,5 +110,6 @@
   "item.techcraft.energy_pipe_tier_6": "Энергетическая кабель 6-ого уровня",
   "block.techcraft.energy_pipe_tier_6": "Энергетическая кабель 6-ого уровня",
   "item.techcraft.energy_pipe_tier_7": "Энергетическая кабель 7-ого уровня",
-  "block.techcraft.energy_pipe_tier_7": "Энергетическая кабель 7-ого уровня"
+  "block.techcraft.energy_pipe_tier_7": "Энергетическая кабель 7-ого уровня",
+  "entity.techcraft.scientist": "Ученый"
 }

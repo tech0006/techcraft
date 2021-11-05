@@ -1,8 +1,8 @@
-package com.tech0006.techcraft.util.tools;
+package com.tech0006.techcraft.util.tools.energy;
 
-public class MachineEnergy extends EnergyPart {
+public class GeneratorEnergy extends EnergyPart {
 
-    public MachineEnergy(int max) {
+    public GeneratorEnergy(int max) {
         super(max);
     }
 
@@ -16,26 +16,27 @@ public class MachineEnergy extends EnergyPart {
 
     @Override
     public boolean canExtract() {
-        return false;
-    }
-
-    @Override
-    public boolean canReceive() {
         return true;
     }
 
     @Override
+    public boolean canReceive() {
+        return false;
+    }
+
+    @Override
     public int receiveEnergy(int maxReceive, boolean simulate) {
-        if (maxReceive <= 0) return 0;
-        int r = Math.min(maxReceive, max - stored);
-        if (r > 0 && !simulate) {
-            stored += r;
-        }
-        return r;
+        return 0;
     }
 
     @Override
     public int extractEnergy(int maxExtract, boolean simulate) {
-        return 0;
+        if (maxExtract <= 0) return 0;
+        int r = Math.min(maxExtract, max - stored);
+        if(r > 0 && !simulate)
+        {
+            stored -= r;
+        }
+        return r;
     }
 }

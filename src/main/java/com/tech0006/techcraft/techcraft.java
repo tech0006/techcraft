@@ -15,6 +15,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import software.bernie.geckolib3.GeckoLib;
 
 @Mod("techcraft")
 public class techcraft {
@@ -28,15 +29,17 @@ public class techcraft {
         eventBus.addListener(this::setup);
         eventBus.addListener(this::doClientStuff);
 
+        GeckoLib.initialize();
 
         Blocks.BLOCKS.register(eventBus);
         Items.ITEMS.register(eventBus);
         Structures.register(eventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
-        //MinecraftForge.EVENT_BUS.addListener(OreGeneration::generateOres);
         ModTileEntityTypes.TILE_ENTITY_TYPES.register(eventBus);
         ModContainerTypes.CONTAINER_TYPES.register(eventBus);
+        ModEntityTypes.ENTITY_TYPES.register(eventBus);
+
         RecipeSerializerInit.RECIPE_SERIALIZERS.register(eventBus);
         MinecraftForge.EVENT_BUS.register(this);
         PacketHandler.init();
