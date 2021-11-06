@@ -29,8 +29,7 @@ public class Scientist extends CreatureEntity implements IAnimatable
         goalSelector.addGoal(0, new SwimGoal(this));
         goalSelector.addGoal(1, new OpenDoorGoal(this, true));
         goalSelector.addGoal(2, new LookAtGoal(this, PlayerEntity.class, 3f, 1f));
-        goalSelector.addGoal(3, new RandomWalkingGoal(this, 0.6d));
-        goalSelector.addGoal(4, new LookRandomlyGoal(this));
+        goalSelector.addGoal(3, new LookRandomlyGoal(this));
     }
 
     @Override
