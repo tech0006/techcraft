@@ -25,6 +25,7 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 
+
 public class ScientistHouseStructure extends Structure<NoFeatureConfig> {
     public ScientistHouseStructure() {
         super(NoFeatureConfig.CODEC);

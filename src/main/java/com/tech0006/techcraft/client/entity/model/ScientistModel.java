@@ -1,6 +1,6 @@
 package com.tech0006.techcraft.client.entity.model;
 
-import com.tech0006.techcraft.entity.Scientist;
+import com.tech0006.techcraft.entity.NPC.Scientist;
 import com.tech0006.techcraft.techcraft;
 import net.minecraft.util.ResourceLocation;
 import software.bernie.geckolib3.model.AnimatedGeoModel;

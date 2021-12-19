@@ -1,7 +1,7 @@
 package com.tech0006.techcraft.integration.modules.jei.recipeCategory;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.tech0006.techcraft.init.Items;
+import com.tech0006.techcraft.common.registration.TCItems;
 import com.tech0006.techcraft.recipes.alloy_plant.AlloyPlantRecipe;
 import com.tech0006.techcraft.techcraft;
 import mezz.jei.api.constants.VanillaTypes;
@@ -37,7 +37,7 @@ public class AlloyPlantRecipeCategory implements IRecipeCategory<AlloyPlantRecip
         ResourceLocation location = new ResourceLocation(techcraft.MOD_ID, "textures/gui/alloy_plant.png");
         this.background = guiHelper.createDrawable(location, 8, 9, 116, 66);
 
-        this.icon = guiHelper.createDrawableIngredient(new ItemStack(Items.ALLOY_PLANT.get(), 1));
+        this.icon = guiHelper.createDrawableIngredient(new ItemStack(TCItems.ALLOY_PLANT.get(), 1));
 
         this.arrow = guiHelper.drawableBuilder(location, 176, 60, 24, 18).buildAnimated(200, IDrawableAnimated.StartDirection.LEFT, false);
         this.energyBar = guiHelper.drawableBuilder(location, 176, 0, 16, 60).buildAnimated(1500, IDrawableAnimated.StartDirection.TOP, true);
@@ -86,11 +86,6 @@ public class AlloyPlantRecipeCategory implements IRecipeCategory<AlloyPlantRecip
     @Override
     public void setRecipe(IRecipeLayout recipeLayout, AlloyPlantRecipe recipe, IIngredients ingredients) {
         IGuiItemStackGroup itemStacks = recipeLayout.getItemStacks();
-
-        /*itemStacks.init(0, true, 0, 0);
-        itemStacks.init(1, true,0, 24);
-        itemStacks.init(2, true,0, 48);
-        itemStacks.init(3, false,55, 24);*/
         itemStacks.init(0, true, 41, 0);
         itemStacks.init(1, true, 41, 24);
         itemStacks.init(2, true, 41, 48);

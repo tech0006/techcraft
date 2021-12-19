@@ -3,7 +3,7 @@ package com.tech0006.techcraft.recipes.electric_crusher;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
-import com.tech0006.techcraft.init.RecipeSerializerInit;
+import com.tech0006.techcraft.common.registration.TCRecipeSerializerInit;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
@@ -16,6 +16,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 import net.minecraftforge.registries.ForgeRegistryEntry;
+
 
 public class ElectricCrusherRecipe implements IElectricCrusherRecipe {
     private final Ingredient recipeItem;
@@ -58,7 +59,7 @@ public class ElectricCrusherRecipe implements IElectricCrusherRecipe {
 
     @Override
     public IRecipeSerializer<?> getSerializer() {
-        return RecipeSerializerInit.ELECTRIC_CRUSHER_RECIPE_SERIALIZER;
+        return TCRecipeSerializerInit.ELECTRIC_CRUSHER_RECIPE_SERIALIZER;
     }
 
     @Override
@@ -107,7 +108,7 @@ public class ElectricCrusherRecipe implements IElectricCrusherRecipe {
 
         public ElectricCrusherRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
             String s = buffer.readUtf(32767);
-            Ingredient ing = Ingredient.EMPTY;
+            Ingredient ing;
 
             ing = Ingredient.fromNetwork(buffer);
 
@@ -118,8 +119,7 @@ public class ElectricCrusherRecipe implements IElectricCrusherRecipe {
 
         public void toNetwork(PacketBuffer buffer, ElectricCrusherRecipe recipe) {
             buffer.writeUtf(recipe.group);
-            Ingredient ingredient = recipe.recipeItem;
-            ingredient.toNetwork(buffer);
+            recipe.recipeItem.toNetwork(buffer);
             buffer.writeItem(recipe.recipeOutput);
         }
     }

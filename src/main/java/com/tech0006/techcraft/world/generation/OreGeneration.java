@@ -1,6 +1,6 @@
 package com.tech0006.techcraft.world.generation;
 
-import com.tech0006.techcraft.init.Blocks;
+import com.tech0006.techcraft.common.registration.TCBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
@@ -18,9 +18,9 @@ public class OreGeneration {
 	public static void generateOres(final BiomeLoadingEvent event) {
 		if (!(event.getCategory().equals(Biome.Category.NETHER) || event.getCategory().equals(Biome.Category.THEEND))) {
 			generateOre(event.getGeneration(), OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-					Blocks.COPPER_ORE.get().defaultBlockState(), 5, 15, 30, 10);
+					TCBlocks.COPPER_ORE.get().defaultBlockState(), 5, 15, 30, 10);
 			generateOre(event.getGeneration(), OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-					Blocks.TIN_ORE.get().defaultBlockState(), 5, 15, 30, 10);
+					TCBlocks.TIN_ORE.get().defaultBlockState(), 5, 15, 30, 10);
 		}
 	}
 

@@ -1,7 +1,7 @@
 package com.tech0006.techcraft;
 
-import com.tech0006.techcraft.init.*;
-import com.tech0006.techcraft.util.handler.PacketHandler;
+import com.tech0006.techcraft.common.registration.*;
+import com.tech0006.techcraft.common.packet.PacketHandler;
 import com.tech0006.techcraft.util.proxy.IProxy;
 import com.tech0006.techcraft.util.proxy.Proxy;
 import com.tech0006.techcraft.util.proxy.ProxyClient;
@@ -31,16 +31,16 @@ public class techcraft {
 
         GeckoLib.initialize();
 
-        Blocks.BLOCKS.register(eventBus);
-        Items.ITEMS.register(eventBus);
+        TCBlocks.BLOCKS.register(eventBus);
+        TCItems.ITEMS.register(eventBus);
         Structures.register(eventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
-        ModTileEntityTypes.TILE_ENTITY_TYPES.register(eventBus);
-        ModContainerTypes.CONTAINER_TYPES.register(eventBus);
-        ModEntityTypes.ENTITY_TYPES.register(eventBus);
+        TCTileEntityTypes.TILE_ENTITY_TYPES.register(eventBus);
+        TCContainerTypes.CONTAINER_TYPES.register(eventBus);
+        TCEntityTypes.ENTITY_TYPES.register(eventBus);
 
-        RecipeSerializerInit.RECIPE_SERIALIZERS.register(eventBus);
+        TCRecipeSerializerInit.RECIPE_SERIALIZERS.register(eventBus);
         MinecraftForge.EVENT_BUS.register(this);
         PacketHandler.init();
 

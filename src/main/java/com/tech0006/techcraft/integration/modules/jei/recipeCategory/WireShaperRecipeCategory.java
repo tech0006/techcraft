@@ -1,6 +1,6 @@
 package com.tech0006.techcraft.integration.modules.jei.recipeCategory;
 
-import com.tech0006.techcraft.init.Items;
+import com.tech0006.techcraft.common.registration.TCItems;
 import com.tech0006.techcraft.recipes.wire_shaper.WireShaperRecipe;
 import com.tech0006.techcraft.techcraft;
 import mezz.jei.api.constants.VanillaTypes;
@@ -33,7 +33,7 @@ public class WireShaperRecipeCategory implements IRecipeCategory<WireShaperRecip
         ResourceLocation location = new ResourceLocation(techcraft.MOD_ID, "textures/gui/wire_shaper.png");
         this.background = guiHelper.createDrawable(location, 55, 33, 73, 19);
 
-        this.icon = guiHelper.createDrawableIngredient(new ItemStack(Items.WIRE_SHAPER.get(), 1));
+        this.icon = guiHelper.createDrawableIngredient(new ItemStack(TCItems.WIRE_SHAPER.get(), 1));
     }
 
     @Override

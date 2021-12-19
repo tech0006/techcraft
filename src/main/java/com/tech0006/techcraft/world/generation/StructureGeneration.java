@@ -10,12 +10,13 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.function.Supplier;
 
 public class StructureGeneration {
     public static void generateStructures(final BiomeLoadingEvent event) {
-        RegistryKey<Biome> key = RegistryKey.create(Registry.BIOME_REGISTRY, event.getName());
+        RegistryKey<Biome> key = RegistryKey.create(Registry.BIOME_REGISTRY, Objects.requireNonNull(event.getName()));
         Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(key);
 
         if(types.contains(BiomeDictionary.Type.PLAINS)) {

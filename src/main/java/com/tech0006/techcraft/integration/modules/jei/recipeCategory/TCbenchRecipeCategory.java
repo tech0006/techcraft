@@ -1,6 +1,6 @@
 package com.tech0006.techcraft.integration.modules.jei.recipeCategory;
 
-import com.tech0006.techcraft.init.Items;
+import com.tech0006.techcraft.common.registration.TCItems;
 import com.tech0006.techcraft.recipes.tc_bench.TCbenchRecipe;
 import com.tech0006.techcraft.techcraft;
 import mezz.jei.api.constants.VanillaTypes;
@@ -33,7 +33,7 @@ public class TCbenchRecipeCategory implements IRecipeCategory<TCbenchRecipe> {
         ResourceLocation location = new ResourceLocation(techcraft.MOD_ID, "textures/gui/tc_bench.png");
         this.background = guiHelper.createDrawable(location, 16, 16, 136, 109);
 
-        this.icon = guiHelper.createDrawableIngredient(new ItemStack(Items.TC_BENCH.get(), 1));
+        this.icon = guiHelper.createDrawableIngredient(new ItemStack(TCItems.TC_BENCH.get(), 1));
     }
 
     @Override

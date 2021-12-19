@@ -3,7 +3,7 @@ package com.tech0006.techcraft.recipes.wire_shaper;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
-import com.tech0006.techcraft.init.RecipeSerializerInit;
+import com.tech0006.techcraft.common.registration.TCRecipeSerializerInit;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
@@ -16,6 +16,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 import net.minecraftforge.registries.ForgeRegistryEntry;
+
 
 public class WireShaperRecipe implements IWireShaperRecipe {
     private final Ingredient recipeItem;
@@ -58,7 +59,7 @@ public class WireShaperRecipe implements IWireShaperRecipe {
 
     @Override
     public IRecipeSerializer<?> getSerializer() {
-        return RecipeSerializerInit.WIRE_SHAPER_RECIPE_SERIALIZER;
+        return TCRecipeSerializerInit.WIRE_SHAPER_RECIPE_SERIALIZER;
     }
 
     @Override
@@ -107,7 +108,7 @@ public class WireShaperRecipe implements IWireShaperRecipe {
 
         public WireShaperRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
             String s = buffer.readUtf(32767);
-            Ingredient ing = Ingredient.EMPTY;
+            Ingredient ing;
 
             ing = Ingredient.fromNetwork(buffer);
 
@@ -118,8 +119,7 @@ public class WireShaperRecipe implements IWireShaperRecipe {
 
         public void toNetwork(PacketBuffer buffer, WireShaperRecipe recipe) {
             buffer.writeUtf(recipe.group);
-            Ingredient ingredient = recipe.recipeItem;
-            ingredient.toNetwork(buffer);
+            recipe.recipeItem.toNetwork(buffer);
             buffer.writeItem(recipe.recipeOutput);
         }
     }

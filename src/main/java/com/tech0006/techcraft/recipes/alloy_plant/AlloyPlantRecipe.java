@@ -3,7 +3,7 @@ package com.tech0006.techcraft.recipes.alloy_plant;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
-import com.tech0006.techcraft.init.RecipeSerializerInit;
+import com.tech0006.techcraft.common.registration.TCRecipeSerializerInit;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 import net.minecraftforge.registries.ForgeRegistryEntry;
+
 
 public class AlloyPlantRecipe implements IAlloyPlantRecipe {
     private final NonNullList<Ingredient> recipeItem;
@@ -60,11 +61,7 @@ public class AlloyPlantRecipe implements IAlloyPlantRecipe {
             i3 = true;
         }
 
-        if (i1 && i2 && i3) {
-            return true;
-        } else {
-            return false;
-        }
+        return i1 && i2 && i3;
     }
 
     @Override
@@ -84,7 +81,7 @@ public class AlloyPlantRecipe implements IAlloyPlantRecipe {
 
     @Override
     public IRecipeSerializer<?> getSerializer() {
-        return RecipeSerializerInit.ALLOY_PLANT_RECIPE_SERIALIZER;
+        return TCRecipeSerializerInit.ALLOY_PLANT_RECIPE_SERIALIZER;
     }
 
     @Override
@@ -163,9 +160,9 @@ public class AlloyPlantRecipe implements IAlloyPlantRecipe {
 
         public AlloyPlantRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
             String s = buffer.readUtf(32767);
-            Ingredient input1 = Ingredient.EMPTY;
-            Ingredient input2 = Ingredient.EMPTY;
-            Ingredient input3 = Ingredient.EMPTY;
+            Ingredient input1;
+            Ingredient input2;
+            Ingredient input3;
 
             input1 = Ingredient.fromNetwork(buffer);
             input2 = Ingredient.fromNetwork(buffer);

@@ -16,6 +16,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Structures {
     public static final DeferredRegister<Structure<?>> STRUCTURES = DeferredRegister.create(ForgeRegistries.STRUCTURE_FEATURES, techcraft.MOD_ID);
@@ -29,7 +30,7 @@ public class Structures {
     public static <F extends Structure<?>> void setupMapSpacingAndLand(F structure,
                                                                        StructureSeparationSettings structureSeparationSettings,
                                                                        boolean transformSurroundingLand) {
-        Structure.STRUCTURES_REGISTRY.put(structure.getRegistryName().toString(), structure);
+        Structure.STRUCTURES_REGISTRY.put(Objects.requireNonNull(structure.getRegistryName()).toString(), structure);
 
         if (transformSurroundingLand) {
             Structure.NOISE_AFFECTING_FEATURES = ImmutableList.<Structure<?>>builder()

@@ -10,6 +10,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 
+
 public class FacedBlock extends Block {
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
@@ -25,8 +26,6 @@ public class FacedBlock extends Block {
         builder.add(FACING);
     }
 
-    
-    
     @Override
     public BlockState mirror(BlockState state, Mirror mirrorIn) {
     	

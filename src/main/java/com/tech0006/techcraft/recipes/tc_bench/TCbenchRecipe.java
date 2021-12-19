@@ -4,7 +4,7 @@ import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.*;
-import com.tech0006.techcraft.init.RecipeSerializerInit;
+import com.tech0006.techcraft.common.registration.TCRecipeSerializerInit;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
@@ -25,11 +25,6 @@ public class TCbenchRecipe implements ITCbenchRecipe {
 
     static int MAX_WIDTH = 6;
     static int MAX_HEIGHT = 6;
-
-    public static void setCraftingSize(int width, int height) {
-        if (MAX_WIDTH < width) MAX_WIDTH = width;
-        if (MAX_HEIGHT < height) MAX_HEIGHT = height;
-    }
 
     private final int recipeWidth;
     private final int recipeHeight;
@@ -52,13 +47,12 @@ public class TCbenchRecipe implements ITCbenchRecipe {
     }
 
     public IRecipeSerializer<?> getSerializer() {
-        return RecipeSerializerInit.TC_BENCH_RECIPE_SERIALIZER;
+        return TCRecipeSerializerInit.TC_BENCH_RECIPE_SERIALIZER;
     }
 
     public String getGroup() {
         return this.group;
     }
-
 
     public NonNullList<Ingredient> getIngredients() {
         return this.recipeItems;
@@ -112,16 +106,8 @@ public class TCbenchRecipe implements ITCbenchRecipe {
         return this.recipeWidth;
     }
 
-    public int getRecipeWidth() {
-        return getWidth();
-    }
-
     public int getHeight() {
         return this.recipeHeight;
-    }
-
-    public int getRecipeHeight() {
-        return getHeight();
     }
 
     private static NonNullList<Ingredient> deserializeIngredients(String[] pattern, Map<String, Ingredient> keys, int patternWidth, int patternHeight) {
@@ -187,19 +173,13 @@ public class TCbenchRecipe implements ITCbenchRecipe {
 
     private static int firstNonSpace(String str) {
         int i;
-        for (i = 0; i < str.length() && str.charAt(i) == ' '; ++i) {
-            ;
-        }
-
+        for (i = 0; i < str.length() && str.charAt(i) == ' '; ++i) {}
         return i;
     }
 
     private static int lastNonSpace(String str) {
         int i;
-        for (i = str.length() - 1; i >= 0 && str.charAt(i) == ' '; --i) {
-            ;
-        }
-
+        for (i = str.length() - 1; i >= 0 && str.charAt(i) == ' '; --i) {}
         return i;
     }
 
@@ -232,7 +212,7 @@ public class TCbenchRecipe implements ITCbenchRecipe {
 
         for (Map.Entry<String, JsonElement> entry : json.entrySet()) {
             if (entry.getKey().length() != 1) {
-                throw new JsonSyntaxException("Invalid key entry: '" + (String) entry.getKey() + "' is an invalid symbol (must be 1 character only).");
+                throw new JsonSyntaxException("Invalid key entry: '" + entry.getKey() + "' is an invalid symbol (must be 1 character only).");
             }
 
             if (" ".equals(entry.getKey())) {
@@ -263,7 +243,7 @@ public class TCbenchRecipe implements ITCbenchRecipe {
     public static class TCbenchRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<TCbenchRecipe> {
         private static final ResourceLocation NAME = new ResourceLocation("techcraft", "tc_bench");
 
-		@Override
+        @Override
 		public TCbenchRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
 			String s = JSONUtils.getAsString(json, "group", "");
             Map<String, Ingredient> map = TCbenchRecipe.deserializeKey(JSONUtils.getAsJsonObject(json, "key"));
@@ -305,13 +285,12 @@ public class TCbenchRecipe implements ITCbenchRecipe {
 
     }
 
-
-	@Override
+    @Override
 	public ItemStack assemble(RecipeWrapper p_77572_1_) {
 		return this.getResultItem().copy();
 	}
 
-	@Override
+    @Override
 	public ItemStack getResultItem() {
 		return this.recipeOutput;
 	}

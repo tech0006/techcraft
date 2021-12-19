@@ -1,9 +1,9 @@
 package com.tech0006.techcraft.integration.modules.jei;
 
 
-import com.tech0006.techcraft.blocks.TileEntity.*;
-import com.tech0006.techcraft.init.Items;
-import com.tech0006.techcraft.init.RecipeSerializerInit;
+import com.tech0006.techcraft.blocks.tileentity.functional.*;
+import com.tech0006.techcraft.common.registration.TCItems;
+import com.tech0006.techcraft.common.registration.TCRecipeSerializerInit;
 import com.tech0006.techcraft.integration.modules.jei.recipeCategory.*;
 import com.tech0006.techcraft.techcraft;
 import mezz.jei.api.IModPlugin;
@@ -14,6 +14,7 @@ import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.util.ResourceLocation;
+
 
 @JeiPlugin
 public class Plugin implements IModPlugin {
@@ -38,11 +39,11 @@ public class Plugin implements IModPlugin {
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         IModPlugin.super.registerRecipes(registration);
-        registration.addRecipes(TCbenchTileEntity.findRecipesByType(RecipeSerializerInit.TC_BENCH_TYPE), TCbenchRecipeCategory.UID);
-        registration.addRecipes(TCforgeTileEntity.findRecipesByType(RecipeSerializerInit.TC_FORGE_TYPE), TCforgeRecipeCategory.UID);
-        registration.addRecipes(WireShaperTileEntity.findRecipesByType(RecipeSerializerInit.WIRE_SHAPER_TYPE), WireShaperRecipeCategory.UID);
-        registration.addRecipes(AlloyPlantTileEntity.findRecipesByType(RecipeSerializerInit.ALLOY_PLANT_TYPE), AlloyPlantRecipeCategory.UID);
-        registration.addRecipes(ElectricCrusherTileEntity.findRecipesByType(RecipeSerializerInit.ELECTRIC_CRUSHER_TYPE), ElectricCrusherRecipeCategory.UID);
+        registration.addRecipes(TCbenchTileEntity.findRecipesByType(TCRecipeSerializerInit.TC_BENCH_TYPE), TCbenchRecipeCategory.UID);
+        registration.addRecipes(TCforgeTileEntity.findRecipesByType(TCRecipeSerializerInit.TC_FORGE_TYPE), TCforgeRecipeCategory.UID);
+        registration.addRecipes(WireShaperTileEntity.findRecipesByType(TCRecipeSerializerInit.WIRE_SHAPER_TYPE), WireShaperRecipeCategory.UID);
+        registration.addRecipes(AlloyPlantTileEntity.findRecipesByType(TCRecipeSerializerInit.ALLOY_PLANT_TYPE), AlloyPlantRecipeCategory.UID);
+        registration.addRecipes(ElectricCrusherTileEntity.findRecipesByType(TCRecipeSerializerInit.ELECTRIC_CRUSHER_TYPE), ElectricCrusherRecipeCategory.UID);
         registration.addRecipes(ElectricFurnaceTileEntity.findRecipesByType(IRecipeType.BLASTING), ElectricFurnaceRecipeCategory.UID);
         registration.addRecipes(ElectricFurnaceTileEntity.findRecipesByType(IRecipeType.SMELTING), ElectricFurnaceRecipeCategory.UID);
     }
@@ -51,22 +52,22 @@ public class Plugin implements IModPlugin {
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         IModPlugin.super.registerRecipeCatalysts(registration);
 
-        ItemStack stack = new ItemStack(Items.TC_BENCH.get(), 1);
+        ItemStack stack = new ItemStack(TCItems.TC_BENCH.get(), 1);
         registration.addRecipeCatalyst(stack, TCbenchRecipeCategory.UID);
 
-        stack = new ItemStack(Items.TC_FORGE.get(), 1);
+        stack = new ItemStack(TCItems.TC_FORGE.get(), 1);
         registration.addRecipeCatalyst(stack, TCforgeRecipeCategory.UID);
 
-        stack = new ItemStack(Items.WIRE_SHAPER.get(), 1);
+        stack = new ItemStack(TCItems.WIRE_SHAPER.get(), 1);
         registration.addRecipeCatalyst(stack, WireShaperRecipeCategory.UID);
 
-        stack = new ItemStack(Items.ALLOY_PLANT.get(), 1);
+        stack = new ItemStack(TCItems.ALLOY_PLANT.get(), 1);
         registration.addRecipeCatalyst(stack, AlloyPlantRecipeCategory.UID);
 
-        stack = new ItemStack(Items.ELECTRIC_CRUSHER.get(), 1);
+        stack = new ItemStack(TCItems.ELECTRIC_CRUSHER.get(), 1);
         registration.addRecipeCatalyst(stack, ElectricCrusherRecipeCategory.UID);
 
-        stack = new ItemStack(Items.ELECTRIC_FURNACE.get(), 1);
+        stack = new ItemStack(TCItems.ELECTRIC_FURNACE.get(), 1);
         registration.addRecipeCatalyst(stack, ElectricFurnaceRecipeCategory.UID);
     }
 

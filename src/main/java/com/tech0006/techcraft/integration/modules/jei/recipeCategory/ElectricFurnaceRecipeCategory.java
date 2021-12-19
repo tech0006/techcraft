@@ -1,7 +1,7 @@
 package com.tech0006.techcraft.integration.modules.jei.recipeCategory;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.tech0006.techcraft.init.Items;
+import com.tech0006.techcraft.common.registration.TCItems;
 import com.tech0006.techcraft.techcraft;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.IRecipeLayout;
@@ -37,7 +37,7 @@ public class ElectricFurnaceRecipeCategory implements IRecipeCategory<AbstractCo
         ResourceLocation location = new ResourceLocation(techcraft.MOD_ID, "textures/gui/electric_furnace.png");
         this.background = guiHelper.createDrawable(location, 8, 10, 116, 66);
 
-        this.icon = guiHelper.createDrawableIngredient(new ItemStack(Items.ELECTRIC_CRUSHER.get(), 1));
+        this.icon = guiHelper.createDrawableIngredient(new ItemStack(TCItems.ELECTRIC_CRUSHER.get(), 1));
 
         this.arrow = guiHelper.drawableBuilder(location, 176, 60, 24, 18).buildAnimated(200, IDrawableAnimated.StartDirection.LEFT, false);
         this.energyBar = guiHelper.drawableBuilder(location, 176, 0, 16, 60).buildAnimated(1500, IDrawableAnimated.StartDirection.TOP, true);

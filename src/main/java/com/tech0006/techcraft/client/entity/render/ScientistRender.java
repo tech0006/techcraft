@@ -1,7 +1,7 @@
 package com.tech0006.techcraft.client.entity.render;
 
 import com.tech0006.techcraft.client.entity.model.ScientistModel;
-import com.tech0006.techcraft.entity.Scientist;
+import com.tech0006.techcraft.entity.NPC.Scientist;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 
