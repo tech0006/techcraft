@@ -136,43 +136,29 @@ public class TCBlocks {
     public static final RegistryObject<EnergyPipeTier1> ENERGY_PIPE_TIER_1 = BLOCKS.register("energy_pipe_tier_1",
             () -> new EnergyPipeTier1(Block.Properties.of(Material.METAL)
                     .strength(1.0f, 1.0f)
-                    .harvestTool(ToolType.PICKAXE)
-                    .harvestLevel(0)
                     .sound(SoundType.METAL)));
     public static final RegistryObject<EnergyPipeTier2> ENERGY_PIPE_TIER_2 = BLOCKS.register("energy_pipe_tier_2",
             () -> new EnergyPipeTier2(Block.Properties.of(Material.METAL)
                     .strength(1.0f, 1.0f)
-                    .harvestTool(ToolType.PICKAXE)
-                    .harvestLevel(0)
                     .sound(SoundType.METAL)));
     public static final RegistryObject<EnergyPipeTier3> ENERGY_PIPE_TIER_3 = BLOCKS.register("energy_pipe_tier_3",
             () -> new EnergyPipeTier3(Block.Properties.of(Material.METAL)
                     .strength(1.0f, 1.0f)
-                    .harvestTool(ToolType.PICKAXE)
-                    .harvestLevel(0)
                     .sound(SoundType.METAL)));
     public static final RegistryObject<EnergyPipeTier4> ENERGY_PIPE_TIER_4 = BLOCKS.register("energy_pipe_tier_4",
             () -> new EnergyPipeTier4(Block.Properties.of(Material.METAL)
                     .strength(1.0f, 1.0f)
-                    .harvestTool(ToolType.PICKAXE)
-                    .harvestLevel(0)
                     .sound(SoundType.METAL)));
     public static final RegistryObject<EnergyPipeTier5> ENERGY_PIPE_TIER_5 = BLOCKS.register("energy_pipe_tier_5",
             () -> new EnergyPipeTier5(Block.Properties.of(Material.METAL)
                     .strength(1.0f, 1.0f)
-                    .harvestTool(ToolType.PICKAXE)
-                    .harvestLevel(0)
                     .sound(SoundType.METAL)));
     public static final RegistryObject<EnergyPipeTier6> ENERGY_PIPE_TIER_6 = BLOCKS.register("energy_pipe_tier_6",
             () -> new EnergyPipeTier6(Block.Properties.of(Material.METAL)
                     .strength(1.0f, 1.0f)
-                    .harvestTool(ToolType.PICKAXE)
-                    .harvestLevel(0)
                     .sound(SoundType.METAL)));
     public static final RegistryObject<EnergyPipeTier7> ENERGY_PIPE_TIER_7 = BLOCKS.register("energy_pipe_tier_7",
             () -> new EnergyPipeTier7(Block.Properties.of(Material.METAL)
                     .strength(1.0f, 1.0f)
-                    .harvestTool(ToolType.PICKAXE)
-                    .harvestLevel(0)
                     .sound(SoundType.METAL)));
 }

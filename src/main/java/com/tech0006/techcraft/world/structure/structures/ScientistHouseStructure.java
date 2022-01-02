@@ -81,7 +81,7 @@ public class ScientistHouseStructure extends Structure<NoFeatureConfig> {
 
             this.calculateBoundingBox();
 
-            LogManager.getLogger().log(Level.DEBUG, "NPC house at " +
+            LogManager.getLogger().log(Level.DEBUG, "Scientist house at " +
                     this.pieces.get(0).getBoundingBox().x0 + " " +
                     this.pieces.get(0).getBoundingBox().y0 + " " +
                     this.pieces.get(0).getBoundingBox().z0);

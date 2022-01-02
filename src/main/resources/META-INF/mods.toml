@@ -44,3 +44,10 @@ license="See Curseforge for details"
     versionRange = "[3,)"
     ordering = "NONE"
     side = "BOTH"
+
+[[dependencies.techcraft]]
+    modId = "geckolib3"
+    mandatory = true
+    versionRange = "[3,)"
+    ordering = "NONE"
+    side = "BOTH"
