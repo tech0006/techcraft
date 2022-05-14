@@ -1,7 +1,7 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "techcraft:tin_dust"
+    "tag": "forge:dusts/tin"
   },
   "result": "techcraft:tin_ingot",
   "experience": 1.0,

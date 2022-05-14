@@ -4,7 +4,7 @@ license="See Curseforge for details"
 
 [[mods]]
     modId = "techcraft"
-    version = "1.16.5-0.1.7"
+    version = "1.16.5-0.1.8"
     displayName = "Techcraft"
     displayURL = "https://www.curseforge.com/minecraft/mc-mods/tc-techcraft"
     authors = "tech0006"
@@ -13,14 +13,14 @@ license="See Curseforge for details"
 [[dependencies.techcraft]]
     modId="forge" #mandatory
     mandatory=true #mandatory
-    versionRange="[36.1.17,)" #mandatory
+    versionRange="[36,)" #mandatory
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.techcraft]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.5]"
+    versionRange="[1.16.5,1.17)"
     ordering="NONE"
     side="BOTH"
 
@@ -28,20 +28,6 @@ license="See Curseforge for details"
     modId = "jei"
     mandatory = false
     versionRange = "[6,)"
-    ordering = "NONE"
-    side = "BOTH"
-
-[[dependencies.techcraft]]
-    modId = "waila"
-    mandatory = false
-    versionRange = "[1,)"
-    ordering = "NONE"
-    side = "BOTH"
-
-[[dependencies.techcraft]]
-    modId = "tconstruct"
-    mandatory = false
-    versionRange = "[3,)"
     ordering = "NONE"
     side = "BOTH"
 

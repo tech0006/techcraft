@@ -1,9 +1,9 @@
 {
   "type": "minecraft:smelting",
   "ingredient": {
-    "item": "techcraft:bronze_dust"
+    "tag": "forge:dusts/bronze"
   },
-  "result": "techcraft:tin_ingot",
+  "result": "techcraft:bronze_ingot",
   "experience": 0.35,
   "cookingtime": 200
 }
