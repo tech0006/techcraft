@@ -1,0 +1,9 @@
+{
+  "type": "techcraft:tc_forge",
+  "input": {
+    "tag": "forge:ingots/bronze"
+  },
+  "result": {
+    "item": "techcraft:bronze_plate"
+  }
+}

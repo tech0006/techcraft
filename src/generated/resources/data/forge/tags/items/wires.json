@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "techcraft:tin_wire",
+    "techcraft:copper_wire",
+    "techcraft:bronze_wire",
+    "techcraft:iron_wire",
+    "techcraft:gold_wire"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "type": "techcraft:electric_crusher",
+  "input": {
+    "item": "minecraft:gold_ore"
+  },
+  "result": {
+    "item": "techcraft:gold_dust",
+    "count": 2
+  }
+}

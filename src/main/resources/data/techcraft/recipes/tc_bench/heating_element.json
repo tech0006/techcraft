@@ -1,0 +1,22 @@
+{
+  "type": "techcraft:tc_bench",
+  "pattern": [
+    "XXXXXX",
+    "XYYYYX",
+    "XYYYYX",
+    "XYXXYX",
+    "XY  YX",
+    "Y    Y"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:plates/iron"
+    },
+    "Y": {
+      "tag": "forge:wires"
+    }
+  },
+  "result": {
+    "item": "techcraft:heating_element"
+  }
+}

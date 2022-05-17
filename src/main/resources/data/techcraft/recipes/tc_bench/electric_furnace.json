@@ -1,0 +1,28 @@
+{
+  "type": "techcraft:tc_bench",
+  "pattern": [
+    "XXXXXX",
+    "XY  YX",
+    "XVZZVX",
+    "XVZZVX",
+    "XYVVYX",
+    "XXXXXX"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:plates/iron"
+    },
+    "Y": {
+      "item": "minecraft:iron_ingot"
+    },
+    "Z": {
+      "item": "minecraft:furnace"
+    },
+    "V": {
+      "item": "techcraft:heating_element"
+    }
+  },
+  "result": {
+    "item": "techcraft:electric_furnace"
+  }
+}

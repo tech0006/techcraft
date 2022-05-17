@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "Y",
+    "X"
+  ],
+  "key": {
+    "Y": {
+      "item": "techcraft:iron_hammer"
+    },
+    "X": {
+      "item": "minecraft:anvil"
+    }
+  },
+  "result": {
+    "item": "techcraft:tc_forge"
+  }
+}

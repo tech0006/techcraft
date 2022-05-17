@@ -1,0 +1,9 @@
+{
+  "type": "techcraft:electric_crusher",
+  "input": {
+    "tag": "forge:ingots/copper"
+  },
+  "result": {
+    "item": "techcraft:copper_dust"
+  }
+}

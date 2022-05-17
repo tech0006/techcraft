@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "#YQ",
+    "ZZZ"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:plates/iron"
+    },
+    "#": {
+      "tag": "forge:plates/copper"
+    },
+    "Y": {
+      "item": "minecraft:crafting_table"
+    },
+    "Q": {
+      "tag": "forge:plates/tin"
+    },
+    "Z": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "result": {
+    "item": "techcraft:tc_bench"
+  }
+}

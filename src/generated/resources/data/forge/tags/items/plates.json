@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "techcraft:tin_plate",
+    "techcraft:copper_plate",
+    "techcraft:bronze_plate",
+    "techcraft:iron_plate",
+    "techcraft:gold_plate"
+  ]
+}

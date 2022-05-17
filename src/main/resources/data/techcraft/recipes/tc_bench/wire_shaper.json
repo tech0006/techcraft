@@ -1,0 +1,22 @@
+{
+  "type": "techcraft:tc_bench",
+  "pattern": [
+    "XIXXIX",
+    " IXXI ",
+    " IXXI ",
+    " IXXI ",
+    " IXXI ",
+    "XIXXIX"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:plates/iron"
+    },
+    "I": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "techcraft:wire_shaper"
+  }
+}

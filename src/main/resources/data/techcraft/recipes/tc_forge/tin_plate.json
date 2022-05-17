@@ -1,0 +1,11 @@
+{
+  "type": "techcraft:tc_forge",
+  "input": {
+    "tag": "forge:ingots/tin"
+
+  },
+  "result": {
+    "tag": "forge:plates/tin",
+    "item": "techcraft:tin_plate"
+  }
+}

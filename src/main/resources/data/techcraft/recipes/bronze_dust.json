@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    "XY"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:dusts/copper"
+    },
+    "Y": {
+      "tag": "forge:dusts/tin"
+    }
+  },
+  "result": {
+    "item": "techcraft:bronze_dust"
+  }
+}
