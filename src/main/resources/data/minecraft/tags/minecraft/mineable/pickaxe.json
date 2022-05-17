@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "techcraft:tin_ore",
+    "techcraft:tin_block",
+    "techcraft:bronze_block",
+    "techcraft:copper_safe",
+    "techcraft:tin_safe",
+    "techcraft:bronze_safe",
+    "techcraft:iron_safe",
+    "techcraft:gold_safe",
+    "techcraft:tc_bench",
+    "techcraft:tc_forge",
+    "techcraft:coal_generator",
+    "techcraft:electric_furnace",
+    "techcraft:wire_shaper",
+    "techcraft:alloy_plant",
+    "techcraft:electric_crusher"
+  ]
+}
