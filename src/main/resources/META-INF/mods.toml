@@ -7,8 +7,7 @@ license="See Curseforge for details"
     version="1.17.1-0.1.8" #mandatory
     displayName="Techcraft" #mandatory
     displayURL = "https://www.curseforge.com/minecraft/mc-mods/tc-techcraft"
-    #logoFile="logo.png" #optional
-    #credits="Thanks for this example mod goes to Java" #optional
+    logoFile="TechcarftLogo.png" #optional
     authors="tech0006" #optional
     description='''A lot of tech, computers, mechanics and more...'''
 
