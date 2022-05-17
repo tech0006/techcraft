@@ -7,6 +7,7 @@ license="See Curseforge for details"
     version = "1.16.5-0.1.8"
     displayName = "Techcraft"
     displayURL = "https://www.curseforge.com/minecraft/mc-mods/tc-techcraft"
+    logoFile="TechcarftLogo.png" #optional
     authors = "tech0006"
     description = '''A lot of tech, computers, mechanics and more...'''
 
